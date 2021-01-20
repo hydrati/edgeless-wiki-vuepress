@@ -1,4 +1,4 @@
-## Edgeless插件包管理工具（Edgeless Plugin-packages Tool）
+# Edgeless插件包管理工具（Edgeless Plugin-packages Tool）
 >灵感来源于微软发布的`winget`和debian系Linux下的`apt`，我们为习惯这两种工具语法的用户做了语法适配
 
 > 需要Edgeless 3.1.2以上版本
@@ -7,12 +7,12 @@
 2. 以安装微信为例，输入`ept install wechat`并回车，程序会输出运行提示、插件信息和确认提示
 >由于此时是第一次使用，程序会自动执行`ept-update`更新索引
 
-![](images/screenshot_1591520774571.png)
+![](../images/screenshot_1591520774571.png)
 
 3. 按下`y`确认安装，程序会自动完成安装过程
 >如果同时想要将插件保存到启动盘，请按`a`
 
-![](images/screenshot_1591520979325.png)
+![](../images/screenshot_1591520979325.png)
 4. 此时桌面上已经出现了微信的快捷方式，插件安装成功
 
 <br/>

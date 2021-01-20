@@ -1,7 +1,8 @@
-> Edgeless ME是Edgeless 项目的一个分支项目，用于给不支持Edgeless插件包的PE项目添加插件支持
+:::tip 简介
+Edgeless ME是Edgeless 项目的一个分支项目，用于给不支持Edgeless插件包的PE项目添加插件支持
+:::
 
-
-## 微PE专用版本：
+## 微PE专用版本
 
 ### 版本特点
 

@@ -1,13 +1,17 @@
-> 在开发过程中，经常会需要启动Edgeless环境。而每次都从U盘启动过于麻烦
-> 本章节提供了一个构建Edgeless虚拟机环境的方法
+在开发过程中，经常会需要启动Edgeless环境。而每次都从U盘启动过于麻烦
+
+本章节提供了一个构建Edgeless虚拟机环境的方法
+
 ## 准备软件
 1. VMWare/VirtualBox
 2. UltraISO（你可以在启动盘制作工具的core文件夹中找到绿色版的UltraISO）
+
+
 ## 准备文件
 Edgeless的ISO镜像 [如何获取]()
 
 
-:::warning 提示
+:::tip 提示
 如果使用VMWare进行开发，可以下载使用“开发辅助”中的 VMTool 插件
 
 如果觉得默认分辨率过高请参考这里：[启动时使用自定义分辨率](官方的自定义玩法.md)
@@ -19,7 +23,7 @@ Edgeless的ISO镜像 [如何获取]()
 * 使用Edgeless的iso镜像作为虚拟光驱（CD/DVD(SATA)）
 * 启动项内包含有“从光驱启动”选项
 
-![](images/图像21.png)
+![](../images/picture21.png)
 
 
 ## 读写虚拟U盘
@@ -31,4 +35,4 @@ Edgeless的ISO镜像 [如何获取]()
 ## 启动开发环境
 保存UltraISO的更改，然后启动虚拟机
 
-![](images/图像22.png)
+![](../images/picture22.png)
