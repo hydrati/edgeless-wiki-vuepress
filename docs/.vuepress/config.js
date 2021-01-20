@@ -1,5 +1,5 @@
 module.exports = {
-  base: "/edgeless-wiki-dist/",
+  base: "/v2/",
   title: "Edgeless Wiki",
   description: "强大而优雅的PE工具",
   themeConfig: {
@@ -69,6 +69,7 @@ module.exports = {
       {
         title: "开发者文档（特高阶）",
         children: [
+          { title: "须知", path: "/develop/notice" },
           { title: "Github", path: "/develop/Github" },
           { title: "API", path: "/develop/API" },
           { title: "Edgeless开发环境的搭建", path: "/develop/devenvironment" },

@@ -2,7 +2,7 @@
 
 唯一解决BUG的方法是[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)向我们反馈问题
 
-推荐阅读：[如何有效地报告错误](如何有效地报告错误.md)
+推荐阅读：[如何有效地报告错误](report.md)
 
 
 

@@ -1,6 +1,7 @@
 ## 症状表现
 启动时右下角提示`正在加载插件包`，之后长时间卡在此页面
-![](../images/screenshot_1580481154425.png)
+
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1580481154425.png)
 
 （图片来自内测群成员@th123.exe）
 
@@ -10,7 +11,7 @@
 
 
 
-## 解决方案
+## 解决方法
 
 将所有插件包禁用之后重新启动Edgeless
 

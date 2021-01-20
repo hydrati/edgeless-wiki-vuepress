@@ -12,12 +12,12 @@
 
 ### 2020年末清算：
 截至2020.12.31的23：23，Edgeless项目总计收到捐助610.44RMB，根据Edgeless团队的捐助条款，超出服务器和域名支出（260RMB）部分的20%会捐赠给2.x版本内核作者2012919497149，20%会捐赠给3.x版本内核制作工具提供者slore，其中2012919497149的收款二维码页面来源为 [http://bbs.wuyou.net/forum.php?mod=viewthread&tid=376688](http://bbs.wuyou.net/forum.php?mod=viewthread&tid=376688) ，slore的收款二维码页面来源为 [http://bbs.wuyou.net/forum.php?mod=viewthread&tid=411399](http://bbs.wuyou.net/forum.php?mod=viewthread&tid=411399) ；计算和捐赠截图如下：
-![](../images/1_1609428798951.jpg)
-![](../images/2.jpg)
-![](../images/3.jpg)
-![](../images/Screenshot_2020-12-31-23-27-13-569_com.tencent.mm.jpg)
-![](../images/Screenshot_2020-12-31-23-28-55-457_com.tencent.mm.jpg)
-![](../images/Screenshot_2020-12-31-23-29-02-144_com.tencent.mm.jpg)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/1_1609428798951.jpg)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/2.jpg)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/3.jpg)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/Screenshot_2020-12-31-23-27-13-569_com.tencent.mm.jpg)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/Screenshot_2020-12-31-23-28-55-457_com.tencent.mm.jpg)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/Screenshot_2020-12-31-23-29-02-144_com.tencent.mm.jpg)
 
 此外，由于我们不再使用2012919497149提供的内核，因此在2021年的Edgeless团队捐赠中去除了对2.x版本内核作者2012919497149的捐赠，依旧感谢2012919497149大佬的辛苦付出！
 

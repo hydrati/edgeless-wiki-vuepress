@@ -3,18 +3,18 @@
 * 运行Chrome等高内存占用程序时程序崩溃
 * 无法对X分区进行读写或在读写过程中出错
 
-![](../images/QQpic20191221164750.jpg)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/QQpic20191221164750.jpg)
 
 （图片来自内测群成员@ThreeAnd1☆）
 
-![](../images/QQpic20191221164959.jpg)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/QQpic20191221164959.jpg)
 
 （图片来自内测群成员@@汪凯在线）
 
 ## 原因分析
 Edgeless运行环境内存太小，或机器的内存存在物理问题，或Edgeless镜像出现损坏
 
-## 解决方案
+## 解决方法
 1. 适当禁用部分不常用的插件然后重启电脑
 2. 使用Edgeless LocalBoost™安装插件（暂未上线）
 2. 更换内存更大的电脑/虚拟机运行

@@ -8,13 +8,13 @@
 
 
 ## 准备文件
-Edgeless的ISO镜像 [如何获取]()
+Edgeless的ISO镜像 [如何获取](../faq/getiso.md)
 
 
 :::tip 提示
 如果使用VMWare进行开发，可以下载使用“开发辅助”中的 VMTool 插件
 
-如果觉得默认分辨率过高请参考这里：[启动时使用自定义分辨率](官方的自定义玩法.md)
+如果觉得默认分辨率过高请参考这里：[启动时使用自定义分辨率](../playground/config.md)
 :::
 
 ## 创建虚拟机
@@ -23,16 +23,16 @@ Edgeless的ISO镜像 [如何获取]()
 * 使用Edgeless的iso镜像作为虚拟光驱（CD/DVD(SATA)）
 * 启动项内包含有“从光驱启动”选项
 
-![](../images/picture21.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture21.png)
 
 
 ## 读写虚拟U盘
 运行UltraISO，打开Edgeless的iso镜像
+
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture22.png)
 
 **此时，iso镜像就相当于用户写入Edgeless的U盘。你可以自由编辑iso内的文件**
 >如果您是插件包开发者并且不需要依赖必要组件包中的内容，您可以用一个空的.7z包代替Nes_Inport.7z以加快启动速度
 
 ## 启动开发环境
 保存UltraISO的更改，然后启动虚拟机
-
-![](../images/picture22.png)

@@ -1,6 +1,7 @@
 yarn docs:build
-cd docs/.vuepress/dist
-git init
-git add -A
-git commit -m 'deploy'
-git push -f git@gitee.com:cnotech/edgeless-wiki-dist.git master:master
+copy .\favicon.ico .\docs\.vuepress\dist\
+@REM cd .\docs\.vuepress\dist
+@REM git init
+@REM git add -A
+@REM git commit -m 'deploy'
+@REM git push -f git@gitee.com:cnotech/edgeless-wiki-dist.git master:master

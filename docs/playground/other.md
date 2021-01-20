@@ -1,6 +1,6 @@
-> 仅供参考，不提供具体的技术支持
-> 
-> 如果您有好的建议，欢迎在内测群反馈！感谢您的帮助
+**仅供参考，不提供具体的技术支持**
+
+> 如果您有好的建议，欢迎在内测群反馈，感谢您的帮助！
 
 > 由于Edgeless的启动加载具有**需要二次加载的特殊性**，如果不使用U盘刻录启动这种方式的话可能会在启动时遇到一些困难。
 > 下面罗列了一些并不是很推荐使用的启动方式，感兴趣的同学们可以折腾一下玩玩
@@ -11,18 +11,18 @@
 
 
 ## 获取ISO
-[点击查看]()
+[点击查看](../faq/getiso.md)
 
 
 ## 在虚拟机内启动
-[点击查看](Edgeless开发环境的搭建.md)
+[点击查看](../develop/devenvironment.md)
 
 
 ## 使用DriveDroid挂载启动（参考）
 [点击查看](https://www.coolapk.com/feed/11167765?shareKey=M2NmM2IyMjkzNjE1NWNhZGM0MTE~&shareUid=1077555&shareFrom=com.coolapk.market\_9.1-alpha3)
 
 ## 寄生启动
-[点击查看]()
+[点击查看](../playground/parasitism.md)
 
 
 
@@ -31,7 +31,7 @@
 
 注意勾选“高级设备选项——显示USB外置硬盘”
 
-![](../images/QQpic20190816131311.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/QQpic20190816131311.png)
 
 
 
@@ -39,7 +39,7 @@
 1. 使用UltraISO打开Edgeless的ISO文件，将Edgeless文件夹复制到硬盘某一分区的根目录内，然后**删除ISO文件内的Edgeless文件夹**，保存并关闭。将编辑好的ISO文件放置在硬盘某一目录内（建议目录名不要出现中文，否则可能导致bug）
 2. 对Edgeless文件夹进行操作（添加插件等）
 3. 下载并运行EasyBCD，添加启动项。
-![](../images/EasyBCD.jpg)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/EasyBCD.jpg)
 4. 重启进入引导界面（推荐使用按住Shift键点击重启），选择Edgeless即可进入。
 
 :::warning 注意

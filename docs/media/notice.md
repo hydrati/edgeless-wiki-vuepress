@@ -21,7 +21,7 @@ Edgeless欢迎各大平台的转载宣传，包括但不局限于统一内容管
 
 Edgeless的官网首页字样采用了大写艺术字体，为了达到较好的视觉效果，原文本内容被修改为edgElEss，**请勿直接复制该文本作为宣传内容**。
 
-在**使用earth字体**宣传时请使用edgElEss作为文本内容（使用此样式宣传需要事先向Edgeless团队获取Edgeless图标的授权后免费使用，详见[此章节](https://wiki.edgeless.top/content/%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3.md)）
+在**使用earth字体**宣传时请使用edgElEss作为文本内容（使用此样式宣传需要事先向Edgeless团队获取Edgeless图标的授权后免费使用，详见[此章节](../develop/notice.md)）
 
 #### **在使用其他非艺术字宣传时请严格使用“Edgeless”作为文本内容。**
 

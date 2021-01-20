@@ -5,7 +5,7 @@
 1. 目前Edgeless的插件包使用授权 *对非营利性非商业项目免费开放使用* ，但是我们需要对开发者的资质进行认证，并且需要协助Edgeless团队进行开发工作，认证通过并由开发者同意条件后开发者的项目才会成为Edgeless官方认可的授权项目。
 2. 对于非商业盈利项目或商业项目，Edgeless的授权可能需要收取一些费用。但是如果项目团队可以对Edgeless本体的发展或运行提供一些帮助，我们可以考虑减少费用甚至免费授权。
 3. 由于很多主题资源包的相关内容得到了对应内容作者的正版授权且授权范围一般都局限于Edgeless和FirPE，我们暂不开放主题资源包的使用，避免引起不必要的版权纠纷。
-4. 由于[“shadow PE”事件](小黑屋.md)，我们决定开放Edgeless内核的修改授权，但是不遵守授权条款的作品依然会受到我们的侵权追究
+4. 由于[“shadow PE”事件](blacklist.md)，我们决定开放Edgeless内核的修改授权，但是不遵守授权条款的作品依然会受到我们的侵权追究
 <br/>
 
 ## 授权形式
@@ -53,7 +53,7 @@ Edgeless的全款授权期限通常以 年（Year） 为单位计算，当授权
 * 使用“Edgeless”文本字样进行非商业非盈利性宣传
 * 使用“Edgeless”文本字样进行非商业盈利性宣传
 * 使用“Edgeless”文本字样进行商业宣传
-* 使用“edgElEss”的earth字体样式（下图）进行非商业非盈利性宣传![](images/logo.png)
+* 使用“edgElEss”的earth字体样式（下图）进行非商业非盈利性宣传![https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/logo.png)
 * 将Edgeless提供的遵循MPL2.0协议的开源代码包含在项目内以实现非商业用途
 * 将Edgeless在合作中提供的代码包含在项目内以实现非盈利非商业用途
 * 将Edgeless在合作中提供的代码包含在项目内以实现非商业盈利用途
@@ -72,7 +72,7 @@ Edgeless的全款授权期限通常以 年（Year） 为单位计算，当授权
 
 
 ## 授权保障
-Edgeless团队使用第三方文档托管平台“[看云](https://www.kancloud.cn)”提供公证证明授权信息的更新与更改，看云使用全球公认的git版本管理器管理文本内容的发布，Edgeless团队对授权信息文本的改动都将被看云平台的git详细记录，wiki.edgeless.top/www.kancloud.cn提供授权信息发布平台，文档内容不定期在Cno的码云私人仓库进行备份（以克隆git的方式备份）以便于调取证据，欢迎业内外人士的监督。
+Edgeless团队使用VuePress发布Wiki，并托管在第三方静态页面托管平台“[Gitee Pages](https://www.gitee.com)”，源码仓库和生产仓库均公开，使用全球公认的git版本管理器管理文本内容的发布并提供公证证明授权信息的更新与更改，欢迎业内外人士的监督。
 
 
 ## 纠纷申明
