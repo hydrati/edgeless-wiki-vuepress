@@ -1,21 +1,23 @@
 ## 开发状态
+::: tip Update time
+2020.01.20
+:::
 ### Edgeless主体核心
 * 基于 1909 母盘制作的内核 【Version:3.1.3 State:Released Author:Cno】
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless主要功能研发
-* ept（Edgeless Plugin-packages Tool）【Version:Null State:Alpha Author:Cno】
+* ept（Edgeless Plugin-packages Tool）【Version:1.0 State:Alpha Author:Cno】
 * LocalBoost™【Version:Null State:Delay Author:Cno】
 * 大神码™【Version:Null State:To-Do Author:Cno】
 ### 启动盘制作工具
-* 使用 CMD 编写的命令行版本【Version:4.7 State:Waiting-for-feedback Author:Cno】
-* 使用 易语言 编写的图形界面版本【Version:1.0 State:? Author:小宇】
+* 使用 CMD 编写的命令行版本【Version:4.8 State:Released Author:Cno】
 * 使用 HTA 编写的图形界面版本【Version:Null State:Preview Author:Billraozihan】
-* 使用 Qt（C++）编写的图形界面版本【Version:5.0 State:Pause Author:Cno】
+* 使用 C# 编写的图形界面版本【Version:5.0 State:Pause Author:Cno】
 * 使用 Qt（C++）编写的图形界面版本【Version:Null State:Untracked Author:Kerry】
 ### Edgeless Store （Edgeless 插件商店）
 * 使用 易语言 编写的版本【Version:Undefined State:Preview Author:杉】
-* 使用 Electron 编写的版本【Version:Undefined State:Pause Author:Copur】
+* 使用 Electron 编写的版本【Version:1.0 State:Alpha Author:Cno】
 
 
 希望获取内测的用户请[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)

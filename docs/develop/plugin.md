@@ -17,7 +17,7 @@ Edgeless内核启动完成之后，会运行一个脚本。这个脚本即为Lau
 * 一个文件夹（包含目标程序及其需要的文件）
 * 一个.cmd或.wcs脚本（即**外置批处理**，用于执行绿化安装操作）
 
-![](../images/picture13.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture13.png)
 开发者在为脚本和文件夹命名时要尽可能避免与其他项目重名，保证自己插件的运行目录里面不会出现奇怪的东西（文件夹重名会导致所有重名插件的内容被释放到同一个文件夹，可能会引起错误。当然，根据这个原理也可以开发针对某个插件的拓展包）
 
 <br/>
@@ -162,7 +162,7 @@ exit
 
 ### Step5 压缩为7z
 完成后，将文件夹与外置批处理压缩为7z格式的压缩包，在Edgeless中进行测试和调试，最终完成插件的开发
-![](../images/screenshot_1579783771844.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1579783771844.png)
 
 
 
@@ -197,7 +197,7 @@ pecmd HOTK #121,%ProgramFiles%\Edgeless\Orderdrv\orderdrv.cmd        `F10 理顺
 >从哪能找到pecmd脚本（即wcs格式）的详情？
 注：从3.0.0版本开始，托盘处的pecmd为英文版本，需要中文版本请运行`xcmd`
 
-![](../images/p23.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/p23.png)
 
 
 ## 二、自己编写脚本
@@ -217,15 +217,15 @@ pecmd HOTK #121,%ProgramFiles%\Edgeless\Orderdrv\orderdrv.cmd        `F10 理顺
 > （不过这种写法又不是不能用）
 
 
-首先，在无忧启动论坛找到了tools241优化过的Chrome49资源包把它下载下来，执行Step1，发现可直接运行。![](../images/picture14.png)
+首先，在无忧启动论坛找到了tools241优化过的Chrome49资源包把它下载下来，执行Step1，发现可直接运行。![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture14.png)
 
 
 接下来，执行Step2。将内容物进行精简并分离ChromePortable.bat内的安装代码和运行代码。顺便把自带的丑陋图标替换了。
 
-![](../images/picture15.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture15.png)
 
 返回上级目录，编写外置批处理Chrome49.cmd（注：下图中使用的绝对路径call写法可能导致某些程序在安装过程中出现故障，请使用最新写法，详情见上方Step3）
-![](../images/picture16.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture16.png)
 其中
 ```
 pecmd link "X:\Users\Default\Desktop\Chrome","X:\Program Files\Edgeless\Chrome49\Chrome.cmd",,"X:\Program Files\Edgeless\Chrome49\Chrome.ico",0
@@ -239,16 +239,16 @@ pecmd link "X:\Users\Default\Desktop\Chrome","X:\Program Files\Edgeless\Chrome49
 在最后一行加上exit，否则批处理运行结束后cmd窗口可能不会马上退出，导致后台出现cmd.exe残留
 
 将Chrome49.cmd和Chrome49文件夹压缩为7z，即可完成Chrome49插件包的制作
-![](../images/picture17.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture17.png)
 
 **完成插件包的制作后不要忘记在实际情景中测试哦**
 
 
 ## 二、随机壁纸（pecmd脚本插件包示例）
 编写wcs脚本（如何编写请自行查找关于pecmd命令行的内容）并添加相应的依赖内容
-![](../images/picture19.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture19.png)
 编写外置批处理文件（拓展名为.wcs）
-![](../images/picture20.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture20.png)
 打包完成（详细过程请参考案例1）
 
 

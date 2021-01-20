@@ -1,4 +1,5 @@
 module.exports = {
+  base: "/edgeless-wiki-dist/",
   title: "Edgeless Wiki",
   description: "强大而优雅的PE工具",
   themeConfig: {
@@ -9,13 +10,18 @@ module.exports = {
       { text: "Github", link: "https://github.com/Cnotech/Edgeless-Project" },
     ],
     sidebar: [
-      {title:"写在前面",path:"/required"},
+      { title: "写在前面", path: "/required" },
       {
         title: "总览",
         children: [
           { title: "日志", path: "/global/log" },
           { title: "瞎扯", path: "/global/something" },
-          { title: "感谢", path: "/global/thanks",sidebarDepth:0,collapsable: false },
+          {
+            title: "感谢",
+            path: "/global/thanks",
+            sidebarDepth: 0,
+            collapsable: false,
+          },
           { title: "用户协议", path: "/global/contract" },
           { title: "捐赠列表", path: "/global/donate" },
         ],
@@ -88,7 +94,8 @@ module.exports = {
         ],
       },
       {
-        title:"合作洽谈",children:[
+        title: "合作洽谈",
+        children: [
           { title: "获取授权", path: "/cooperation/permit" },
           { title: "小黑屋", path: "/cooperation/blacklist" },
           { title: "FirPE", path: "/cooperation/FirPE" },
@@ -99,14 +106,15 @@ module.exports = {
           { title: "Oxygen", path: "/cooperation/Oxygen" },
           { title: "PanDa PE", path: "/cooperation/PanDaPE" },
           { title: "YIUPE", path: "/cooperation/YIUPE" },
-        ]
+        ],
       },
       {
-        title:"媒体",children:[
+        title: "媒体",
+        children: [
           { title: "转载须知", path: "/media/notice" },
           { title: "官方文案", path: "/media/material" },
-        ]
-      }
+        ],
+      },
     ],
   },
 };

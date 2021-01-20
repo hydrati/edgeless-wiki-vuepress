@@ -23,7 +23,7 @@ Edgeless的ISO镜像 [如何获取]()
 * 使用Edgeless的iso镜像作为虚拟光驱（CD/DVD(SATA)）
 * 启动项内包含有“从光驱启动”选项
 
-![](../images/picture21.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture21.png)
 
 
 ## 读写虚拟U盘
@@ -35,4 +35,4 @@ Edgeless的ISO镜像 [如何获取]()
 ## 启动开发环境
 保存UltraISO的更改，然后启动虚拟机
 
-![](../images/picture22.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture22.png)

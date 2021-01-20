@@ -1,1 +1,1 @@
-![../images/1.jpg](../images/1.jpg)
+![https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/1.jpg](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/1.jpg)

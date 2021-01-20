@@ -1,7 +1,7 @@
 ## 症状表现
 刚开始屏幕显示了加载过程，显示93.1%之后突然显示器黑屏，显示分辨率超出范围
 
-![](../images/screenshot_1582818245415.png)
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1582818245415.png)
 
 （图片来自网络）
 
