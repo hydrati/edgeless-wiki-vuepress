@@ -1,12 +1,4 @@
-[TOC]
-
-<br/>
-
-*****
-<br/>
-
-# :-: 开发状态
-:-: （Update:2020-6-18）
+## 开发状态
 ### Edgeless主体核心
 * 基于 1909 母盘制作的内核 【Version:3.1.3 State:Released Author:Cno】
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
@@ -26,38 +18,12 @@
 * 使用 Electron 编写的版本【Version:Undefined State:Pause Author:Copur】
 
 
-<br>
+希望获取内测的用户请[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)
 
-<br>
-
-<br>
-
-:-: 希望获取内测的用户请[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)
-
-:-: 希望合作进行开发的开发者请先加入内测交流群，确认合作之后会邀请进开发群
-<br>
+希望合作进行开发的开发者请先加入内测交流群，确认合作之后会邀请进开发群
 
 
-<br>
-
-
-<br>
-
-<br>
-
-
-<br>
-
-
-<br>
-
-<br>
-
-
-<br>
-
-
-# :-: 制作工具更新日志
+## 制作工具更新日志
 4.8版本更新：
 1.  修复在对方案1制作的启动盘升级时，未分配EFI盘符状态下的boot.wim拷贝失败问题
 2.  再次对清理缓存的工作进行优化，尽可能减少“找不到...”的提示信息，并实现随用随删；此外对于需要调用新版分区助手的工作进行请稍候提示
@@ -68,23 +34,9 @@
 追加更新：
 1. 修复隐藏写入部分的一处日志打印错误
 2. 修复了路径出现空格时移动目标ISO失败的问题
-<br>
 
 
-<br>
-
-
-<br>
-
-
-<br>
-
-<br>
-
-
-<br>
-
-# :-: Edgeless核心更新日志
+## Edgeless核心更新日志
 3.2.0版本更新：
 BUG修复：
 1. 修复了ept-remove无法识别使用%Desktop%命令创建的快捷方式的问题

@@ -1,30 +1,21 @@
+:::warning 您可以不经过Edgeless团队的同意自由更改发布插件作品，但是请不要忘记您的道德操守。
 
-# :-: 您可以不经过Edgeless团队的同意自由更改发布相关内核作品，但是请不要忘记您的道德操守。
-# :-: 我们不希望看到有违反Edgeless三无精神（无劫持、无广告、无收费）或是违反中华人民共和国相关法律条款的作品出现，也不会承认此类作品与我们有任何关系。
-# :-: 此外，虽然我们的关键代码已经开源可以遵循MPL2.0协议使用，但是在您的作品中使用Edgeless插件包仍然需要得到我们的授权，**如有发现盗用，Edgeless团队将不惜余力打击盗用作品！**
-# :-: 继续开发视为您已经同意此条款
-<br/>
+我们不希望看到有违反Edgeless三无精神（无劫持、无广告、无收费）或是违反中华人民共和国相关法律条款的作品出现，也不会承认此类作品与我们有任何关系。
 
-<br/>
+此章节描述的内容是开发其他版本的Edgeless内核而不是将Edgeless官方版本的内核修改之后使用其他名称进行分发，如需要后者的授权请转到“合作洽谈”章节。
 
-<br/>
+继续开发视为您已经同意此条款
+:::
 
-## **此章节描述的内容是开发其他版本的Edgeless内核而不是将Edgeless官方版本的内核修改之后使用其他名称进行分发，如需要后者的授权请转到“合作洽谈”章节**
-<br/>
-
-<br/>
-
-<br/>
 
 您可以移植他人的PE作品（推荐从无忧启动论坛获取，但是记得取得权授哦）或是自制来开发新的Edgeless内核。要使其兼容Edgeless的大部分功能，您只需要对解包后的wim文件进行以下操作：（新PE需要先完成pecmd的安装，并确保能正常运行大部分Edgeless平台上的插件）
->复制Edgeless官方包Program Files内的Edgeless文件夹和Launcher.bat、version.txt文件到新PE项目的Program Files文件夹内
+* 复制Edgeless官方包Program Files内的Edgeless文件夹和Launcher.bat、version.txt文件到新PE项目的Program Files文件夹内
 
->添加启动项（以pecmd.ini为例，加入语句`exec !"%ProgramFiles%\Launcher.bat"`即可）
+* 添加启动项（以pecmd.ini为例，加入语句`exec !"%ProgramFiles%\Launcher.bat"`即可）
 
->检查Launcher.bat及其他组件的工作状况
+* 检查Launcher.bat及其他组件的工作状况
 
->system32等目录下存在一些依赖文件，请根据调用时的需要相应地移植他们
+* system32等目录下存在一些依赖文件，请根据调用时的需要相应地移植他们
 
-<br/>
 
 此外，您还需要确保写入U盘之后U盘某一可见分区根目录存在Edgeless文件夹。您也可以通过更改Launcher.bat的规则无视这一条，不过可能会导致某些插件无法正常使用。

@@ -1,136 +1,126 @@
-# :-: 感谢
-:-: (排名不分先后，如有遗漏请谅解并联系我们补充）
-<br/>
-
-<br/>
-
-## :-: 无忧启动论坛 [2012919497149](http://bbs.wuyou.net/home.php?mod=space&uid=441504)——提供2.x内核运行环境
-:-: 原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=376688
-<br/>
-
-## :-: 无忧启动论坛 [slore](http://bbs.wuyou.net/home.php?mod=space&uid=166812)——提供3.x内核运行环境制作工具
-
-:-: （Win10XPE、Wimbuilder2）
-
-:-: 原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=411399
-
-:-: 原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=409685
-<br/>
-
-
-## :-: 无忧启动论坛[mdyblog](http://bbs.wuyou.net/home.php?mod=space&uid=436204)——PECMD2012作者
-:-: 原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=205402
-<br/>
-
-## :-: 无忧启动论坛[zds1210](http://bbs.wuyou.net/home.php?mod=space&uid=216376)——提供启动盘制作工具的原材料与参考代码
-:-: 原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=356551
-
-:-: 原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=370641
-<br/>
-
-## :-: 无忧启动论坛各位坛友——提供部分插件包内容与技术支持
+# 感谢
+(排名不分先后，如有遗漏请谅解并联系我们补充）
 
 
 
-:-:  [tools241](http://bbs.wuyou.net/home.php?mod=space&uid=581308 "tools241")
 
-:-: [victor888](http://bbs.wuyou.net/home.php?mod=space&uid=131142)
-
-:-: [527104427](http://bbs.wuyou.net/home.php?mod=space&uid=378114)
-
-:-: [xmzhqw](http://bbs.wuyou.net/home.php?mod=space&uid=43705)
-
-:-: [xyzy1008](http://bbs.wuyou.net/home.php?mod=space&uid=564848)
-
-:-: [chiannet](http://bbs.wuyou.net/home.php?mod=space&uid=282390)
-
-:-: [窄口牛](http://bbs.wuyou.net/home.php?mod=space&uid=247606)
-
-:-: [a-bo](http://bbs.wuyou.net/home.php?mod=space&uid=208022)
-
-:-: [liuzhaoyzz](http://wuyou.net/home.php?mod=space&uid=298214)
-
-<br/>
+## 无忧启动论坛 [2012919497149](http://bbs.wuyou.net/home.php?mod=space&uid=441504)——提供2.x内核运行环境
+原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=376688
 
 
-## :-: 恋梦维护的无垠PE工具箱——提供灵感与必要插件包素材
-<br/>
+## 无忧启动论坛 [slore](http://bbs.wuyou.net/home.php?mod=space&uid=166812)——提供3.x内核运行环境制作工具
+
+（Win10XPE、Wimbuilder2）
+
+原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=411399
+
+原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=409685
 
 
-## :-: [站长素材](http://sc.chinaz.com/)——提供网页模板
 
-<br/>
+## 无忧启动论坛[mdyblog](http://bbs.wuyou.net/home.php?mod=space&uid=436204)——PECMD2012作者
+原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=205402
 
 
-## :-: [MockUp](https://mockup.photos/)——提供免费图框模板
+## 无忧启动论坛[zds1210](http://bbs.wuyou.net/home.php?mod=space&uid=216376)——提供启动盘制作工具的原材料与参考代码
+原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=356551
 
-<br/>
+原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=370641
+
+
+## 无忧启动论坛各位坛友——提供部分插件包内容与技术支持
+
+
+
+ [tools241](http://bbs.wuyou.net/home.php?mod=space&uid=581308 "tools241")
+
+[victor888](http://bbs.wuyou.net/home.php?mod=space&uid=131142)
+
+[527104427](http://bbs.wuyou.net/home.php?mod=space&uid=378114)
+
+[xmzhqw](http://bbs.wuyou.net/home.php?mod=space&uid=43705)
+
+[xyzy1008](http://bbs.wuyou.net/home.php?mod=space&uid=564848)
+
+[chiannet](http://bbs.wuyou.net/home.php?mod=space&uid=282390)
+
+[窄口牛](http://bbs.wuyou.net/home.php?mod=space&uid=247606)
+
+[a-bo](http://bbs.wuyou.net/home.php?mod=space&uid=208022)
+
+[liuzhaoyzz](http://wuyou.net/home.php?mod=space&uid=298214)
+
+
+
+
+## 恋梦维护的无垠PE工具箱——提供灵感与必要插件包素材
+
+
+
+## [站长素材](http://sc.chinaz.com/)——提供网页模板
+
+
+
+
+## [MockUp](https://mockup.photos/)——提供免费图框模板
+
+
 
   
 
 
-## :-: [Abbey](https://www.abbeyok.com)——提供下载站CMS（Pyone）
-
-<br/>
-
-## :-: 域名捐助-内测群群友Gcod、Caldari
-
-### :-:  Gcod-http://pe.iqy.ink
-
-### :-:  Caldari-http://www.oraler.cn
+## [Abbey](https://www.abbeyok.com)——提供下载站CMS（Pyone）
 
 
-:-:  （虽然已经停用了但是很感谢二位、还有一些自愿提供域名但是因为某些原因没有成功的酷友）
-<br/>
 
-## :-:  备用下载站/下载链接提供
+## 域名捐助-内测群群友Gcod、Caldari
 
-:-:  路人甲
+###  Gcod-http://pe.iqy.ink
 
-:-:  BJY678
-
-:-:  Heven Kin
-
-:-: Orange Mas
-
-:-: 菠萝
-
-:-: 陳獨秀
-
-<br/>
-
-## :-:  图床提供
-
-:-:  王洪峰
-
-:-: 看云
+###  Caldari-http://www.oraler.cn
 
 
-<br/>
-
-## :-:  解决方案提供
-:-:  杉
-
-:-:  光卡Hikari
-
-:-:  UEPON
-
-:-:  酷安@劳琦峻
+ （虽然已经停用了但是很感谢二位、还有一些自愿提供域名但是因为某些原因没有成功的酷友）
 
 
-<br/>
+##  备用下载站/下载链接提供
 
-## :-:  QQ交流群扩容
-:-:  小宇
+ 路人甲
+
+ BJY678
+
+ Heven Kin
+
+Orange Mas
+
+菠萝
+
+陳獨秀
 
 
-<br/>
+##  图床提供
+
+王洪峰
 
 
-## :-:  提供捐赠的各位网友
-:-:  [捐赠列表](捐赠感谢列表.md)
-<br/>
 
-<br/>
+##  解决方案提供
+ 杉
 
-## :-:  此外，PE的插件包也包含了大量其他作者的原创内容，再次一并表达感谢。如果您认为Edgeless及其相关内容侵犯了您的合法权益，请立即联系我们，我们将酌情进行处理。
+ 光卡Hikari
+
+ UEPON
+
+ 酷安@劳琦峻
+
+
+##  QQ交流群扩容
+ 小宇
+
+
+
+##  提供捐赠的各位网友
+ [捐赠列表](捐赠感谢列表.md)
+
+
+**此外，PE的插件包也包含了大量其他作者的原创内容，再次一并表达感谢。如果您认为Edgeless及其相关内容侵犯了您的合法权益，请立即联系我们，我们将酌情进行处理。**

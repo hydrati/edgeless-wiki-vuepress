@@ -1,31 +1,31 @@
-# 以修改Firefox插件包为例：
+以修改Firefox插件包为例：
 
-注：Opera插件包的Profiles文件夹在%appdata%内，需要在完成修改后手动把里面文件拷回Opera64_v12\Opera64文件夹内
+> Opera插件包的Profiles文件夹在%appdata%内，需要在完成修改后手动把里面文件拷回Opera64_v12\Opera64文件夹内
 
 
 ### 1、打开自己的常用浏览器，进入书签管理器，将书签导出为HTML格式
 ![](images/图像4_1556378244510.png)
-<br/>
 
-<br/>
+
+
 
 ### 2、**解压**Firefox插件包，运行\Firefox61\Firefox\Firefox.exe
 ![](images/图像5.png)
-<br/>
 
-<br/>
+
+
 
 ### 3、进入火狐的书签管理器，从HTML文件导入书签
 ![](images/图像6.png)
-<br/>
 
-<br/>
+
+
 
 ## 4、如果你想给浏览器定制主页/搜索引擎/拓展组件等，请相应地进行配置
 
-<br/>
 
-<br/>
+
+
 
 ### 5、定制完成后按下Ctrl+Shift+Delete快捷键，给Profiles文件夹瘦身以加快插件包加载速度
 

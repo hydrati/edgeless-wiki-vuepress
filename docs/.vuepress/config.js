@@ -9,12 +9,13 @@ module.exports = {
       { text: "Github", link: "https://github.com/Cnotech/Edgeless-Project" },
     ],
     sidebar: [
+      {title:"写在前面",path:"/required"},
       {
         title: "总览",
         children: [
           { title: "日志", path: "/global/log" },
           { title: "瞎扯", path: "/global/something" },
-          { title: "感谢", path: "/global/thanks" },
+          { title: "感谢", path: "/global/thanks",sidebarDepth:0,collapsable: false },
           { title: "用户协议", path: "/global/contract" },
           { title: "捐赠列表", path: "/global/donate" },
         ],

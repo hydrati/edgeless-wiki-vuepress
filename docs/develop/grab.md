@@ -1,9 +1,9 @@
-# 下载地址
+## 下载地址
 Edgeless主题包抓取套件（Socket/主题包抓取套件）
 
 https://down.edgeless.top
 
-# 抓取系统图标
+## 抓取系统图标
 0. 推荐在虚拟机内进行系统图标的抓取，环境建议为Windows 10 1903或更高
 1. 下载美化网站的系统图标并**按照网站提供的教程应用**
 >致美化的系统图标可以在这里找到：[https://zhutix.com/tag/tubiao/](https://zhutix.com/tag/tubiao/)
@@ -16,7 +16,7 @@ https://down.edgeless.top
 ![](images/screenshot_1580825118688.png)
 
 
-# 抓取鼠标样式
+## 抓取鼠标样式
 1. 下载美化网站的鼠标指针压缩包
 >致美化的鼠标指针可以在这里找到：[https://zhutix.com/tag/cursors/](https://zhutix.com/tag/cursors/)
 如果没有使用致美化网站作为来源，记得获取授权
