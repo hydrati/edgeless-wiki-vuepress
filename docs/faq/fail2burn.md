@@ -5,7 +5,7 @@
 3. 下载引擎出现故障导致闪退——运行`辅助工具.cmd`对下载引擎进行设置然后重启`制作启动盘.exe`
 3. 其他问题，请[加入内测群](https://home.edgeless.top/jump/qqg.html)并提交`Log.txt`进行反馈（如果您进行了重试，请一并提交`Log_backup.txt`）
 
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1584629646552.png)
+![](../images/screenshot_1584629646552.png)
 
 
 
@@ -17,6 +17,6 @@
 
 2. 打开Edgeless的ISO镜像（参考：[如何获取ISO镜像文件](如何获取ISO镜像文件.md)）
 
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/20180228134509994.png)
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/20180228134540118.png)
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/20180228134730687.png)
+![](../images/20180228134509994.png)
+![](../images/20180228134540118.png)
+![](../images/20180228134730687.png)

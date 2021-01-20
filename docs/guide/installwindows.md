@@ -15,9 +15,9 @@ Edgeless在没有附加插件的情况下支持安装iso/wim/esd/gho等多种格
 
 假设C盘之后有D盘、E盘，那么D盘、E盘可以保留不清空
 
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture1_1564069746769.png)
+![](../images/picture1_1564069746769.png)
 
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture2_1564071756150.png)
+![](../images/picture2_1564071756150.png)
 
 4. 双击下载得到的ISO镜像
 在Edgeless3.0.0及以下版本中，选择使用“Edgeless智能虚拟光驱”打开，程序会自动运行安装程序
@@ -54,36 +54,36 @@ Edgeless在没有附加插件的情况下支持安装iso/wim/esd/gho等多种格
 #### **首先确定目标磁盘的分区表格式**
 1. 打开DiskGenius，找到准备安装系统的磁盘
 2. 在左侧窗口中右键磁盘，**如果“转换分区表类型为GUID格式”选项是灰色的——恭喜，请跳转到下一小节**；**如果“转换分区表类型为GUID格式”选项是可用的**（如下图）——很不幸，此磁盘的分区表是MBR格式，**我们建议你立即转到方案二**
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574937751744.png)
+![](../images/screenshot_1574937751744.png)
 如果你认为你的电脑比较好，需要为它认认真真地装一个系统，并且有条件清空整块磁盘，那么请进行如下步骤
 * 备份好盘内重要数据
 * 在磁盘上右键——删除所有分区
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574937695177.png)
+![](../images/screenshot_1574937695177.png)
 * 再次右键磁盘，选择“转换分区表类型为GUID格式”
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574937751744.png)
+![](../images/screenshot_1574937751744.png)
 * 点击左上角的保存更改，等待操作完成。恭喜你，你已经获得了一块干净的GPT磁盘
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574938950444.png)
+![](../images/screenshot_1574938950444.png)
 
 #### **分区**
 1. 关闭DiskGenius，按下“Win+R”快捷键或者点击开始菜单内的“运行”按钮，输入`cmd`并回车
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574939392394.png)
+![](../images/screenshot_1574939392394.png)
 2. 在弹出的窗口中输入`diskpart`并回车，再输入`list disk`
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574939590385.png)
+![](../images/screenshot_1574939590385.png)
 3. 根据大小和未分配空间（可用）判断目标磁盘是磁盘几，这里假设目标磁盘为磁盘0
 4. 依次输入`sel disk 0`（如果是磁盘3就输入sel disk 3，以此类推） `cre par efi size=168`和`cre par msr size=188`并分别回车
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574941741366.png)
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574939709719.png)
+![](../images/screenshot_1574941741366.png)
+![](../images/screenshot_1574939709719.png)
 5. 输入`exit`并回车，然后关闭窗口。此时磁盘的EFI和MSR分区已经创建完成了
 6. 重新打开DiskGenius，此时应该能看到磁盘的前端有两个小分区，后面跟着一块灰色的未分配空间。**在那块灰色的未分区空间上右键——新建分区**，点击确定后再次点击左上角的“保存更改”，并点击两次确定进行格式化
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1579586433103.png)
+![](../images/screenshot_1579586433103.png)
 
 #### **安装**
 1. 打开你的Windows镜像，选择第二个选项“使用第三方工具NTSetup”（或直接打开wim/esd文件）
 2. 如果你前面的步骤都正确，你会看到NTSetup的“GPT”和“EFI PART”灯是绿色的
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574940627909.png)
+![](../images/screenshot_1574940627909.png)
 3. 选择安装驱动器位置，即在那片灰色未分配空间上新建的较大的分区
 4. 勾选右下角的“模式”复选框并选择一个绿色的选项
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574940777857.png)
+![](../images/screenshot_1574940777857.png)
 5. 点击开始安装，等待安装完成
 
 
@@ -94,12 +94,12 @@ Edgeless在没有附加插件的情况下支持安装iso/wim/esd/gho等多种格
 3. 如果你先前没有删除EFI分区（没完全按照教程的步骤做），引导驱动器可能会自动填充Z:，那就保持这个不用管了。如果引导驱动器为空，选择目标磁盘的活动分区（通常为磁盘的第一个分区）
 4. 安装驱动器选择在第一步新建的分区。如果你之前没有完全按照教程做，没有经历清空再新建分区的过程，那么记得将安装分区格式化
 5. 勾选右下角的“模式”复选框并选择一个绿色的选项
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1574940777857.png)
+![](../images/screenshot_1574940777857.png)
 
 6. 点击开始安装，等待安装完成
 
 ## 安装wim/esd镜像
-广告：从哪获得这种镜像？—— [Windsys Project](https://windsys.whatk.me/)  ![内裤滑稽](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/pc.gif)
+广告：从哪获得这种镜像？—— [Windsys Project](https://windsys.whatk.me/)  ![内裤滑稽](../images/pc.gif)
 Edgeless2.2.0以上版本已经将wim/esd文件做了与NTSetup的关联，双击wim/esd文件即可打开NTSetup进行安装
 Edgeless2.2.0及以下版本：运行Edgeless桌面上的NTSetup进行安装
 **安装方法参考上方的5.2章节**

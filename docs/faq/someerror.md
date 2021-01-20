@@ -3,11 +3,11 @@
 * 运行Chrome等高内存占用程序时程序崩溃
 * 无法对X分区进行读写或在读写过程中出错
 
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/QQpic20191221164750.jpg)
+![](../images/QQpic20191221164750.jpg)
 
 （图片来自内测群成员@ThreeAnd1☆）
 
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/QQpic20191221164959.jpg)
+![](../images/QQpic20191221164959.jpg)
 
 （图片来自内测群成员@@汪凯在线）
 
