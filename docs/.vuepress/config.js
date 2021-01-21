@@ -2,6 +2,9 @@ module.exports = {
   base: "/v2/",
   title: "Edgeless Wiki",
   description: "强大而优雅的PE工具",
+  head: [
+    ['link', { rel: 'icon', href: 'https://home.edgeless.top/favicon.ico' }]
+  ],
   themeConfig: {
     logo: "https://home.edgeless.top/favicon.ico",
     nav: [
