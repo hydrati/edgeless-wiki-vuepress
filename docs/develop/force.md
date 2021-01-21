@@ -5,7 +5,7 @@
 继续开发视为您已经同意此条款
 :::
 
-> 如果您希望能上架您的插件包，请[加入内测交流QQ群](https://www.edgeless.top/jump/qqg.html)进行提交
+> 如果您希望能上架您的插件包，请[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)进行提交
 
 
 本教程由`Copur` 编写，以微信PC端为例
