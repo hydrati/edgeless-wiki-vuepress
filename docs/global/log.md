@@ -3,12 +3,12 @@
 2020.01.20
 :::
 ### Edgeless主体核心
-* 基于 1909 母盘制作的内核 【Version:3.1.3 State:Released Author:Cno】
+* 基于 1909 母盘制作的内核 【Version:3.1.4 State:Developing Author:Cno】
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless主要功能研发
 * ept（Edgeless Plugin-packages Tool）【Version:1.0 State:Alpha Author:Cno】
-* LocalBoost™【Version:Null State:Delay Author:Cno】
+* LocalBoost™【Version:Null State:Developing Author:Cno】
 * 大神码™【Version:Null State:To-Do Author:Cno】
 ### 启动盘制作工具
 * 使用 CMD 编写的命令行版本【Version:4.8 State:Released Author:Cno】
@@ -44,9 +44,12 @@ BUG修复：
 1. 修复了ept-remove无法识别使用%Desktop%命令创建的快捷方式的问题
 2. 完善了ept帮助界面的内容
 3. 修复了ept-install无法安装包含英文括号插件的问题
+4. 修复了无法正常使用mklink的问题（感谢@Oxygen）
 
 功能/架构更新：
 1. 改进设置鼠标样式的刷新方法（感谢@Oxygen）
+2. 增加X分区容量至128G（虽然没有什么L用但还是要感谢@Oxygen）
+3. 增加LocalBoost功能
 
 
 
