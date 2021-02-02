@@ -1,6 +1,6 @@
 ## 开发状态
 ::: tip Update time
-2020.01.20
+2020.02.01
 :::
 ### Edgeless主体核心
 * 基于 1909 母盘制作的内核 【Version:3.1.4 State:Developing Author:Cno】
@@ -45,6 +45,7 @@ BUG修复：
 2. 完善了ept帮助界面的内容
 3. 修复了ept-install无法安装包含英文括号插件的问题
 4. 修复了无法正常使用mklink的问题（感谢@Oxygen）
+5. 记录了存在暴露的依赖文件插件包信息
 
 功能/架构更新：
 1. 改进设置鼠标样式的刷新方法（感谢@Oxygen）
