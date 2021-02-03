@@ -1,23 +1,17 @@
 ## 开发状态
 ::: tip Update time
-2020.02.01
+2020.02.03
 :::
 ### Edgeless主体核心
-* 基于 1909 母盘制作的内核 【Version:3.1.4 State:Developing Author:Cno】
+* 基于 1909 母盘制作的内核 【Version:3.1.4 State:Released Author:Cno】
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
+### Edgeless Hub
+* 使用 Electron 编写的版本【Version:1.1 State:Alpha Author:Cno】
 ### Edgeless主要功能研发
 * ept（Edgeless Plugin-packages Tool）【Version:1.0 State:Alpha Author:Cno】
-* LocalBoost™【Version:Null State:Developing Author:Cno】
+* LocalBoost™【Version:Undefined State:Alpha Author:Cno】
 * 大神码™【Version:Null State:To-Do Author:Cno】
-### 启动盘制作工具
-* 使用 CMD 编写的命令行版本【Version:4.8 State:Released Author:Cno】
-* 使用 HTA 编写的图形界面版本【Version:Null State:Preview Author:Billraozihan】
-* 使用 C# 编写的图形界面版本【Version:5.0 State:Pause Author:Cno】
-* 使用 Qt（C++）编写的图形界面版本【Version:Null State:Untracked Author:Kerry】
-### Edgeless Store （Edgeless 插件商店）
-* 使用 易语言 编写的版本【Version:Undefined State:Preview Author:杉】
-* 使用 Electron 编写的版本【Version:1.0 State:Alpha Author:Cno】
 
 
 希望获取内测的用户请[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)
@@ -25,23 +19,19 @@
 希望合作进行开发的开发者请先加入内测交流群，确认合作之后会邀请进开发群
 
 
-## 制作工具更新日志
-4.8版本更新：
-1.  修复在对方案1制作的启动盘升级时，未分配EFI盘符状态下的boot.wim拷贝失败问题
-2.  再次对清理缓存的工作进行优化，尽可能减少“找不到...”的提示信息，并实现随用随删；此外对于需要调用新版分区助手的工作进行请稍候提示
-3.  增加了对Alpha版本制作工具清理标识的识别
-4.  使用了五大提供的UltraISO静默写入工具无需再手动操作UltraISO，感谢五大（五大博客：[http://blog.sina.com.cn/a527104427](http://blog.sina.com.cn/a527104427%EF%BC%89%EF%BC%8C%E5%90%8C%E6%97%B6%E6%84%9F%E8%B0%A2@Billraozihan%E6%8F%90%E4%BE%9B%E8%AF%A5%E5%B7%A5%E5%85%B7%E7%9A%84%E5%A4%87%E4%BB%BD)），同时感谢@Billraozihan提供该工具的备份
-5.  微调新旧分区助手的调用方案
+## Edgeless Hub更新日志
+1.2版本更新：
 
-追加更新：
-1. 修复隐藏写入部分的一处日志打印错误
-2. 修复了路径出现空格时移动目标ISO失败的问题
+1. 增加aria2c主程序的校验
+2. 处理了.net运行库缺失导致的程序闪退问题
+3. 镜像站解析器插件化，默认内置3个镜像源
 
 
 ## Edgeless核心更新日志
-3.2.0版本更新：
+3.1.4Alpha版本更新：
+
 BUG修复：
-1. 修复了ept-remove无法识别使用%Desktop%命令创建的快捷方式的问题
+1. 修复了ept-remove无法识别使用%Desktop%变量创建的快捷方式的问题
 2. 完善了ept帮助界面的内容
 3. 修复了ept-install无法安装包含英文括号插件的问题
 4. 修复了无法正常使用mklink的问题（感谢@Oxygen）
@@ -53,11 +43,13 @@ BUG修复：
 功能/架构更新：
 1. 改进设置鼠标样式的刷新方法（感谢@Oxygen）
 2. 增加X分区容量至128G（虽然没有什么L用但还是要感谢@Oxygen）
-3. 增加LocalBoost功能
+3. 增加LocalBoost功能，[查看使用说明](../playground/localboost)
 
 
 
 3.1.3Alpha版本更新：
+
+
 BUG修复：
 1. 修复了将非外置批处理的暴露文件记录为外置批处理的问题
 
@@ -73,6 +65,7 @@ BUG修复：
 
 
 3.1.2Alpha版本更新：
+
 BUG修复：
 1. 修复了外置批处理名称不能有空格的问题
 4. 修复了在某些环境下自定义LoadScreen资源包无法被加载的问题
@@ -103,10 +96,12 @@ BUG修复：
 
 *****
 3.1.0版本更新：
+
 Edgeless一周年重大更新，历经4个内测版本，基于1909的全新版本焕然来临！
 但是在日志的开头我们需要掺一点私货，因为我们有必要让各位知道Edgeless经历的某件恶性盗用事件，如果您感兴趣请点击[https://wiki.edgeless.top/1433541](https://wiki.edgeless.top/1433541)
 
 功能/架构更新：
+
 （3.0.0Alpha开始）
 1. 由全新内核带来的NVME、网卡、显示、音频驱动更新，完美驱动您的新机型
 2. 支持MTP（Media Transfer Protocol）媒体传输协议
@@ -154,6 +149,7 @@ Edgeless一周年重大更新，历经4个内测版本，基于1909的全新版�
 3. 主题包安装器支持识别部分只读分区
 
 BUG修复：
+
 （3.0.0Alpha开始）
 1. 结束卡住的cmd延时改为10s，解决了启动后30s内运行cmd窗口被强行关闭的bug
 2. 修复“更换壁纸”“更改分辨率”的注册表注册位置错误
