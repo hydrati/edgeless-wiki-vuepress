@@ -61,6 +61,7 @@ module.exports = {
         title: "玩转Edgeless（高阶）",
         children: [
           { title: "ept插件包管理工具", path: "/playground/ept" },
+          { title: "LocalBoost仓库加速", path: "/playground/localboost" },
           { title: "官方的自定义玩法", path: "/playground/config" },
           { title: "寄生启动", path: "/playground/parasitism" },
           { title: "替换镜像启动", path: "/playground/replace" },

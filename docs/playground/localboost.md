@@ -40,6 +40,6 @@
 ## 开发者：被LocalBoost加载的标识
 > 需要Edgeless 3.1.4以上版本
 
-开发者可以通过插件依赖目录中是否包含`_LocalBoost.txt`文件来识别此插件是否通过LocalBoost加载，`_LocalBoost.txt`中记录了此目录的真实路径
+开发者可以通过判断插件依赖目录中是否包含`_LocalBoost.txt`文件来识别此插件是否通过LocalBoost加载，`_LocalBoost.txt`中记录了此目录的真实路径
 
 ![6.jpg](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/img/135929.jpg)
