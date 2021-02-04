@@ -33,9 +33,12 @@
 BUG修复：
 1. 更新下载器中ept使用说明的二维码
 2. 增加使用LocalBoost加载插件的外置批处理清理工作，防止被7z加载器二次运行
+3. ept remove支持了删除暴露的依赖文件
 
 功能/架构更新：
-1. 为使用LocalBoost加载的插件增加_LocalBoost.txt标识
+1. 为使用LocalBoost加载的插件依赖目录增加_LocalBoost.txt标识
+2. 为ept install和ept remove增加LocalBoost支持
+3. 为ept install增加了进程锁，防止多进程运行出现错误
 
 
 3.1.4Alpha版本更新：
