@@ -36,3 +36,10 @@
 ## 从加速仓库删除插件
 浏览目标分区的加速仓库目录`此分区:\Edgeless\BoostRepo`，将需要删除的插件文件夹删除即可
 ![5.jpg](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-02-03%20174534.jpg)
+
+## 开发者：被LocalBoost加载的标识
+> 需要Edgeless 3.1.4以上版本
+
+开发者可以通过插件依赖目录中是否包含`_LocalBoost.txt`文件来识别此插件是否通过LocalBoost加载，`_LocalBoost.txt`中记录了此目录的真实路径
+
+![6.jpg](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/img/135929.jpg)
