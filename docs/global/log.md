@@ -28,6 +28,14 @@
 
 
 ## Edgeless核心更新日志
+3.2.0版本更新：
+
+BUG修复：
+1. 更新ept的二维码
+
+功能/架构更新：
+
+
 3.1.4Alpha版本更新：
 
 BUG修复：
@@ -43,7 +51,7 @@ BUG修复：
 功能/架构更新：
 1. 改进设置鼠标样式的刷新方法（感谢@Oxygen）
 2. 增加X分区容量至128G（虽然没有什么L用但还是要感谢@Oxygen）
-3. 增加LocalBoost功能，[查看使用说明](../playground/localboost)
+3. 增加LocalBoost功能，[查看使用说明](../playground/localboost.md)
 
 
 
