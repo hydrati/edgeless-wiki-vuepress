@@ -36,9 +36,7 @@
 
 ***同义用法：***
 
-`ept install`
-
-`ept-get install`
+`ept install` `ept-get install`
 
 ***示例：***
 
@@ -100,9 +98,7 @@
 
 ***同义用法：***
 
-`ept remove`
-
-`ept-get remove`
+`ept remove` `ept-get remove`
 
 ***示例：***
 
@@ -131,9 +127,7 @@
 
 ***同义用法：***
 
-`ept update`
-
-`ept-get update`
+`ept update` `ept-get update`
 
 ***注意：***
 * 当执行需要用到索引文件的其他ept命令时，如果索引文件缺失则`ept-update`会被自动调用执行
@@ -148,9 +142,7 @@
 
 ***同义用法：***
 
-`ept upgrade`
-
-`ept-get upgrade`
+`ept upgrade` `ept-get upgrade`
 
 ***示例：***
 

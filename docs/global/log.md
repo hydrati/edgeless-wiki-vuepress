@@ -1,6 +1,6 @@
 ## 开发状态
 ::: tip Update time
-2020.02.03
+2020.02.06
 :::
 ### Edgeless主体核心
 * 基于 1909 母盘制作的内核 【Version:3.1.4 State:Released Author:Cno】
