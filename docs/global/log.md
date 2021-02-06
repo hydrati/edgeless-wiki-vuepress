@@ -3,7 +3,7 @@
 2020.02.06
 :::
 ### Edgeless主体核心
-* 基于 1909 母盘制作的内核 【Version:3.1.4 State:Released Author:Cno】
+* 基于 1903 母盘制作的内核 【Version:3.1.4 State:Released Author:Cno】
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
