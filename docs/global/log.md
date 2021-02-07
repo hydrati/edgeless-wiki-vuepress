@@ -37,7 +37,7 @@ BUG修复：
 
 功能/架构更新：
 1. 为使用LocalBoost加载的插件依赖目录增加_LocalBoost.txt标识
-2. 为ept install和ept remove增加LocalBoost支持
+2. 为ept install、ept upgrade和ept remove增加LocalBoost支持
 3. 为ept install增加了进程锁，防止多进程运行出现错误
 
 

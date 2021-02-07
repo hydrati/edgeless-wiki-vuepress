@@ -12,7 +12,7 @@ Edgeless的ISO镜像 [如何获取](../faq/getiso.md)
 
 
 :::tip 提示
-如果使用VMWare进行开发，可以下载使用“开发辅助”中的 VMTool 插件
+如果使用VMWare进行开发，可以下载使用“开发辅助”中的 VMTools 插件
 
 如果觉得默认分辨率过高请参考这里：[启动时使用自定义分辨率](../playground/config.md)
 :::
@@ -36,3 +36,7 @@ Edgeless的ISO镜像 [如何获取](../faq/getiso.md)
 
 ## 启动开发环境
 保存UltraISO的更改，然后启动虚拟机
+
+:::warning 注意
+启动完成之后ISO会作为DVD驱动器在Edgeless中被识别且只读，需要写入请关闭虚拟机然后使用UltraISO修改iso文件
+:::
