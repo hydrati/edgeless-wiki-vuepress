@@ -245,7 +245,9 @@ pecmd link "X:\Users\Default\Desktop\Chrome","X:\Program Files\Edgeless\Chrome49
 
 ![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture17.png)
 
-**完成插件包的制作后不要忘记在实际情景中测试哦**
+:::tip 提醒
+完成插件包的制作后不要忘记在实际情景中测试哦
+:::
 
 
 ## 二、随机壁纸（pecmd脚本插件包示例）

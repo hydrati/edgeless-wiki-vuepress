@@ -16,18 +16,21 @@
 1. 新建一个文件夹，名称为`DiskGenius`，将上面的文件放进这个文件夹中
 
 ![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1579783498512.png)
+
 2. 新建一个文本文档，重命名为`DiskGenius.wcs`（注意：这一步需要打开系统资源管理器的显示后缀名！）
 
 ![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1579783585372.png)
+
 3. 使用记事本打开`DiskGenius.wcs`，输入以下命令并保存
 `LINK X:\Users\Default\Desktop\DiskGenius,%ProgramFiles%\Edgeless\DiskGenius\DiskGenius.exe`
 
 ![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1579783680651.png)
+
 4. 将`DiskGenius`和`DiskGenius.wcs`添加到7z压缩文件即可完成DiskGenius插件包的制作
 
 ![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/screenshot_1579783771844.png)
 
 
 :::tip 没看懂？
-本章节只是用来告诉你制作一个插件包有多简单用的（根本没打算让你看懂2333），转至下一章“开发插件包”深入了解插件包
+本章节只是用来告诉你制作一个插件包有多简单用的（根本没打算让你看懂2333），转至下一节“常规开发”深入了解插件包
 :::
