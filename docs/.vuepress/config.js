@@ -30,7 +30,7 @@ module.exports = {
         ],
       },
       {
-        title: "FAQ（初阶）",
+        title: "FAQ",
         children: [
           { title: "PE是啥", path: "/faq/whats" },
           { title: "什么是Edgeless ME", path: "/faq/ME" },
@@ -49,7 +49,7 @@ module.exports = {
         ],
       },
       {
-        title: "教程（进阶）",
+        title: "教程",
         children: [
           { title: "如何写入Edgeless到U盘", path: "/guide/burn" },
           { title: "如何从U盘启动Edgeless", path: "/guide/boot" },
@@ -58,7 +58,7 @@ module.exports = {
         ],
       },
       {
-        title: "玩转Edgeless（高阶）",
+        title: "玩转Edgeless",
         children: [
           { title: "ept插件包管理工具", path: "/playground/ept" },
           { title: "LocalBoost仓库加速", path: "/playground/localboost" },
@@ -71,7 +71,7 @@ module.exports = {
         ],
       },
       {
-        title: "开发者文档（特高阶）",
+        title: "开发者文档",
         children: [
           { title: "须知", path: "/develop/notice" },
           { title: "Github", path: "/develop/Github" },
