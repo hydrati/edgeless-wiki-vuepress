@@ -53,7 +53,8 @@ Edgeless的全款授权期限通常以 年（Year） 为单位计算，当授权
 * 使用“Edgeless”文本字样进行非商业非盈利性宣传
 * 使用“Edgeless”文本字样进行非商业盈利性宣传
 * 使用“Edgeless”文本字样进行商业宣传
-* 使用“edgElEss”的earth字体样式（下图）进行非商业非盈利性宣传![https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/logo.png)
+* 使用“edgElEss”的earth字体样式（下图）进行非商业非盈利性宣传
+![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/logo.png)
 * 将Edgeless提供的遵循MPL2.0协议的开源代码包含在项目内以实现非商业用途
 * 将Edgeless在合作中提供的代码包含在项目内以实现非盈利非商业用途
 * 将Edgeless在合作中提供的代码包含在项目内以实现非商业盈利用途
@@ -72,7 +73,7 @@ Edgeless的全款授权期限通常以 年（Year） 为单位计算，当授权
 
 
 ## 授权保障
-Edgeless团队使用VuePress发布Wiki，并托管在第三方静态页面托管平台“[Gitee Pages](https://www.gitee.com)”，源码仓库和生产仓库均公开，使用全球公认的git版本管理器管理文本内容的发布并提供公证证明授权信息的更新与更改，欢迎业内外人士的监督。
+Edgeless团队使用VuePress发布Wiki，源码仓库和生产仓库均公开托管在[Gitee](https://www.gitee.com)，使用全球知名的git版本管理器管理文本内容的发布并提供公证证明授权信息的更新与更改，欢迎业内外人士的监督。
 
 
 ## 纠纷申明
