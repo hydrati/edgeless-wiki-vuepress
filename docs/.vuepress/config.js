@@ -6,6 +6,7 @@ module.exports = {
     ['link', { rel: 'icon', href: 'https://home.edgeless.top/favicon.ico' }]
   ],
   themeConfig: {
+    lastUpdated: '最近更新于',
     logo: "https://home.edgeless.top/favicon.ico",
     nav: [
       { text: "首页", link: "https://home.edgeless.top" },

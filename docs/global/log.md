@@ -4,7 +4,7 @@
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:1.2 State:Alpha Author:Cno】
+* 使用 Electron 编写的版本【Version:1.3 State:Alpha Author:Cno】
 ### Edgeless主要功能研发
 * ept（Edgeless Plugin-packages Tool）【Version:1.0 State:Alpha Author:Cno】
 * LocalBoost™【Version:Undefined State:Alpha Author:Cno】
@@ -22,26 +22,7 @@
 2. 对获取盘符扫描结果为空的情况做了处理，编译时增加获取管理员权限选项
 3. 增加版本信息的Tag显示
 4. 确认Ventoy启动盘时增加回避已完成的启动盘的机制
-
-1.2版本更新：
-
-1. 增加aria2c主程序的校验
-2. 处理了.net运行库缺失导致的程序闪退问题
-3. 镜像站解析器插件化，默认内置3个镜像源
-4. 针对未就绪的光盘驱动器做回避，防止抛出错误
-5. 修改下载进度环大小，以解决排版混乱问题
-6. 增加升级功能和Alpha内测功能，整合制作栏菜单选项
-7. 更新后端api接口至v2版本，增加使用v2接口的菠萝云镜像
-8. 精选插件回归
-9. 调试页面支持打开开发者工具
-10. 修复识别.7zf插件的问题，增加对.7zl插件的更新支持
-11. 任务管理页面删除插件优先尝试移动至回收站
-12. 插件侧边栏增加图标匹配功能
-13. 任务管理页面增加打开缓存目录和插件目录的按钮
-14. 增加日志系统，记录scanDisks的返回结果
-15. 增加窗体图标
-16. 如果下载目录在C盘则依旧使用D盘作为默认路径
-17. 增加主页
+5. 对于未就绪的设备做回避
 
 
 ## Edgeless核心更新日志
