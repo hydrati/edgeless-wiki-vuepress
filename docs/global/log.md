@@ -6,7 +6,7 @@
 ### Edgeless Hub
 * 使用 Electron 编写的版本【Version:1.3 State:Alpha Author:Cno】
 ### Edgeless主要功能研发
-* ept（Edgeless Plugin-packages Tool）【Version:1.0 State:Alpha Author:Cno】
+* ept（Edgeless Plugin-packages Tool）【Version:Undefined State:Alpha Author:Cno】
 * LocalBoost™【Version:Undefined State:Alpha Author:Cno】
 * 大神码™【Version:Null State:To-Do Author:Cno】
 
@@ -23,6 +23,7 @@
 3. 增加版本信息的Tag显示
 4. 确认Ventoy启动盘时增加回避已完成的启动盘的机制
 5. 对于未就绪的设备做回避
+6. 写入结束增加文件完全校验，多一层保险
 
 
 ## Edgeless核心更新日志
