@@ -4,7 +4,7 @@
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:1.1 State:Alpha Author:Cno】
+* 使用 Electron 编写的版本【Version:1.2 State:Alpha Author:Cno】
 ### Edgeless主要功能研发
 * ept（Edgeless Plugin-packages Tool）【Version:1.0 State:Alpha Author:Cno】
 * LocalBoost™【Version:Undefined State:Alpha Author:Cno】
@@ -17,6 +17,12 @@
 
 
 ## Edgeless Hub更新日志
+1.3版本更新：
+1. 增加对空盘符的校验
+2. 对获取盘符扫描结果为空的情况做了处理，编译时增加获取管理员权限选项
+3. 增加版本信息的Tag显示
+4. 确认Ventoy启动盘时增加回避已完成的启动盘的机制
+
 1.2版本更新：
 
 1. 增加aria2c主程序的校验
