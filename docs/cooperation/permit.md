@@ -54,7 +54,7 @@ Edgeless的全款授权期限通常以 年（Year） 为单位计算，当授权
 * 使用“Edgeless”文本字样进行非商业盈利性宣传
 * 使用“Edgeless”文本字样进行商业宣传
 * 使用“edgElEss”的earth字体样式（下图）进行非商业非盈利性宣传
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/logo.png)
+![](https://pineapple.edgeless.top/picbed/wiki/images/logo.png)
 * 将Edgeless提供的遵循MPL2.0协议的开源代码包含在项目内以实现非商业用途
 * 将Edgeless在合作中提供的代码包含在项目内以实现非盈利非商业用途
 * 将Edgeless在合作中提供的代码包含在项目内以实现非商业盈利用途

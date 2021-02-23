@@ -4,17 +4,17 @@
 * 在Windows Boot Manager界面报错
 * 进入PE后蓝屏
 
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/QQpic20200616130533.jpg)
+![](https://pineapple.edgeless.top/picbed/wiki/images/QQpic20200616130533.jpg)
 
 （图片来自内测群成员@人活着就是为了古贺朋绘）
 
 
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/QQpic20190531124822.jpg)
+![](https://pineapple.edgeless.top/picbed/wiki/images/QQpic20190531124822.jpg)
 
 （图片来自内测群成员@重名 已做涂抹处理）
 
 
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/QQpic20190531130507.jpg)
+![](https://pineapple.edgeless.top/picbed/wiki/images/QQpic20190531130507.jpg)
 
 （图片来自内测群成员@Scorpioღ）
 
@@ -22,7 +22,7 @@
 1. （常见）电脑年代久远，U+ HDD 2.0方案无法成功引导
 1. 下载到了损坏的ISO镜像或在写入过程中出现了问题
 2. U盘为劣质产品或者经历了频繁读写出现了物理损坏（比如长期使用NTFS作为U盘分区文件系统）
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/gos.png)
+![](https://pineapple.edgeless.top/picbed/wiki/images/gos.png)
 
 （图片来自内测群成员@F✺K✺B）
 

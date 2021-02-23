@@ -6,7 +6,6 @@
 ### Edgeless Hub
 * 使用 Electron 编写的版本【Version:1.4 State:Alpha Author:Cno】
 ### Edgeless主要功能研发
-* ept（Edgeless Plugin-packages Tool）【Version:Undefined State:Alpha Author:Cno】
 * LocalBoost™【Version:Undefined State:Alpha Author:Cno】
 * 大神码™【Version:Null State:To-Do Author:Cno】
 
@@ -17,6 +16,11 @@
 
 
 ## Edgeless Hub更新日志
+1.5版本更新
+1. 修复下载路径包含空格导致的UltraISO解压出错
+2. 更新Electron版本至11.3.0
+3. 支持热更新功能
+
 1.4版本更新
 1. 注册表读取失败时使用默认缓存路径
 2. Alpha内测检查时拒绝旧版规范的启动盘
@@ -42,6 +46,7 @@ BUG修复：
 2. 为ept install、ept upgrade和ept remove增加LocalBoost支持
 3. 为ept install增加了进程锁，防止多进程运行出现错误
 4. 增加外置批处理自动重命名功能，防止不同插件包的外置批处理同名引发冲突
+5. 升级ept接口至V2版本
 
 
 3.1.4Alpha版本更新：

@@ -33,7 +33,7 @@
 
 注意勾选“高级设备选项——显示USB外置硬盘”
 
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/QQpic20190816131311.png)
+![](https://pineapple.edgeless.top/picbed/wiki/images/QQpic20190816131311.png)
 
 
 
@@ -41,7 +41,7 @@
 1. 使用UltraISO打开Edgeless的ISO文件，将Edgeless文件夹复制到硬盘某一分区的根目录内，然后**删除ISO文件内的Edgeless文件夹**，保存并关闭。将编辑好的ISO文件放置在硬盘某一目录内（建议目录名不要出现中文，否则可能导致bug）
 2. 对Edgeless文件夹进行操作（添加插件等）
 3. 下载并运行EasyBCD，添加启动项。
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/EasyBCD.jpg)
+![](https://pineapple.edgeless.top/picbed/wiki/images/EasyBCD.jpg)
 4. 重启进入引导界面（推荐使用按住Shift键点击重启），选择Edgeless即可进入。
 
 :::warning 注意

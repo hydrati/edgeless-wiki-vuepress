@@ -4,19 +4,19 @@
 
 
 1. 打开自己的常用浏览器，进入书签管理器，将书签导出为HTML格式
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture4_1556378244510.png)
+![](https://pineapple.edgeless.top/picbed/wiki/images/picture4_1556378244510.png)
 
 
 
 
 1. **解压**Firefox插件包，运行\Firefox61\Firefox\Firefox.exe
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture5.png)
+![](https://pineapple.edgeless.top/picbed/wiki/images/picture5.png)
 
 
 
 
 1. 进入火狐的书签管理器，从HTML文件导入书签
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture6.png)
+![](https://pineapple.edgeless.top/picbed/wiki/images/picture6.png)
 
 
 
@@ -32,7 +32,7 @@
 :::warning 注意
 定制Firefox插件包时我们为其增加了Baidu不自动即时显示搜索结果的Cookie，因此不建议清理Cookie除非你不需要这一功能
 :::
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/picture7.png)
+![](https://pineapple.edgeless.top/picbed/wiki/images/picture7.png)
 
 6. 完成之后**回到插件包的解压目录**，将修改后的文件夹和一个外置批处理（Firefox.cmd）压缩为7z，在Edgeless中测试是否可用
-![](https://gitee.com/cnotech/edgeless-wiki-vuepress/raw/master/docs/images/scshot2_PicViewer.png)
+![](https://pineapple.edgeless.top/picbed/wiki/images/scshot2_PicViewer.png)
