@@ -37,6 +37,11 @@
 浏览目标分区的加速仓库目录`此分区:\Edgeless\BoostRepo`，将需要删除的插件文件夹删除即可
 ![5.jpg](https://pineapple.edgeless.top/picbed/wiki/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-02-03%20174534.jpg)
 
+## 兼容性问题
+由于Edgeless核心不完整导致cmd和wcs脚本无法正常识别软连接符合，部分需要执行绿化操作才能正常使用的插件会无法启动，称之为不兼容LocalBoost，我们会努力尝试解决这一问题。
+
+现阶段，载入器会对可能不兼容LocalBoost的插件弹出提示。
+
 ## 开发者：被LocalBoost加载的标识
 > 需要Edgeless 3.1.4以上版本
 

@@ -4,7 +4,7 @@
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:1.4 State:Alpha Author:Cno】
+* 使用 Electron 编写的版本【Version:1.5 State:Alpha Author:Cno】
 ### Edgeless主要功能研发
 * LocalBoost™【Version:Undefined State:Alpha Author:Cno】
 * 大神码™【Version:Null State:To-Do Author:Cno】
@@ -16,6 +16,11 @@
 
 
 ## Edgeless Hub更新日志
+1.6版本更新
+1. 监听解压完成事件时增加判别，防止可能出现的极端情况bug
+2. 优化版本号截取方法
+3. 修改启动标题
+
 1.5版本更新
 1. 修复下载路径包含空格导致的UltraISO解压出错
 2. 更新Electron版本至11.3.0
