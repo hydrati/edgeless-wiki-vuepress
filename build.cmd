@@ -20,5 +20,4 @@ title Uploading(4/5)
 scp "dist.zip" root@192.144.230.47:/www/wwwroot/wiki.edgeless.top/v2
 title Unziping(5/5)
 ssh root@192.144.230.47 "cd /www/wwwroot/wiki.edgeless.top/v2;unzip ./dist.zip"
-title Finish
-timeout 5
+exit

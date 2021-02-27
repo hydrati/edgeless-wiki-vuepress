@@ -29,13 +29,14 @@
 
 
 ## Edgeless核心更新日志
-3.2.0版本更新：
+3.1.5Alpha版本更新：
 
 BUG修复：
 1. 更新下载器中ept使用说明的二维码
 2. 增加使用LocalBoost加载插件的外置批处理清理工作，防止被7z加载器二次运行
 3. ept remove支持了删除暴露的依赖文件
 4. 修复热加载不记录暴露的依赖文件的问题
+5. 修复了理顺盘符闪退的问题，顺便更新脚本到2020-11-08 PS+版本
 
 功能/架构更新：
 1. 为使用LocalBoost加载的插件依赖目录增加_LocalBoost.txt标识
@@ -43,6 +44,9 @@ BUG修复：
 3. 为ept install增加了进程锁，防止多进程运行出现错误
 4. 增加外置批处理自动重命名功能，防止不同插件包的外置批处理同名引发冲突
 5. 升级ept接口至V2版本
+6. 分辨率调节换用Winxshell提供的程序
+7. 更新携带程序：Winxshell，DiskGenius，NTSetup，WinSnap，aida64，CGI，NTPWEdit，adb&fastboot，Imdisk
+8. Edgeless升级程序更新接口和提示信息，不再支持OTA
 
 
 3.1.4Alpha版本更新：

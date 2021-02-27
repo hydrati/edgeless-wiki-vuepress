@@ -1,9 +1,6 @@
 # 感谢
 (排名不分先后，如有遗漏请谅解并联系我们补充）
 
-
-
-
 ## 无忧启动论坛 [2012919497149](http://bbs.wuyou.net/home.php?mod=space&uid=441504)——提供2.x内核运行环境
 原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=376688
 
@@ -22,7 +19,7 @@
 原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=205402
 
 
-## 无忧启动论坛[zds1210](http://bbs.wuyou.net/home.php?mod=space&uid=216376)——提供启动盘制作工具的原材料与参考代码
+## 无忧启动论坛[zds1210](http://bbs.wuyou.net/home.php?mod=space&uid=216376)——提供旧版启动盘制作工具的原材料与参考代码
 原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=356551
 
 原贴地址：http://bbs.wuyou.net/forum.php?mod=viewthread&tid=370641
@@ -30,9 +27,7 @@
 
 ## 无忧启动论坛各位坛友——提供部分插件包内容与技术支持
 
-
-
- [tools241](http://bbs.wuyou.net/home.php?mod=space&uid=581308 "tools241")
+ [tools241](http://bbs.wuyou.net/home.php?mod=space&uid=581308)
 
 [victor888](http://bbs.wuyou.net/home.php?mod=space&uid=131142)
 
@@ -50,28 +45,13 @@
 
 [liuzhaoyzz](http://wuyou.net/home.php?mod=space&uid=298214)
 
-
-
-
 ## 恋梦维护的无垠PE工具箱——提供灵感与必要插件包素材
-
-
 
 ## [站长素材](http://sc.chinaz.com/)——提供网页模板
 
-
-
-
 ## [MockUp](https://mockup.photos/)——提供免费图框模板
 
-
-
-  
-
-
-## [Abbey](https://www.abbeyok.com)——提供下载站CMS（Pyone）
-
-
+## [zhaojun1998](https://github.com/zhaojun1998/zfile)——提供下载站解决方案Zfile
 
 ## 域名捐助-内测群群友Gcod、Caldari
 
@@ -85,11 +65,11 @@
 
 ##  备用下载站/下载链接提供
 
- 路人甲
+路人甲
 
- BJY678
+BJY678
 
- Heven Kin
+Heven Kin
 
 Orange Mas
 
@@ -97,11 +77,11 @@ Orange Mas
 
 陳獨秀
 
+Cpl.Kerry
 
-##  图床提供
+BJY678
 
-王洪峰
-
+殇ベ
 
 
 ##  解决方案提供
@@ -115,7 +95,7 @@ Orange Mas
 
 
 ##  QQ交流群扩容
- 小宇
+菠萝
 
 
 
