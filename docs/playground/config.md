@@ -72,6 +72,11 @@ w1024 h768 b32 f60
 
 
 
+* **挂载所有分区**（Edgeless_Beta_3.1.5以上版本）：
+
+新建`MountEveryPartition`文件夹
+
+
 
 # 自定义壁纸
 （Edgeless_Beta_2.1以上版本）将壁纸图片转换为jpg格式并替换Edgeless文件夹内的`wp.jpg`
