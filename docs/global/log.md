@@ -1,12 +1,12 @@
 ## 开发状态
 ### Edgeless主体核心
-* 基于 1903 母盘制作的内核 【Version:3.1.4 State:Released Author:Cno】
+* 基于 1903 母盘制作的内核 【Version:3.2.0 State:Released Author:Cno】
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:1.5 State:Alpha Author:Cno】
+* 使用 Electron 编写的版本【Version:1.6 State:Beta Author:Cno】
 ### Edgeless主要功能研发
-* LocalBoost™【Version:Undefined State:Alpha Author:Cno】
+* LocalBoost™【Version:Undefined State:Beta Author:Cno】
 * 大神码™【Version:Null State:To-Do Author:Cno】
 
 
@@ -16,54 +16,31 @@
 
 
 ## Edgeless Hub更新日志
-1.6版本更新
-1. 监听解压完成事件时增加判别，防止可能出现的极端情况bug
-2. 优化版本号截取方法
-3. 修改启动标题
-4. 增加写入校验失败的重试
-5. 更新缓存默认文件夹名称和aria2c的配置文件名
-6. 处理对version.txt文件缺失情况下的多处报错
-7. 启动标题分阶段显示
+1.8版本更新
+1. 修复升级页面无法正常解析版本号的问题
+2. 支持没有Alpha版本提供的情况提示
 
-1.5版本更新
-1. 修复下载路径包含空格导致的UltraISO解压出错
-2. 更新Electron版本至11.3.0
-3. 支持热更新功能
-4. 处理写入页面的下载失败情况
+1.7版本更新：
+1. 紧急修复ISO名称未更新导致的下载新版失败
 
 
 ## Edgeless核心更新日志
 3.2.0版本更新
-BUG修复：
-
-功能/架构更新：
-1. 尝试自适应DPI
-2. 增加挂载所有分区功能开关
-
-
-3.1.5Alpha版本更新：
 
 BUG修复：
-1. 更新下载器中ept使用说明的二维码
-2. 增加使用LocalBoost加载插件的外置批处理清理工作，防止被7z加载器二次运行
-3. ept remove支持了删除暴露的依赖文件
-4. 修复热加载不记录暴露的依赖文件的问题
-5. 修复了理顺盘符闪退的问题，顺便更新脚本到2020-11-08 PS+版本
 
-功能/架构更新：
-1. 为使用LocalBoost加载的插件依赖目录增加_LocalBoost.txt标识
-2. 为ept install、ept upgrade和ept remove增加LocalBoost支持
-3. 为ept install增加了进程锁，防止多进程运行出现错误
-4. 增加外置批处理自动重命名功能，防止不同插件包的外置批处理同名引发冲突
-5. 升级ept接口至V2版本
-6. 分辨率调节换用Winxshell提供的程序
-7. 更新携带程序：Winxshell，DiskGenius，NTSetup，WinSnap，aida64，CGI，NTPWEdit，adb&fastboot，Imdisk
-8. Edgeless升级程序更新接口和提示信息，不再支持OTA
+（3.1.2Alpha开始）
 
+1. 修复了外置批处理名称不能有空格的问题
+4. 修复了在某些环境下自定义LoadScreen资源包无法被加载的问题
+5. 修复此电脑右键`管理`不能用的问题，同时在开始菜单中也加入`计算机管理`
+6. 修复了插件包下载器中Chrome的token和名称错误问题，优化文本框排版
+7. 修复了检查更新总是失败的问题
 
-3.1.4Alpha版本更新：
+（3.1.3Alpha开始）
 
-BUG修复：
+6. 修复了将非外置批处理的暴露文件记录为外置批处理的问题
+（3.1.4Alpha开始）
 1. 修复了ept-remove无法识别使用%Desktop%变量创建的快捷方式的问题
 2. 完善了ept帮助界面的内容
 3. 修复了ept-install无法安装包含英文括号插件的问题
@@ -73,41 +50,22 @@ BUG修复：
 7. 优化pecmd.ini中记录日志的语句
 8. 对启动流程微调，增加鼠标样式自动配置成功率
 
-功能/架构更新：
-1. 改进设置鼠标样式的刷新方法（感谢@Oxygen）
-2. 增加X分区容量至128G（虽然没有什么L用但还是要感谢@Oxygen）
-3. 增加LocalBoost功能，[查看使用说明](../playground/localboost.md)
+（3.1.5Alpha开始）
 
+15. 更新下载器中ept使用说明的二维码
+2. 增加使用LocalBoost加载插件的外置批处理清理工作，防止被7z加载器二次运行
+3. ept remove支持了删除暴露的依赖文件
+4. 修复热加载不记录暴露的依赖文件的问题
+5. 修复了理顺盘符闪退的问题，顺便更新脚本到2020-11-08 PS+版本
 
+（3.2.0开始）
 
-3.1.3Alpha版本更新：
-
-
-BUG修复：
-1. 修复了将非外置批处理的暴露文件记录为外置批处理的问题
-
+20. 优化鼠标样式按下确认的应用逻辑
 
 功能/架构更新：
-1. 新增`setx.exe`方便开发者设置PATH变量（感谢@Billraozihan）
-2. 增加ept（Edgeless Plugin-packages Tool）包管理工具
-3. 插件热加载核心同步使用wcs脚本改写，现已加入插件包信息记录豪华午餐
-4. 内置的插件下载器改为调用ept工作
-2. 热加载插件完成后不再刷新explorer
-3. 对硬盘安装器的复制核心步骤输出提示
 
+（3.1.2Alpha开始）
 
-
-3.1.2Alpha版本更新：
-
-BUG修复：
-1. 修复了外置批处理名称不能有空格的问题
-4. 修复了在某些环境下自定义LoadScreen资源包无法被加载的问题
-5. 修复此电脑右键`管理`不能用的问题，同时在开始菜单中也加入`计算机管理`
-6. 修复了插件包下载器中Chrome的token和名称错误问题，优化文本框排版
-7. 修复了检查更新总是失败的问题
-
-
-功能/架构更新：
 1. 增加错误日志机制，以解决因为插件包过多内存过小导致的启动出错
 2. 增加应急包功能以方便boot.wim文件启动后独立使用，因此boot.wim的体积将增加20MB
 3. 使用动态提示生成程序代替启动过程中的多个提示文件
@@ -126,6 +84,37 @@ BUG修复：
 17. 内置鼠标样式资源包，来自`Win10Aero鼠标指针_1.1.0.0_汪凯 `
 18. 尽可能不依赖EasyDown，使用Aria2完成通讯任务（包括检查更新、下载插件包），**肉眼可见的速度提升**
 
+（3.1.3Alpha开始）
+
+18. 新增`setx.exe`方便开发者设置PATH变量（感谢@Billraozihan）
+2. 增加ept（Edgeless Plugin-packages Tool）包管理工具
+3. 插件热加载核心同步使用wcs脚本改写，现已加入插件包信息记录豪华午餐
+4. 内置的插件下载器改为调用ept工作
+5. 热加载插件完成后不再刷新explorer
+6. 对硬盘安装器的复制核心步骤输出提示
+
+（3.1.4Alpha开始）
+
+24. 改进设置鼠标样式的刷新方法（感谢@Oxygen）
+2. 增加X分区容量至128G（虽然没有什么L用但还是要感谢@Oxygen）
+3. 增加LocalBoost功能，[查看使用说明](../playground/localboost.md)
+
+（3.1.5Alpha开始）
+
+27. 为使用LocalBoost加载的插件依赖目录增加_LocalBoost.txt标识
+2. 为ept install、ept upgrade和ept remove增加LocalBoost支持
+3. 为ept install增加了进程锁，防止多进程运行出现错误
+4. 增加外置批处理自动重命名功能，防止不同插件包的外置批处理同名引发冲突
+5. 升级ept接口至V2版本
+6. 分辨率调节换用Winxshell提供的程序
+7. 更新携带程序：Winxshell，DiskGenius，NTSetup，WinSnap，aida64，CGI，NTPWEdit，adb&fastboot，Imdisk
+8. Edgeless升级程序更新接口和提示信息，不再支持OTA
+
+（3.2.0开始）
+
+35. 尝试自适应DPI
+36. 增加挂载所有分区功能开关
+
 
 *****
 3.1.0版本更新：
@@ -141,10 +130,10 @@ Edgeless一周年重大更新，历经4个内测版本，基于1909的全新版�
 3. 支持通过符合 RNDIS（Remote Network Driver Interface Specification）规范的设备进行网络共享
 4. ~~高度拟真的Edgeless ThemeSwitch 1.1.0程序，有三套内置主题可供替换~~
 5. 全新优化的StartIsBack界面
-5. 加入WinXShell工具集
-6. 更新PENetwork，实现自带WiFi功能
-7. 支持部分 MSI（Microsoft Windows Installer）安装程序运行
-8. 更新的必要组件包
+6. 加入WinXShell工具集
+7. 更新PENetwork，实现自带WiFi功能
+8. 支持部分 MSI（Microsoft Windows Installer）安装程序运行
+9. 更新的必要组件包
 10. 自带Windows图片查看器，支持显示资源管理器界面图片缩略图
 11. 优化的Launcher逻辑
 12. 检查更新程序支持识别Edgeless Alpha内测版
@@ -154,7 +143,7 @@ Edgeless一周年重大更新，历经4个内测版本，基于1909的全新版�
 16. 修缮过的“插件下载器”
 17. 加入了花里胡哨的LoadScreen™显示加载进度
 18. ~~将Notepad替换为Notepad3~~
-3. 修复了NTSetup无法使用ISO镜像的问题
+19. 修复了NTSetup无法使用ISO镜像的问题
 （3.0.5Alpha开始）
 1. 原“自定义一些功能”更名为“功能开关”，同时增加了几个开关：*禁用U盘管家*（桌面上的悬浮窗及其配套软件）、*干预盘符整理过程*、*使用微PE同款的盘符整理方案*、*启用高通用性的全局无人值守安装*
 （使用方法见“玩转Edgeless-官方的自定义玩法-功能开关”）
