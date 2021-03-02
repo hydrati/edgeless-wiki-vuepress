@@ -9,9 +9,9 @@ Edgeless在没有附加插件的情况下支持安装iso/wim/esd/gho等多种格
 
 ## 安装原版iso镜像（强烈推荐）
 
-1. 从[MSDN](https://msdn.itellyou.cn/)下载Windows10原版镜像。你也可以使用Edgeless定制的“[Microsoft Download](https://down.edgeless.top)”软件获取下载链接
-1. 备份C盘内的重要文件
-1. 将目标磁盘清空（删除分区数据）。如果盘的后端有数据需要保存，则**清空前端分区即可**（从恢复分区到ESP分区到MSR分区到系统盘（通常盘符为C）分区）
+1. 从[MSDN](https://next.itellyou.cn/Original/Index)下载Windows10原版镜像
+2. 备份C盘内的重要文件
+3. 将目标磁盘清空（删除分区数据）。如果盘的后端有数据需要保存，则**清空前端分区即可**（从恢复分区到ESP分区到MSR分区到系统盘（通常盘符为C）分区）
 以我自己的电脑为例，如果要重装则下方图中的所有分区都需要清空
 
 假设C盘之后有D盘、E盘，那么D盘、E盘可以保留不清空
