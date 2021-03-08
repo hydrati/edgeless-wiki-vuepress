@@ -3,7 +3,7 @@
 ![](https://pineapple.edgeless.top/picbed/wiki/img/013526.jpg)
 
 :::tip 提示
-Edgeless Hub仅支持Windows10 64位系统，如果您不在使用此版本的Windows，您可以下载旧版启动盘制作工具并参考[这里的教程](burn_old.md)或下载ISO镜像然后参考我们的[其他姿势启动](../playground/other.md)
+Edgeless Hub仅支持Windows10 64位系统，如果您不在使用此版本的Windows，请查看[手动制作](burn_manual.md)章节
 :::
 
 2. 点击左侧的`制作-写入`，然后点击开始，等待下载依赖文件完成
