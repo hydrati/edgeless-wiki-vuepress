@@ -4,7 +4,7 @@
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:1.6 State:Beta Author:Cno】
+* 使用 Electron 编写的版本【Version:1.9 State:Beta Author:Cno】
 ### Edgeless主要功能研发
 * LocalBoost™【Version:Undefined State:Beta Author:Cno】
 * 大神码™【Version:Null State:To-Do Author:Cno】
@@ -16,6 +16,10 @@
 
 
 ## Edgeless Hub更新日志
+1.10版本更新
+1. 优化不调节分辨率处的提示
+2. 修复可能出现的iso名称不同步导致的解包ISO失败
+
 1.9版本更新
 1. 修复搜索页面显示分类不正确的问题
 2. 插件页面增加教程按钮和回到顶部
