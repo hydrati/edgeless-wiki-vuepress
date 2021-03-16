@@ -1,3 +1,8 @@
+:::tip 近期更新计划
+无更新计划，作者Cno需要准备2022考研，更新会在Cno考研上岸之后开始
+:::
+
+
 ## 开发状态
 ### Edgeless主体核心
 * 基于 1903 母盘制作的内核 【Version:3.2.0 State:Released Author:Cno】
