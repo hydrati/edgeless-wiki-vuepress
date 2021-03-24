@@ -9,7 +9,7 @@
 * Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:1.9 State:Beta Author:Cno】
+* 使用 Electron 编写的版本【Version:2.01 State:Beta Author:Cno】
 ### Edgeless主要功能研发
 * LocalBoost™【Version:Undefined State:Beta Author:Cno】
 * 大神码™【Version:Null State:To-Do Author:Cno】

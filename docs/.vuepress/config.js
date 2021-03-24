@@ -5,6 +5,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: 'https://home.edgeless.top/favicon.ico' }]
   ],
+  plugins: ['vuepress-plugin-export'],
   themeConfig: {
     lastUpdated: '最近更新于',
     logo: "https://home.edgeless.top/favicon.ico",
