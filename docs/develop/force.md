@@ -133,7 +133,7 @@ xcopy "x:\Program Files\Edgeless\Wechat\Program Files\\\*" "%ProgramFiles%\\
 23. 将Edgeless缺少的函数库复制到项目文件夹的`Wechat`的文件夹根目录
 
 >`System32`和`SysWOW64`文件夹中都存在库文件，应当复制哪个文件夹内的库文件呢？
->1. 如果目标程序是32位的（安装到`Program Files (x86)`文件夹内）则优先考虑复制`System32`中的库文件；如果目标程序是64位的（安装到`Program Files`文件夹内）则优先考虑复制`SysWOW64`中的库文件
+>1. 如果目标程序是32位的（安装到`Program Files (x86)`文件夹内）则优先考虑复制`SysWOW64`中的库文件；如果目标程序是64位的（安装到`Program Files`文件夹内）则优先考虑复制`System32`中的库文件
 >2. 当遵循步骤1复制出的库文件无法正常支持活动的运行时，或对应的文件夹中不存在这个库文件时，请复制另一个文件夹中的库文件
 
 ![](https://pineapple.edgeless.top/picbed/wiki/images/23.png)
