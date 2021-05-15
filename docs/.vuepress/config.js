@@ -12,7 +12,7 @@ module.exports = {
     nav: [
       { text: "首页", link: "https://home.edgeless.top" },
       { text: "下载站", link: "https://down.edgeless.top" },
-      { text: "Github", link: "https://github.com/Cnotech/Edgeless-Project" },
+      { text: "Github", link: "https://github.com/EdgelessPE/Edgeless-Project" },
     ],
     sidebar: [
       { title: "写在前面", path: "/required" },
