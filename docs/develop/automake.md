@@ -8,7 +8,7 @@
 
 此流程可以使用机器人自动完成，因此我们编写了Edgeless bot来代替人工执行这些过程。
 
-机器人的运行使用GitHub Actions，构建触发为push/PR或每日定时。机器人会从PortableApps网站自动抓取便携版软件更新信息，当存在更新时自动下载新版并制作成Edgeless插件包然后上传到Edgeless插件包服务器。
+机器人的运行使用GitHub Actions，构建触发为Push或每日00:00。机器人会从PortableApps网站自动抓取便携版软件更新信息，当存在更新时自动下载新版并制作成Edgeless插件包然后上传到Edgeless插件包服务器。
 
 ## 获取
 打开Edgeless Hub，打包者名称后缀带（bot）的插件包即由Edgeless bot构建。
