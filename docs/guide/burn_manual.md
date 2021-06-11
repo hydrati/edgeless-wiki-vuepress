@@ -37,3 +37,9 @@
 4. 启动测试
 
 重启电脑进入Edgeless，[如何启动](https://home.edgeless.top/guide/)
+
+5. 安装插件
+
+从[Edgeless下载站](https://down.edgeless.top)下载插件包，将插件包放置在`U盘:\Edgeless\Resource`目录下即可，之后进入PE时插件会被自动加载
+
+![](https://pineapple.edgeless.top/picbed/wiki/img/010022.jpg)
