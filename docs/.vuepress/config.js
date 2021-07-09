@@ -56,6 +56,7 @@ module.exports = {
           { title: "如何写入Edgeless到U盘", path: "/guide/burn" },
           { title: "如何从U盘启动Edgeless", path: "/guide/boot" },
           { title: "如何使用Edgeless安装系统", path: "/guide/installwindows" },
+          { title: "如何使用插件包", path: "/guide/pluginpackages" },
           { title: "如何使用主题资源包", path: "/guide/themepackages" },
           { title: "如何添加自定义驱动", path: "/guide/driver" },
         ],
