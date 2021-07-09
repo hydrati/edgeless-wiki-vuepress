@@ -17,6 +17,7 @@
 2. 安装Ventoy
 
 解压从第一个链接下载到的`ventoy-xxx-windows.zip`，运行`Ventoy2Disk.exe`，选中您的目标设备，点击安装
+> 如果您希望安装至移动硬盘，请勾选`配置选项-显示所有设备`
 
 ![](https://pineapple.edgeless.top/picbed/wiki/img/145759.jpg)
 
