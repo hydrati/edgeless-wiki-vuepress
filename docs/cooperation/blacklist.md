@@ -6,4 +6,4 @@
 :::danger 警告
 请各位理性对待Edgeless列出的侵权事件，切勿对事件当事人、相关网站等做出任何形式的恶意行为
 :::
- **shadow PE（影子论坛）**：[事件过程](https://github.com/Cnotech/edgeless-little-dark-room/blob/master/shadowPE.md)
+ **shadow PE（影子论坛）**：[事件过程](https://github.com/EdgelessPE/edgeless-little-dark-room/blob/master/shadowPE.md)
