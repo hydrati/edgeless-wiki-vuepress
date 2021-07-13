@@ -38,7 +38,7 @@ module.exports = {
           { title: "什么是Edgeless ME", path: "/faq/ME" },
           { title: "如何有效地报告错误", path: "/faq/report" },
           { title: "桌面上的更多工具是啥", path: "/faq/moretools" },
-          { title: "启动盘制作工具制作失败", path: "/faq/fail2burn" },
+          { title: "启动盘制作失败", path: "/faq/fail2burn" },
           { title: "显示器显示超出范围", path: "/faq/displayerror" },
           { title: "（多发）进不了PE或进入后黑屏", path: "/faq/entrydenied" },
           { title: "（多发）卡在93.1%，正在载入用户配置", path: "/faq/stuck" },
