@@ -6,13 +6,13 @@
 ## 开发状态
 ### Edgeless主体核心
 * 基于 1903 母盘制作的内核 【Version:3.2.0 State:Released Author:Cno】
-* Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】
+* ~~Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】~~
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:2.01 State:Beta Author:Cno】
+* 使用 Electron 编写的版本【Version:2.03 State:Beta Author:Cno】
 ### Edgeless主要功能研发
-* LocalBoost™【Version:Undefined State:Beta Author:Cno】
-* 大神码™【Version:Null State:To-Do Author:Cno】
+* LocalBoost™【Version:2.0 State:Working Author:Brzh】
+* 大神码™【Version:Null State:Working Author:Copur】
 
 
 希望获取内测的用户请[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)
@@ -24,13 +24,12 @@
 2.03版本更新
 1. 当检测到缺失文件时直接退出程序
 2. 增加对ari2c端口更改的支持，修改`core/elhub.conf`文件指定监听端口号即可
-
-2.02版本更新
-1. 修复可能出现的卡在解包ISO的BUG
+3. 修复提示更新旧版本同名软件的bug
 
 
 ## Edgeless核心更新日志
 3.3.0版本更新：
+
 BUG修复：
 1. 更换智能虚拟光驱中的安装教程二维码
 2. 修复硬盘版安装器不能用的问题，优化安装逻辑
