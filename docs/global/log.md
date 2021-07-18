@@ -9,7 +9,7 @@
 * ~~Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】~~
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:2.03 State:Beta Author:Cno】
+* 使用 Electron 编写的版本【Version:2.04 State:Beta Author:Cno】
 ### Edgeless主要功能研发
 * LocalBoost™【Version:2.0 State:Working Author:Brzh】
 * 大神码™【Version:Null State:Working Author:Copur】
@@ -21,10 +21,8 @@
 
 
 ## Edgeless Hub更新日志
-2.03版本更新
-1. 当检测到缺失文件时直接退出程序
-2. 增加对ari2c端口更改的支持，修改`core/elhub.conf`文件指定监听端口号即可
-3. 修复提示更新旧版本同名软件的bug
+2.04版本更新
+1. 修复OneDrive镜像源不可用问题
 
 
 ## Edgeless核心更新日志
