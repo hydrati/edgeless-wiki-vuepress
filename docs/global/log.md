@@ -9,7 +9,7 @@
 * ~~Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】~~
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:2.04 State:Beta Author:Cno】
+* 使用 Electron 编写的版本【Version:2.05 State:Beta Author:Cno】
 ### Edgeless主要功能研发
 * LocalBoost™【Version:2.0 State:Working Author:Brzh】
 * 大神码™【Version:Null State:Working Author:Copur】
@@ -21,14 +21,15 @@
 
 
 ## Edgeless Hub更新日志
+:::tip 更新失败提示
+2.05以下版本更新时可能会遇到以下错误提示，删除缓存目录中的`Update`文件夹即可
+![](https://pineapple.edgeless.top/picbed/wiki/img/182450.jpg)
+:::
 2.05版本更新
-1. 自动清理热更新缓存以提高成功率
+1. 自动清理热更新缓存以解决热更新出错的问题
 2. 修复启动时提示“无法读取aria2c端口号”的问题
 3. 优化读取下载路径注册表逻辑与提示
 4. 修复镜像站刷新失效问题
-
-2.04版本更新
-1. 修复OneDrive镜像源不可用问题
 
 
 ## Edgeless核心更新日志
