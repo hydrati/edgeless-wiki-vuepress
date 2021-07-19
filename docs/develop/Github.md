@@ -1,1 +1,1 @@
-欢迎访问[Edgeless](https://github.com/EdgelessPE)项目组
+欢迎访问[Edgeless](https://github.com/EdgelessPE)开源组织

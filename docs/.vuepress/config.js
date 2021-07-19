@@ -78,7 +78,7 @@ module.exports = {
         title: "开发者文档",
         children: [
           { title: "须知", path: "/develop/notice" },
-          { title: "Github", path: "/develop/Github" },
+          { title: "GitHub", path: "/develop/GitHub" },
           { title: "API", path: "/develop/API" },
           { title: "Edgeless开发环境的搭建", path: "/develop/devenvironment" },
           {
