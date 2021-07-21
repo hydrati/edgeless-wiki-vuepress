@@ -59,7 +59,6 @@ module.exports = {
           { title: "如何使用Edgeless安装系统", path: "/guide/installwindows" },
           { title: "如何使用插件包", path: "/guide/pluginpackages" },
           { title: "如何使用主题资源包", path: "/guide/themepackages" },
-          { title: "如何添加自定义驱动", path: "/guide/driver" },
         ],
       },
       {
@@ -68,6 +67,7 @@ module.exports = {
           { title: "ept插件包管理工具", path: "/playground/ept" },
           { title: "LocalBoost仓库加速", path: "/playground/localboost" },
           { title: "官方的自定义玩法", path: "/playground/config" },
+          { title: "如何添加自定义驱动", path: "/playground/driver" },
           { title: "寄生启动", path: "/playground/parasitism" },
           { title: "替换镜像启动", path: "/playground/replace" },
           { title: "其他姿势启动", path: "/playground/other" },
