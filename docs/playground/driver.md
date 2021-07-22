@@ -15,7 +15,7 @@
 
 ![](https://pineapple.edgeless.top/picbed/wiki/img/011508.jpg)
 
-3. [下载驱动插件包模板](https://cno.lanzoui.com/ixSH1roow0h)并解压，将导出的驱动放到`myDreivers`文件夹内
+3. [下载驱动插件包模板](https://cno.lanzoui.com/ixSH1roow0h)并解压，将导出的驱动放到`myDrivers`文件夹内
 
 ![](https://pineapple.edgeless.top/picbed/wiki/img/171008.png)
 
