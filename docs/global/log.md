@@ -5,11 +5,11 @@
 
 ## 开发状态
 ### Edgeless主体核心
-* 基于 1903 母盘制作的内核 【Version:3.2.0 State:Released Author:Cno】
+* 基于 1903 母盘制作的内核 【Version:3.2.1 State:Alpha Author:Cno】
 * ~~Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】~~
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:2.06 State:Beta Author:Cno】
+* 使用 Electron 编写的版本【Version:2.08 State:Beta Author:Cno】
 ### Edgeless主要功能研发
 * LocalBoost™【Version:2.0 State:Working Author:Brzh】
 * 大神码™【Version:Null State:Working Author:Copur】
@@ -26,20 +26,20 @@
 ![](https://pineapple.edgeless.top/picbed/wiki/img/182450.jpg)
 :::
 
-2.06版本更新
-1. 更新分类图标
-2. 缓存路径自动填充HubCache
-3. 增加补丁功能，为ventoy_wimboot插件提供补丁
+2.08版本更新
+1. 取消C#代码的执行，换用[what-did-ventoy-do](https://github.com/EdgelessPE/what-did-ventoy-do)用于查找Ventoy启动盘
+2. 修复全部插件都需要更新时提示未安装的问题
 
-2.05版本更新
-1. 自动清理热更新缓存以解决热更新出错的问题
-2. 修复启动时提示“无法读取aria2c端口号”的问题
-3. 优化读取下载路径注册表逻辑与提示
-4. 修复镜像站刷新失效问题
+2.07版本更新
+1. 搜索页面增加返回顶部功能
+2. 版本号比对支持含“-”的版本号
+3. 增加插件详情页，自带“百度一下”功能
 
 
 ## Edgeless核心更新日志
 3.3.0版本更新
+
+BUG修复：
 1. 更新插件下载器的"Chrome"和"QQ"名称
 
 3.2.1Alpha版本更新：
