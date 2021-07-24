@@ -28,7 +28,7 @@
 
 2.08版本更新
 1. 取消C#代码的执行，换用[what-did-ventoy-do](https://github.com/EdgelessPE/what-did-ventoy-do)用于查找Ventoy启动盘
-2. 修复全部插件都需要更新时提示未安装的问题
+2. 修复全部插件都需要更新时提示未安装和任务界面不自动展开的问题
 
 2.07版本更新
 1. 搜索页面增加返回顶部功能
