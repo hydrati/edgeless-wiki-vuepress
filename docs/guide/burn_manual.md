@@ -11,7 +11,7 @@
 从以下链接下载依赖文件：
 
 * [Ventoy](https://www.ventoy.net/cn/download.html)（如果您正在使用linux，请下载linux版，本教程以Windows版为例）
-* [ventoy wim插件](https://www.ventoy.net/cn/plugin_wimboot.html)
+* [ventoy wim插件](https://pineapple.edgeless.top/api/v2/info/ventoy_plugin_addr)
 * [Edgeless ISO镜像](https://pineapple.edgeless.top/api/v2/info/iso_addr)
 
 2. 安装Ventoy
