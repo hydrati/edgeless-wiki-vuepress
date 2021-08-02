@@ -9,7 +9,7 @@
 * ~~Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】~~
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:2.09 State:Beta Author:Cno】
+* 使用 Electron 编写的版本【Version:2.10 State:Beta Author:Cno】
 ### Edgeless主要功能研发
 * LocalBoost™【Version:2.0 State:Working Author:Brzh】
 * 大神码™【Version:Null State:Working Author:Copur】
@@ -25,6 +25,11 @@
 2.05以下版本更新时可能会遇到以下错误提示，删除缓存目录中的`Update`文件夹即可
 ![](https://pineapple.edgeless.top/picbed/wiki/img/182450.jpg)
 :::
+
+2.10版本更新
+1. 清理edge.js和md5计算模块，增强兼容性
+2. 增加Alpha邀请码记忆功能
+
 2.09版本更新
 1. 自动清理Ventoy log以减少what-did-ventoy-do的误判
 2. 优化热更新程序提示信息
@@ -32,10 +37,6 @@
 4. 为机器人制作的插件包增加“自动构建”Tag
 5. 为插件分类页首增加图标
 6. 允许启动盘仅存在Alpha版本，并对无法正确识别的启动盘进行提示
-
-2.08版本更新
-1. 取消C#代码的执行，换用[what-did-ventoy-do](https://github.com/EdgelessPE/what-did-ventoy-do)用于查找Ventoy启动盘
-2. 修复全部插件都需要更新时提示未安装和任务界面不自动展开的问题
 
 
 ## Edgeless核心更新日志
