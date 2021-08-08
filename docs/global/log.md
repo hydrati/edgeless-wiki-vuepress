@@ -5,7 +5,7 @@
 
 ## 开发状态
 ### Edgeless主体核心
-* 基于 1903 母盘制作的内核 【Version:3.2.1 State:Alpha Author:Cno】
+* 基于 21H1 母盘制作的内核 【Version:4.0.0 State:Working Author:Cno】
 * ~~Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】~~
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
@@ -148,7 +148,7 @@ BUG修复：
 3.1.0版本更新：
 
 Edgeless一周年重大更新，历经4个内测版本，基于1909的全新版本焕然来临！
-但是在日志的开头我们需要掺一点私货，因为我们有必要让各位知道Edgeless经历的某件恶性盗用事件，如果您感兴趣请点击[https://wiki.edgeless.top/1433541](https://wiki.edgeless.top/1433541)
+但是在日志的开头我们需要掺一点私货，因为我们有必要让各位知道Edgeless经历的某件恶性盗用事件，如果您感兴趣请点击[https://wiki.edgeless.top/v2/cooperation/blacklist.html](https://wiki.edgeless.top/v2/cooperation/blacklist.html)
 
 功能/架构更新：
 
