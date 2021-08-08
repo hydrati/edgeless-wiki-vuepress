@@ -25,7 +25,7 @@
 :::
 
 ### 热加载（启动后加载）
-1. 在`.7z`文件上右键-作为插件包加载，或是双击`.7zf .7zl`文件，会弹出插件加载对话框
+1. 在`.7z`文件上右键-作为插件包加载，或是双击`.7zf` `.7zl`文件，会弹出插件加载对话框
 ![3.jpg](https://pineapple.edgeless.top/picbed/wiki/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-02-03%20174045.jpg)
 2. 选择LocalBoost，点击安装，程序会将此插件包安装至先前扫描到的默认加速仓库（BoostRepo）中![4.jpg](https://pineapple.edgeless.top/picbed/wiki/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-02-03%20174221.jpg)
 :::tip 提示
@@ -38,7 +38,7 @@
 ![5.jpg](https://pineapple.edgeless.top/picbed/wiki/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-02-03%20174534.jpg)
 
 ## 兼容性问题
-由于Edgeless核心不完整导致cmd和wcs脚本无法正常识别软连接符合，部分需要执行绿化操作才能正常使用的插件会无法启动，称之为不兼容LocalBoost，我们会努力尝试解决这一问题。
+由于Edgeless核心不完整导致cmd和wcs脚本无法正常识别软连接符号，部分需要执行绿化操作才能正常使用的插件会无法启动，称之为不兼容LocalBoost，我们会努力尝试解决这一问题。
 
 现阶段，载入器会对可能不兼容LocalBoost的插件弹出提示。
 
