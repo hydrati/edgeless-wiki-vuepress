@@ -66,6 +66,7 @@ module.exports = {
         children: [
           { title: "ept插件包管理工具", path: "/playground/ept" },
           { title: "LocalBoost仓库加速", path: "/playground/localboost" },
+          { title: "启动周期钩子", path: "/playground/hooks" },
           { title: "官方的自定义玩法", path: "/playground/config" },
           { title: "如何添加自定义驱动", path: "/playground/driver" },
           { title: "寄生启动", path: "/playground/parasitism" },

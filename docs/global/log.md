@@ -5,11 +5,11 @@
 
 ## 开发状态
 ### Edgeless主体核心
-* 基于 21H1 母盘制作的内核 【Version:4.0.0 State:Working Author:Cno】
+* 基于 21H1 母盘制作的内核 【Version:4.0.x State:Alpha Author:Cno】
 * ~~Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】~~
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:2.10 State:Beta Author:Cno】
+* 使用 Electron 编写的版本【Version:2.11 State:Beta Author:Cno】
 ### Edgeless主要功能研发
 * LocalBoost™【Version:2.0 State:Working Author:Brzh】
 * 大神码™【Version:Null State:Working Author:Copur】
@@ -28,20 +28,32 @@
 
 2.11版本更新
 1. 取消删除swiftshader以适配PE中运行
+2. 增加开发者徽章
+3. 优化多处提示
+4. 修复镜像站为OneDrive时的下载失败（感谢@董晓天）
+5. 更换Ventoy下载源为菠萝云，修复"再次检查"按钮不可用问题
+6. 支持Alpha内测时提示额外组件更新
 
 2.10版本更新
 1. 清理edge.js和md5计算模块，增强兼容性
 2. 增加Alpha邀请码记忆功能
 
 ## Edgeless核心更新日志
-3.3.0版本更新
+4.0.0版本更新
+
+:::warning 严重的兼容性警告
+此次Alpha版本更新了母盘为21H1，未测试全部插件兼容性！
+<br/>
+请注意备份好Beta版本的启动文件，遇到兼容性问题请及时在内测群发布
+:::
 
 BUG修复：
 1. 更新插件下载器的"Chrome"和"QQ"名称
 
 功能/架构更新：
 1. 新增浏览器自动固定至任务栏功能
-2. 新增钩子功能，可以在启动流程中执行脚本（此功能将会在未来完全替代自定义Launcher）
+2. 新增[钩子](../playground/hooks.md)功能，可以在启动流程中执行脚本（此功能将会在未来完全替代自定义Launcher）
+3. 其他由于重构带来的全新特性
 
 3.2.1Alpha版本更新：
 
