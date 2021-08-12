@@ -90,7 +90,7 @@ module.exports = {
               { title: "常规开发", path: "/develop/plugin" },
               { title: "自动构建", path: "/develop/automake" },
               { title: "暴力封装", path: "/develop/force" },
-              { title: ".net插件包", path: "/develop/net" },
+              // { title: ".net插件包", path: "/develop/net" },
             ],
           },
           {
