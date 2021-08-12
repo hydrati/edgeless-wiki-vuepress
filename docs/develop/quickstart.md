@@ -21,12 +21,13 @@
 
 ![](https://pineapple.edgeless.top/picbed/wiki/images/screenshot_1579783585372.png)
 
-3. 使用记事本打开`DiskGenius.wcs`，输入以下命令并保存
+3. 使用记事本打开`DiskGenius.wcs`，输入以下命令并保存：
+
 `LINK X:\Users\Default\Desktop\DiskGenius,%ProgramFiles%\Edgeless\DiskGenius\DiskGenius.exe`
 
 ![](https://pineapple.edgeless.top/picbed/wiki/images/screenshot_1579783680651.png)
 
-4. 将`DiskGenius`和`DiskGenius.wcs`添加到7z压缩文件即可完成DiskGenius插件包的制作
+1. 将`DiskGenius`和`DiskGenius.wcs`添加到7z压缩文件即可完成DiskGenius插件包的制作
 
 ![](https://pineapple.edgeless.top/picbed/wiki/images/screenshot_1579783771844.png)
 

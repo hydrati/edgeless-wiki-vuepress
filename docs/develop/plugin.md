@@ -196,18 +196,9 @@ pecmd link "%Programs%\引导编辑\BOOTICEx64","%ProgramFiles%\Edgeless\BOOTICE
 ```
 pecmd HOTK #121,%ProgramFiles%\Edgeless\Orderdrv\orderdrv.cmd        `F10 理顺盘符`
 ```
->从哪能找到pecmd脚本（即wcs格式）的详情？
-注：从3.0.0版本开始，托盘处的pecmd为英文版本，需要中文版本请运行`xcmd`
-
-![](https://pineapple.edgeless.top/picbed/wiki/images/p23.png)
-
-
-## 二、自己编写脚本
-这一开发方案需要开发者具有一定的批处理和/或pecmd脚本编写基础，通常可用于编写自定义执行维护操作的插件。
-
-
-如果是通过脚本进行维护操作，那么通常情况下插件包内只需要存在一个批处理文件就可以了（.cmd/.wcs）
-如果是通过脚本实现类似于软件的功能，请参考“ 一、移植绿色软件”，将依赖文件放置在文件夹内并保留一个外置的安装脚本即可。
+>Q:从哪能找到pecmd脚本（即wcs格式）的详情？
+>
+>A:在Edgeless内运行`xcmd`
 
 
 # 开发案例
@@ -250,16 +241,6 @@ pecmd link "X:\Users\Default\Desktop\Chrome","X:\Program Files\Edgeless\Chrome49
 :::tip 提醒
 完成插件包的制作后不要忘记在实际情景中测试哦
 :::
-
-
-## 二、随机壁纸（pecmd脚本插件包示例）
-编写wcs脚本（如何编写请自行查找关于pecmd命令行的内容）并添加相应的依赖内容
-
-![](https://pineapple.edgeless.top/picbed/wiki/images/picture19.png)
-编写外置批处理文件（拓展名为.wcs）
-
-![](https://pineapple.edgeless.top/picbed/wiki/images/picture20.png)
-打包完成（详细过程请参考案例1）
 
 
 :::warning 看完了还是一脸懵逼？
