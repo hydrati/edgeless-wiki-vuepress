@@ -12,7 +12,7 @@ Edgeless的ISO镜像 [如何获取](../faq/getiso.md)
 
 
 :::tip 提示
-如果使用VMWare进行开发，可以下载使用“开发辅助”中的 VMTools 插件
+可以在Edgeless Hub的“开发辅助”分类中找到 VMTools 和 VirtualBoxGuest 插件
 
 如果觉得默认分辨率过高请参考这里：[启动时使用自定义分辨率](../playground/config.md)
 :::
