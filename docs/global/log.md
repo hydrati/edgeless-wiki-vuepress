@@ -5,11 +5,16 @@
 
 ## 开发状态
 ### Edgeless主体核心
-* 基于 21H1 母盘制作的内核 【Version:4.0.x State:Alpha Author:Cno】
+* 基于 21H1 母盘制作的内核
+
+【Version:{{edgeless_alpha}} Stage:Alpha Author:Cno】
+
+【Version:{{edgeless_beta}} Stage:Beta Author:Cno】
+
 * ~~Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】~~
 * ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
-* 使用 Electron 编写的版本【Version:2.12 State:Beta Author:Cno】
+* 使用 Electron 编写的版本【Version:{{hub_beta}} Stage:Beta Author:Cno】
 ### Edgeless主要功能研发
 * LocalBoost™【Version:2.0 State:Working Author:Brzh】
 * 大神码™【Version:Null State:Working Author:Copur】
@@ -29,6 +34,7 @@
 2.13版本更新
 1. 增加用户协议与许可证
 2. Alpha页面增加查看日志
+3. 移除了会导致panic的公用镜像源
 
 2.12版本更新
 1. 使用UTF-8(LF)的热更新批处理以增强兼容性
@@ -359,3 +365,39 @@ BUG修复：
 12.  添加手动加载插件功能（注意：不推荐作为自动加载的替代方案！！！更多的用于开发者调试和应急加载）
     
 13.  更换ISO挂载程序为Imdisk（Edgeless魔改优化版），解决了Windows资源管理器不能挂载exFAT分区内ISO镜像的问题
+
+<script>
+   export default{
+      data(){
+         return {
+            edgeless_beta:"loading...",
+            edgeless_alpha:"loading...",
+            hub_beta:"loading..."
+         }
+      },
+      methods:{
+         getEdgeless(){
+            fetch("https://pineapple.edgeless.top/api/v2/info/iso_version").then((res)=>{
+               res.text().then((ver)=>{
+                  this.edgeless_beta=ver
+               })
+            })
+
+            fetch("https://pineapple.edgeless.top/api/v2/alpha/data?token=WDNMD").then((res)=>{
+               res.json().then((json)=>{
+                  this.edgeless_alpha=json.version
+               })
+            })
+
+            fetch("https://pineapple.edgeless.top/api/v2/info/hub_version").then((res)=>{
+               res.text().then((ver)=>{
+                  this.hub_beta=ver
+               })
+            })
+         }
+      },
+      created(){
+         this.getEdgeless()
+      }
+   }
+</script>
