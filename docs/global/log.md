@@ -396,7 +396,7 @@ BUG修复：
             })
          }
       },
-      created(){
+      mounted(){
          this.getEdgeless()
       }
    }
