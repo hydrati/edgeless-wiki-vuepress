@@ -26,10 +26,6 @@
 
 
 ## Edgeless Hub更新日志
-:::tip 更新失败提示
-2.05以下版本更新时可能会遇到以下错误提示，删除缓存目录中的`Update`文件夹即可
-![](https://pineapple.edgeless.top/picbed/wiki/img/182450.jpg)
-:::
 
 2.13版本更新
 1. 增加用户协议与许可证
