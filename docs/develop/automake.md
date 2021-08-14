@@ -17,7 +17,7 @@
 机器人的运行使用GitHub Actions，构建触发为Push或每日00:00。机器人会从PortableApps网站自动抓取便携版软件更新信息，当存在更新时自动下载新版并制作成Edgeless插件包然后上传到Edgeless插件包服务器。
 
 ## 获取
-打开Edgeless Hub，后缀带“自动构建”标签的插件包即由Edgeless bot构建。
+打开Edgeless Hub，带（CI）徽章或“自动构建”标签的插件包即由Edgeless bot构建。
 
 ## 开发
 首先您需要具备以下基本能力：
