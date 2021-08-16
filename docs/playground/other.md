@@ -29,25 +29,20 @@
 
 
 ## 安装到移动硬盘
-下载[Rufus](http://rufus.ie/)，选择Edgeless的ISO文件进行写入
+在写入Ventoy时勾选`配置文件-显示所有设备`，然后按照正常步骤完成制作
 
-注意勾选“高级设备选项——显示USB外置硬盘”
-
-![](https://pineapple.edgeless.top/picbed/wiki/images/QQpic20190816131311.png)
+![](https://pineapple.edgeless.top/picbed/wiki/img/010154.jpg)
 
 
 
-## 安装到本地硬盘启动（不推荐）
-1. 使用UltraISO打开Edgeless的ISO文件，将Edgeless文件夹复制到硬盘某一分区的根目录内，然后**删除ISO文件内的Edgeless文件夹**，保存并关闭。将编辑好的ISO文件放置在硬盘某一目录内（建议目录名不要出现中文，否则可能导致bug）
-2. 对Edgeless文件夹进行操作（添加插件等）
-3. 下载并运行EasyBCD，添加启动项。
-![](https://pineapple.edgeless.top/picbed/wiki/images/EasyBCD.jpg)
-4. 重启进入引导界面（推荐使用按住Shift键点击重启），选择Edgeless即可进入。
-
-:::warning 注意
-可能需要在BIOS内打开CSM方可正常使用。这可能会导致进入正常系统时开机速度变慢，因此我们不推荐将Edgeless安装到本地硬盘启动
+## 安装到本地硬盘
+:::warning 警告
+此安装方式的原理是替换系统的WinRE启动文件，如需要恢复WinRE请在PE中进入`系统：\Recovery\WindowsRE\`目录，将`Winre.wim.bak`覆盖`Winre.wim`
 :::
 
+正常制作U盘并启动Edgeless，运行`开始菜单-Edgeless服务-安装Edgeless到硬盘`后根据提示操作
+
+![](https://pineapple.edgeless.top/picbed/wiki/img/011219.jpg)
 
 
 
