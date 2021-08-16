@@ -37,7 +37,9 @@
 
 ## 安装到本地硬盘
 :::warning 警告
-此安装方式的原理是替换系统的WinRE启动文件，如需要恢复WinRE请在PE中进入`系统：\Recovery\WindowsRE\`目录，将`Winre.wim.bak`覆盖`Winre.wim`
+1. 此方法仅适用于Win8/8.1/低版本10系统；如果您的系统不符合安装条件，请在BIOS启用CSM后使用EasyBCD添加Edgeless的ISO镜像然后使用Legacy引导系统，但是我们非常不推荐使用这种做法。
+
+2. 此安装方式的原理是替换系统的WinRE启动文件，如需要恢复WinRE请在PE中进入`系统：\Recovery\WindowsRE\`目录，将`Winre.wim.bak`覆盖`Winre.wim`
 :::
 
 正常制作U盘并启动Edgeless，运行`开始菜单-Edgeless服务-安装Edgeless到硬盘`后根据提示操作
@@ -52,7 +54,7 @@ Edgeless提供的内核具有很高的精简度与自由度，其启动逻辑基
 
 而要使其能正确使用Edgeless的插件等相关功能，您只需要做到：
 
-在启动后的Edgeless能识别出的某一盘的根目录内（可以是本地硬盘或可移动存储设备）存在Edgeless文件夹
+**在某一盘的根目录内放置Edgeless文件夹**
 
-Edgeless文件夹的内容可以通过挂载Edgeless官方提供的ISO镜像获取。如果多个根目录下都存在符合条件的Edgeless文件夹，内核会选择初次启动时盘符相对靠前的进行操作
+Edgeless文件夹的内容必须符合规范（可通过挂载Edgeless官方提供的ISO镜像获取）。如果多个根目录下都存在符合条件的Edgeless文件夹，内核会选择初次启动时盘符相对靠前的进行操作
 :::
