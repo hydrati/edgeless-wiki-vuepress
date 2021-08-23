@@ -44,7 +44,7 @@ module.exports = {
           { title: "进不了PE或进入后黑屏", path: "/faq/entrydenied" },
           { title: "卡在93.1%，正在载入用户配置", path: "/faq/stuck" },
           { title: "进入PE后出现异常情况", path: "/faq/someerror" },
-          { title: "连不了网、显示异常、没有声音", path: "/faq/hardwareerror" },
+          { title: "连不了网、没有硬盘、不能触控", path: "/faq/hardwareerror" },
           { title: "识别不了exFAT分区、分区出错", path: "/faq/diskparterror" },
           { title: "使用主题资源包时出错", path: "/faq/themeerror" },
           { title: "插件的快捷方式乱码", path: "/faq/messycode" },
