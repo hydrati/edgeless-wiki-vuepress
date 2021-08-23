@@ -1,9 +1,10 @@
-[遇到了问题？点此查看本节内容的FAQ](../faq/themeerror.md) 
-
-
-:::tip 快速上手
-下载需要的主题包/资源包之后进入Edgeless，在Edgeless内双击相应文件即可打开
+:::tip 遇到了问题？
+[点此查看本节内容的FAQ](../faq/themeerror.md) 
 :::
+
+## 快速上手
+下载需要的主题包/资源包之后进入Edgeless，在Edgeless内双击相应文件即可打开
+
 
 
 ## 主题包控制面板

@@ -1,3 +1,7 @@
+:::tip 遇到了问题？
+[点此查看本节内容的FAQ](../faq/fail2burn.md) 
+:::
+
 1. 在[下载站](https://down.edgeless.top)下载Edgeless Hub并运行，首次运行需要设置下载缓存目录
 
 ![](https://pineapple.edgeless.top/picbed/wiki/img/013526.jpg)

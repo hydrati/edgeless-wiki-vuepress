@@ -1,4 +1,6 @@
-[遇到了问题？点此查看本节内容的FAQ](../faq/entrydenied.md) 
+:::tip 遇到了问题？
+[点此查看本节内容的FAQ](../faq/entrydenied.md) 
+:::
 
 :::warning 注意
 启动Ventoy需要**关闭安全启动**或自行导入Ventoy的证书（[参考Ventoy文档](https://ventoy.net/cn/doc_secure.html)），我们认为这对于Edgeless的目标用户来说是一个易如反掌的操作
