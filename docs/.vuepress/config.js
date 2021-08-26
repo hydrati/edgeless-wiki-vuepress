@@ -128,5 +128,6 @@ module.exports = {
         ],
       },
     ],
+    smoothScroll: true
   },
 };
