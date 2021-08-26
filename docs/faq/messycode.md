@@ -1,3 +1,4 @@
+# 插件的快捷方式乱码
 开发插件包时如果遇到创建的快捷方式乱码
 
 ![](https://pineapple.edgeless.top/picbed/wiki/images/screenshot_1580888562366.png)

@@ -1,3 +1,4 @@
+# 如何写入Edgeless到U盘
 :::tip 遇到了问题？
 [点此查看本节内容的FAQ](../faq/fail2burn.md) 
 :::

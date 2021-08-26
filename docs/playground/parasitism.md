@@ -1,3 +1,4 @@
+# 寄生启动
 Edgeless拥有强大的兼容能力，您可以使用已有的PE寄生启动Edgeless来实现“一盘两用”。这样您就可以兼顾维护PE的易用和Edgeless的强大能力
 
 >Q：如何判断我的PE能不能寄生启动Edgeless？

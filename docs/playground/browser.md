@@ -1,3 +1,4 @@
+# 修改浏览器插件包
 以修改Firefox插件包为例：
 
 > Opera插件包的Profiles文件夹在%appdata%内，需要在完成修改后手动把里面文件拷回Opera64_v12\Opera64文件夹内

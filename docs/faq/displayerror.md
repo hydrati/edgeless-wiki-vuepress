@@ -1,5 +1,5 @@
+# 显示器显示分辨率超出范围
 ## 症状表现
-显示器显示分辨率超出范围
 
 ![](https://pineapple.edgeless.top/picbed/wiki/images/screenshot_1582818245415.png)
 

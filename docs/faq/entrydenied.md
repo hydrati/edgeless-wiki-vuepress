@@ -1,3 +1,4 @@
+# 进不了PE或进入后黑屏
 ## 症状表现
 * 显示`Invalid signature detected.Check Secure Boot Policy in Setup`
 

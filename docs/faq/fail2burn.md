@@ -1,3 +1,4 @@
+# 启动盘制作失败
 由于Edgeless Hub依赖于Ventoy制作启动盘，如果您遇到了问题请查看[Ventoy2Disk FAQ](https://ventoy.net/cn/doc_ventoy2disk.html)
 
 ## 部分常见问题
