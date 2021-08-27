@@ -1,10 +1,10 @@
 # 如何使用Edgeless安装系统
 Edgeless在没有附加插件的情况下支持安装iso/wim/esd/gho等多种格式的镜像
 
-此教程只提供使用`setup.exe`安装最新版本Windows10的教程，如果您习惯于使用某种第三方安装工具，您或许可以在我们的 插件包-系统安装+备份还原 内发现它
+此教程只提供使用`setup.exe`安装最新版本Windows10的教程，如果您习惯于使用某种第三方安装工具，您或许可以在我们的 插件包-安装备份 内发现它
 
 
-1. 从[MSDN](https://next.itellyou.cn/Original/Index)下载Windows10原版镜像
+1. 从[NEXT, ITELLYOU](https://next.itellyou.cn/Original/Index)下载Windows10原版镜像
 2. 备份C盘内的重要文件
 3. 将目标磁盘清空（删除分区数据）。如果盘的后端有数据需要保存，则**清空前端分区即可**（从恢复分区到ESP分区到MSR分区到系统盘（通常盘符为C）分区）
 
