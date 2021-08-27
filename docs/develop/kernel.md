@@ -3,20 +3,10 @@
 
 我们不希望看到有违反Edgeless三无精神（无劫持、无广告、无收费）或是违反中华人民共和国相关法律条款的作品出现，也不会承认此类作品与我们有任何关系。
 
-此章节描述的内容是开发其他版本的Edgeless内核而不是将Edgeless官方版本的内核修改之后使用其他名称进行分发，如需要后者的授权请转到“合作洽谈”章节。
+此章节描述的内容是开发其他版本的Edgeless内核而不是将Edgeless官方版本的内核修改之后使用其他名称进行分发，如需要后者的授权请转到[合作洽谈](../cooperation/permit.md)章节。
 
 继续开发视为您已经同意此条款
 :::
 
 
-您可以移植他人的PE作品（推荐从无忧启动论坛获取，但是记得取得权授哦）或是自制来开发新的Edgeless内核。要使其兼容Edgeless的大部分功能，您只需要对解包后的wim文件进行以下操作：（新PE需要先完成pecmd的安装，并确保能正常运行大部分Edgeless平台上的插件）
-* 复制Edgeless官方包Program Files内的Edgeless文件夹和Launcher.bat、version.txt文件到新PE项目的Program Files文件夹内
-
-* 添加启动项（以pecmd.ini为例，加入语句`exec !"%ProgramFiles%\Launcher.bat"`即可）
-
-* 检查Launcher.bat及其他组件的工作状况
-
-* system32等目录下存在一些依赖文件，请根据调用时的需要相应地移植他们
-
-
-此外，您还需要确保写入U盘之后U盘某一可见分区根目录存在Edgeless文件夹。您也可以通过更改Launcher.bat的规则无视这一条，不过可能会导致某些插件无法正常使用。
+前往[GitHub](https://github.com/EdgelessPE/Edgeless)阅读并获得原材料
