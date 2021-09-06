@@ -84,7 +84,8 @@ w1024 h768 b32 f60
 3.  方案来源于[无忧启动论坛](http://bbs.wuyou.net/forum.php?mod=viewthread&tid=414837)，感谢[chiannet](http://bbs.wuyou.net/home.php?mod=space&uid=282390)
 :::
 
-### 干预盘符整理过程（Edgeless3.0.0 以上版本）
+### 干预盘符整理过程
+>（Edgeless3.0.0 以上版本）
 
 新建`UpActDrv`文件夹：将程序找到的第一块硬盘（通常是 SSD）活动分区所在的盘符排在所有盘符之前（如果没有启用此开关，程序不改变硬盘分区盘符顺序，盘符排列的顺序和在磁盘管理软件中看到的一样）
 
