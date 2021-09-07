@@ -57,9 +57,9 @@
 
 此处qq作为软件名处理，执行通过[LocalBoost](localboost.md)安装并保存
 
-`ept install "google chrome" -y`
+`ept install "microsoft edge" -y`
 
-此处google chrome作为软件名处理，执行安装，加引号是因为软件名中有空格
+此处microsoft edge作为软件名处理，执行安装，加引号是因为软件名中有空格
 
 `ept install wech`
 
@@ -67,7 +67,7 @@
 
 :::tip 注意
 * 可以使用`-y` 或 `-a` 或 `-l`参数跳过确认，`-y`执行安装，`-a`执行安装并保存，`-l`执行通过[LocalBoost](localboost.md)安装并保存，仅对`ept install {序号}`和`ept install {软件名}`有效
-* `ept install {软件名}`中的`软件名`需要全字匹配；如果软件名包含空格或特殊符号，请在软件名两侧加上英文双引号，例如`ept install "google chrome" -a`
+* `ept install {软件名}`中的`软件名`需要全字匹配；如果软件名包含空格或特殊符号，请在软件名两侧加上英文双引号，例如`ept install "microsoft edge" -a`
 * 当使用`ept install {关键词}`时事实上在调用`ept search`；在被作为关键词传递给`ept search`前，输入的内容会被尝试依次解析为有效序号、软件名；转至[ept search](#ept-search)的条目下查看更多关于`ept install {关键词}`的注意事项
 * 插件包对应的序号由ept根据镜像源索引文件自动生成，会随着插件镜像源变动而变化，请勿依赖于序号安装插件（相应地使用软件名即可）
 
@@ -184,7 +184,7 @@
 `ept-getver` `ept-cache madison`
 
 :::tip 注意
-* 如果软件名包含空格，请在软件名两侧加上英文双引号，例如`ept getver "google chrome"`
+* 如果软件名包含空格，请在软件名两侧加上英文双引号，例如`ept getver "microsoft edge"`
 * 如果软件名无效，会输出`InvaildName`，否则会直接输出版本号
 * 运行一次本命令，程序会将版本号写入至`X:\Users\ept\upgrade\ver_ol.txt`；如果运行后此文本文件不存在，则说明输入的软件名无效
 :::
