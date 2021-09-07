@@ -7,12 +7,16 @@ module.exports = {
   ],
   plugins: ['vuepress-plugin-export'],
   themeConfig: {
+    repo: 'EdgelessPE/Edgeless',
+    docsRepo:'https://gitee.com/cnotech/edgeless-wiki-vuepress',
+    editLinks: true,
+    editLinkText: '在 Gitee 上编辑此页',
+    docsDir: 'docs',
     lastUpdated: '最近更新于',
     logo: "https://home.edgeless.top/favicon.ico",
     nav: [
       { text: "首页", link: "https://home.edgeless.top" },
       { text: "下载站", link: "https://down.edgeless.top" },
-      { text: "GitHub", link: "https://github.com/EdgelessPE/Edgeless" },
     ],
     sidebar: [
       { title: "写在前面", path: "/required" },
