@@ -5,22 +5,18 @@ Edgeless生命周期分为启动周期和结束周期，可以在Edgeless运行�
 
 ## 启动周期
 现阶段共提供5个启动周期的钩子位置，其中红色的位置可以执行预处理操作，绿色的位置可以执行后置优化操作；其中`onDesktopShown` `onBootFinished`周期钩子为*异步并发*执行，其余周期钩子为*同步顺序*执行
-> onDiskFound
-> 
-> beforeLocalBoost
-> 
-> beforePluginLoading
-> 
-> onDesktopShown
-> 
-> onBootFinished
+* `onDiskFound`
+* `beforeLocalBoost`
+* `beforePluginLoading`
+* `onDesktopShown`
+* `onBootFinished`
 
 
 ![](https://pineapple.edgeless.top/picbed/wiki/img/hooks.png)
 
 ## 结束周期
 从用户的关机/重启指令发出到Edgeless系统关闭的一段时间称为结束周期，在这个周期位置可以进行指定数据保存等操作；此周期钩子为*同步顺序*执行
->onExit
+* `onExit`
 
 ## 使用方法
 1. 在Edgeless启动盘中新建文件夹，位置为`U盘:\Edgeless\Hooks`
