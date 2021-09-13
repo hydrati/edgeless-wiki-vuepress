@@ -6,7 +6,9 @@
 继续开发视为您已经同意此条款
 :::
 
-> 如果您希望能上架您的主题包/资源包，请[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)进行提交
+:::tip 分享你的劳动成果
+如果您希望能上架您的主题包/资源包，请[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)进行提交
+:::
 
 ## 获取Edgeless合作伙伴的资源
 Edgeless团队已与[致美化](https://zhutix.com)达成版权授权合作，开发主题资源包时可以使用致美化平台**没有独家标识**的资源

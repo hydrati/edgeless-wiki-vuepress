@@ -6,7 +6,9 @@
 继续开发视为您已经同意此条款
 :::
 
-> 如果您希望能上架您的插件包，请[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)进行提交
+:::tip 分享你的劳动成果
+如果您希望能上架您的插件包，请[加入内测交流QQ群](https://home.edgeless.top/jump/qqg.html)进行提交
+:::
 
 此章节是“开发插件包”的补充章节，帮助新手快速上手插件包开发
 
