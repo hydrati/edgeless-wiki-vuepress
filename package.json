@@ -8,7 +8,8 @@
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "deploy": "build2.cmd"
   },
   "dependencies": {
     "vuepress-plugin-export": "^0.2.0"
