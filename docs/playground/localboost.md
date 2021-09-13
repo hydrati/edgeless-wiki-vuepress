@@ -1,5 +1,4 @@
-# Edgeless LocalBoost
-> 需要Edgeless 3.1.3以上版本
+# Edgeless LocalBoost <Badge text="3.1.3+" />
 
 ## 什么是LocalBoost
 将插件安装到本地磁盘的加速仓库中而非内存中，以加速Edgeless在此电脑上的启动速度，并有可能保留插件运行的用户数据（由插件运行性质决定）
@@ -42,8 +41,7 @@
 
 现阶段，载入器会对可能不兼容LocalBoost的插件弹出提示。
 
-## 开发者：被LocalBoost加载的标识
-> 需要Edgeless 3.1.4以上版本
+## 开发者：被LocalBoost加载的标识 <Badge text="3.1.4+" />
 
 开发者可以通过判断插件依赖目录中是否包含`_LocalBoost.txt`文件来识别此插件是否通过LocalBoost加载，`_LocalBoost.txt`中记录了此目录的真实路径
 

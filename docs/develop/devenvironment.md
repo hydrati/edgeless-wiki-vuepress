@@ -19,7 +19,7 @@ Edgeless的ISO镜像 [如何获取](../faq/getiso.md)
 :::
 
 ## 创建虚拟机
-* 1GB以上 RAM（建议2GB+）
+* 1GB 以上 RAM（建议 2GB+ ）
 * **不需要硬盘，如果设置了硬盘请勿为其建立新分区**
 * 使用Edgeless的iso镜像作为虚拟光驱（CD/DVD(SATA)）
 * 启动项内包含有“从光驱启动”选项

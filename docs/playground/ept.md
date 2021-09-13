@@ -1,10 +1,8 @@
-# Edgeless插件包管理工具（Edgeless Plugin-packages Tool）
+# Edgeless插件包管理工具（Edgeless Plugin-packages Tool） <Badge text="3.1.2+" /> <Badge text="支持LocalBoost 3.1.4+" />
 
-> * 灵感来源于微软发布的`winget`和debian系Linux下的`apt`，我们为习惯这两种工具语法的用户做了语法适配
->
-> * 需要Edgeless 3.1.2以上版本，对[LocalBoost](localboost.md)的支持需要Edgeless 3.1.4以上版本
->
-> * 下一代ept的规划已经提上议程，并将成为Edgeless生态系统的核心部件
+ept 的灵感来源于微软发布的 `winget` 和debian系Linux下的 `apt` ，我们为习惯这两种工具语法的用户做了语法适配
+
+同时，下一代 ept 的规划已经提上议程，其将成为 Edgeless 生态系统的核心部件。欢迎各位[参与此项目的讨论](https://github.com/EdgelessPE/ept-next)
 
 ## 快速开始
 1. 在Edgeless中按下`Win+R`快捷键，输入`cmd`并回车打开命令提示符窗口

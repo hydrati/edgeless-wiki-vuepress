@@ -22,7 +22,7 @@ w1024 h768 b32 f60
 
 1. 此开关仅适用于Legacy引导启动，对于UEFI引导在启动时选择需要的分辨率即可（如果没有分辨率选择菜单请[点击此处](../faq/resolution.md)）
 2. 将内容改为`DisableAutoSuit`可以阻止 Edgeless 设置分辨率，有效解决启动过程中因为分辨率过高导致老旧显示器无法显示的问题
-3. 在 Edgeless2.2.0 中，分辨率.txt 应被放置在 Edgeless 文件夹内。在 Edgeless2.2.0 以上版本中，放置在 Edgeless 文件夹内的分辨率.txt 会被自动移动到 Config 文件夹内
+3. 在2.2.0版本中，分辨率.txt 应被放置在 Edgeless 文件夹内。在2.2.0以上版本中，放置在 Edgeless 文件夹内的分辨率.txt 会被自动移动到 Config 文件夹内
 :::
 
 ### 使外置 Launcher 脚本的警告失效 <Badge text="2.2.0+" /> <Badge text="4.0.0-" />
@@ -116,7 +116,7 @@ Edgeless 自带的盘符整理程序与[victor888](http://bbs.wuyou.net/home.php
 将壁纸图片转换为 jpg 格式并替换 Edgeless 文件夹内的`wp.jpg`
 
 :::tip 提示
-在 2.1.4 以上的版本中，您可以在桌面右击选择更换壁纸（临时更换，重启后失效）；或是使用Edgeless Hub进行永久有效的更换
+在2.1.4以上的版本中，您可以在桌面右击选择更换壁纸（临时更换，重启后失效）；或是使用Edgeless Hub进行永久有效的更换
 :::
 
 ## 补充/替换 Windows 文件夹内的文件 <Badge text="2.1.4+" />
@@ -129,6 +129,6 @@ Edgeless 自带的盘符整理程序与[victor888](http://bbs.wuyou.net/home.php
 
 ## 自定义 Launcher 启动脚本（开发者选项） <Badge text="4.0.3-" />
 
-> 在 4.0.3 及以上版本中，Launcher 启动脚本的功能已被[生命周期钩子](hooks.md)取代
+> 在4.0.3及以上版本中，Launcher 启动脚本的功能已被[生命周期钩子](hooks.md)取代
 
 将批处理文件命名为`Launcher.cmd`放在 Edgeless 文件夹内

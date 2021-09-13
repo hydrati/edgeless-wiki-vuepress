@@ -1,7 +1,13 @@
 # 修改浏览器插件包
 以修改Firefox插件包为例：
 
-> Opera插件包的Profiles文件夹在%appdata%内，需要在完成修改后手动把里面文件拷回Opera64_v12\Opera64文件夹内
+:::warning 警告
+此教程使用的Firefox插件包已经过期，仅供参考
+:::
+
+:::tip 提示
+Opera精简版插件包的Profiles文件夹在%appdata%内，需要在完成修改后手动把里面文件拷回Opera64_v12\Opera64文件夹内
+:::
 
 
 1. 打开自己的常用浏览器，进入书签管理器，将书签导出为HTML格式
