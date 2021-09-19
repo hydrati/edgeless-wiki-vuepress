@@ -119,7 +119,7 @@ module.exports = {
           { title: "FlyPE", path: "/cooperation/FlyPE" },
           { title: "Hikari PE", path: "/cooperation/HikariPE" },
           { title: "51NB PE", path: "/cooperation/51NBPE" },
-          { title: "Oxygen", path: "/cooperation/Oxygen" },
+          { title: "Samarium", path: "/cooperation/Samarium" },
           { title: "PanDa PE", path: "/cooperation/PanDaPE" },
           { title: "YIUPE", path: "/cooperation/YIUPE" },
         ],
