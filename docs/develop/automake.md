@@ -2,9 +2,7 @@
 
 
 ## 状态
-![workflow status](https://github.com/EdgelessPE/edgeless-bot/actions/workflows/main.yml/badge.svg)
-
-或者访问[GitHub Actions状态页面](https://github.com/EdgelessPE/edgeless-bot/actions)查看机器人的详细运行状况
+[![workflow status](https://github.com/EdgelessPE/edgeless-bot/actions/workflows/main.yml/badge.svg)](https://github.com/EdgelessPE/edgeless-bot/actions)
 
 ## 简介
 插件包的构建是一个较为机械的流程，通常步骤如下：
