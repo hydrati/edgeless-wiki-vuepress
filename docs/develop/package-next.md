@@ -35,7 +35,7 @@ type = "Software"
 # 版本号
 version = "1.46.0"
 # 打包者/作者
-# 附通过附加 <@github_id>  提供对应的GitHub ID
+# 通过附加 <@github_id>  提供对应的GitHub ID
 authors = [
   "Cno <@Cnotech>",
   "Microsoft"
@@ -216,6 +216,7 @@ MY_BOOT_POLICY = 0
   [setup_flow.modify_boot_policy]
   name = "Modify boot policy"
   type = "Value"
+  # if 表示一个条件，我们将在下一节中讲解
   if = '${BootPolicy}=="UEFI"'
 
   key = "env.MY_BOOT_POLICY"
@@ -250,7 +251,6 @@ MY_BOOT_POLICY = 0
   name = "Start VSCode"
   type = "Execute"
   # 默认情况下，此项会被解释为 false==true
-  # if 表示一个条件，我们将在下一节中讲解
   if = "${uc.AUTO_RUN}==true"
 
   command = "explorer ${Desktop}/Visual Studio Code.lnk"
@@ -292,7 +292,7 @@ MY_BOOT_POLICY = 0
 ```toml
   [setup_flow.open_vscode]
   name = "Open VSCode"
-  type = "Exec"
+  type = "Execute"
   # 如果用户配置了 AUTO_RUN=true，则此项会被解释为 true==true，显然为真
   if = "${uc.AUTO_RUN}==true"
 
@@ -315,7 +315,7 @@ MY_BOOT_POLICY = 0
 ```toml
   [setup_flow.install_1]
   name = "Install 1"
-  type = "Exec"
+  type = "Execute"
   if = "${uc.GROUP_INSTALL}==true"
 
   command = "./Installer1.exe /S"
@@ -323,7 +323,7 @@ MY_BOOT_POLICY = 0
 
   [setup_flow.install_2]
   name = "Install 2"
-  type = "Exec"
+  type = "Execute"
   if = "${uc.GROUP_INSTALL}==true"
 
   command = "./Installer2.exe /S"
@@ -331,7 +331,7 @@ MY_BOOT_POLICY = 0
 
   [setup_flow.install_3]
   name = "Install 3"
-  type = "Exec"
+  type = "Execute"
   if = "${uc.GROUP_INSTALL}==true"
 
   command = "./Installer3.exe /S"
@@ -344,24 +344,23 @@ MY_BOOT_POLICY = 0
   # 使用一个条件语句控制整组步骤的执行
   if = "${uc.GROUP_INSTALL}==true"
 
-
     [setup_flow.install_group.install_1]
     name = "Install 1"
-    type = "Exec"
+    type = "Execute"
 
     command = "./Installer1.exe /S"
 
 
     [setup_flow.install_group.install_2]
     name = "Install 2"
-    type = "Exec"
+    type = "Execute"
 
     command = "./Installer2.exe /S"
 
 
     [setup_flow.install_group.install_3]
     name = "Install 3"
-    type = "Exec"
+    type = "Execute"
 
     command = "./Installer3.exe /S"
 ```
