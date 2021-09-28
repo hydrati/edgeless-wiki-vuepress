@@ -248,7 +248,7 @@ MY_BOOT_POLICY = 0
 ```toml
   [setup_flow.start_vscode]
   name = "Start VSCode"
-  type = "Exec"
+  type = "Execute"
   # 默认情况下，此项会被解释为 false==true
   # if 表示一个条件，我们将在下一节中讲解
   if = "${uc.AUTO_RUN}==true"
