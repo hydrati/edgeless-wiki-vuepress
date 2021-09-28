@@ -118,7 +118,7 @@ tested = ["4.0.0","3.2.1"]
   name = "Run setup batch"
   type = "Script"
 
-  # 根据path拓展名自动分配shell，支持cmd(cmd/bat)和pecmd(wcs/ini)，也可以指定shell
+  # 根据path拓展名自动分配shell，支持cmd(cmd/bat)和pecmd(wcs/ini)，也可以显式指定shell
   # shell = "cmd"
   path = "./setup.cmd"
   use = ["SETUP_PLUGINS"]
@@ -138,10 +138,12 @@ tested = ["4.0.0","3.2.1"]
 
   [setup_flow.start_vscode]
   name = "Start VSCode"
-  type = "Exec"
+  type = "Execute"
   if = "${uc.AUTO_RUN}==true"
 
-  command = "explorer ${Desktop}/Visual Studio Code.lnk"
+  # 支持指定shell，默认使用cmd
+  shell = "pecmd"
+  command = "exec explorer ${Desktop}/Visual Studio Code.lnk"
 
 
   [setup_flow.log_status]
@@ -156,7 +158,7 @@ tested = ["4.0.0","3.2.1"]
 看起来可能会比较晦涩，不过这仅仅是为了让你拥有一个大致的概念。我们会在下面详细解释工作流描述方法。
 
 ### 步骤
-工作流由数个步骤构成，比如：
+工作流由数个步骤构成，例如：
 ```toml
   [setup_flow.copy_config]
   name = "Copy config"
@@ -178,7 +180,7 @@ tested = ["4.0.0","3.2.1"]
 看起来这三个字段似乎可以分为两个拥有层层递进关系的字段组，其实在程序中它们是平坦的 (plain) 、位于同一逻辑层级上的，都会直接暴露给 `File` 类型步骤解析器
 :::
 
-了解步骤的基本概念后，你应该能够大致看懂工作流的描述了，比如：
+了解步骤的基本概念后，你应该能够大致看懂工作流的描述了，例如：
 ```toml
   [setup_flow.log_status]
   name = "Log status"
@@ -291,7 +293,7 @@ MY_BOOT_POLICY = 0
   [setup_flow.start_vscode]
   name = "Start VSCode"
   type = "Exec"
-  # 此项会被解释为 true==true
+  # 默认情况下，此项会被解释为 false==true
   # if 表示一个条件，我们将在下一节中讲解
   if = "${uc.AUTO_RUN}==true"
 
@@ -322,7 +324,7 @@ MY_BOOT_POLICY = 0
 
   # 仅对字符串型有效的正则表达式校验
   # 当然也可以使用 options 仅让用户选择而不是输入
-  regex = '\d+x\d+'
+  regex = '/^\d+x\d+&/'
 ```
 :::tip
 此处的正则表达式符合Perl-style，需要能被[regex crate](https://docs.rs/regex)解析
