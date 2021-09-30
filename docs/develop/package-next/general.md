@@ -248,7 +248,7 @@ models = ["AX200","Killer-AX201"]
 [theme]
 # 说明文件，支持markdown语法，会经过base64编码后保存到此字符串中
 # 如果需要引用图片，请将图片放在 _scripts/img 文件夹内直接引用
-readme = "这是一个一个一个图标包，哼哼啊啊啊啊啊啊啊"
+readme = "6L+Z5piv5LiA5Liq5LiA5Liq5LiA5Liq5Zu+5qCH5YyF77yM5ZO85ZO85ZWK5ZWK5ZWK5ZWK5ZWK5ZWK5ZWK"
 # 标签
 tags = ["Material Design","圆角"]
 # 推荐搭配的其他资源名
