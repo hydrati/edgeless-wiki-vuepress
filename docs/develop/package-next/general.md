@@ -25,7 +25,7 @@
 
 使用配置文件而不是包含绝对命令语句的批处理来描述插件包行为有非常多的好处，例如可拓展、可自定义行为、提供更便捷的高级特性等。而选用 [`TOML`](https://toml.io/cn/) 作为配置文件描述语言则是因为 `TOML` 是一种拥有良好可读性的高级描述语言，并且能很容易地被转换为 `JSON` 或其他数据结构以便被现代程序处理。
 
-当然，我们也会提供相应的 ABNF 语法校验文件、图形化配置生成器和配置检查工具以确保此文件准确地表达了你的意图。
+当然，我们也会提供相应的图形化配置生成器和配置检查工具以确保此文件准确地表达了你的意图。
 
 ## 目录结构
 
@@ -131,6 +131,50 @@ tested = ["4.0.0","3.2.1"]
 对于便携软件来说，可能不需要执行卸载工作流，直接删除生成的程序目录即可完成卸载。对于这种情况，构建工具会检查程序的配置工作流，仅当配置工作流*不包含创维快捷方式以外的步骤*时才会允许卸载工作流为空，否则必须提供卸载工作流
 :::
 
+### 独占表
+
+不同类型的资源包通常会拥有一些特定的表用于存放该类资源的通用信息，我们将其定义为独占表。
+
+例如，对于软件型资源会有 `software` 表：
+
+```toml
+[software]
+# 分类
+category = "办公编辑"
+# 标签
+tags = ["Visual Studio Code","VSC"]
+# 安装位置
+location = "${ProgramFiles}/Edgeless"
+# 需要添加到PATH的文件夹
+path = ["./VSCode"]
+```
+
+驱动型资源会有 `driver` 表：
+
+```toml
+[driver]
+# 驱动程序提供商
+brand = "Intel"
+# 硬件类型
+type = "无线网卡"
+# 适用型号，默认品牌与驱动程序提供商一致
+# 可以使用 品牌-型号 指定其他品牌
+models = ["AX200","Killer-AX201"]
+```
+
+主题型资源会有 `theme` 表：
+
+```toml
+[theme]
+# 说明文件，支持markdown语法，会经过base64编码后保存到此字符串中
+# 如果需要引用图片，请将图片放在 _scripts/img 文件夹内直接引用
+readme = "IyAxMTQ1MTQNCiZsdDtici8mZ3Q7DQrov5nmmK/kuIDkuKrkuIDkuKrkuIDkuKrlm77moIfljIXvvIzlk7zlk7zllYrllYrllYrllYrllYrllYrllYoNCiFbXSgxOTE5ODEwLmpwZyk="
+# 标签
+tags = ["Material Design","圆角"]
+# 推荐搭配的其他资源名
+recommend = ["MacType"]
+```
+
 ### 钩子 <Badge text="可选" />
 
 [生命周期钩子](../../playground/hooks.md)可以在 Edgeless 运行时的不同周期位置运行用户的指定脚本，这里同样使用工作流来描述某个位置的钩子，例如：
@@ -207,51 +251,27 @@ vc = "11"
 cmder = "1.0.0.0"
 ```
 
-### 拓展区域
+### CI/CD 保留 <Badge text="自动" />
 
-不同类型的资源包通常会拥有一些特定的表用于存放该类资源的通用信息，因此我们保留了拓展区域用于存放额外的信息。
+Edgeless 基础设施包含了能对资源包自动构建、自动测试和自动交付的工具，并可依托于云服务设备运行 CI/CD 作业，在此过程中会产生一些与设施相关的信息，我们使用 `ci-cd` 表保存这些信息。
 
-例如，对于软件型资源会有 `software` 表：
-
-```toml
-[software]
-# 分类
-category = "办公编辑"
-# 标签
-tags = ["Visual Studio Code","VSC"]
-# 安装位置
-location = "${ProgramFiles}/Edgeless"
-# 需要添加到PATH的文件夹
-path = ["./VSCode"]
-```
-
-驱动型资源会有 `driver` 表：
+示例：
 
 ```toml
-[driver]
-# 驱动程序提供商
-brand = "Intel"
-# 硬件类型
-type = "无线网卡"
-# 适用型号，默认品牌与驱动程序提供商一致
-# 可以使用 品牌-型号 指定其他品牌
-models = ["AX200","Killer-AX201"]
+[ci-cd]
+# 自动构建设施代号
+build_at = "GithubActions"
+# 自动构建设施上的构建器版本号
+build_with = "0.1.0"
+# 自动测试设施代号
+test_at = "GithubActions"
+# 自动测试设施上的测试器版本号
+test_with = "0.1.0"
+# 自动交付目标服务器代号
+deploy_at = "Pineapple"
 ```
 
-主题型资源会有 `theme` 表：
-
-```toml
-[theme]
-# 说明文件，支持markdown语法，会经过base64编码后保存到此字符串中
-# 如果需要引用图片，请将图片放在 _scripts/img 文件夹内直接引用
-readme = "6L+Z5piv5LiA5Liq5LiA5Liq5LiA5Liq5Zu+5qCH5YyF77yM5ZO85ZO85ZWK5ZWK5ZWK5ZWK5ZWK5ZWK5ZWK"
-# 标签
-tags = ["Material Design","圆角"]
-# 推荐搭配的其他资源名
-recommend = ["MacType"]
-```
-
-### 保留表
+### 构建工具保留 <Badge text="自动" />
 
 此外，配置文件中还会保留一个 `build` 表用于保存构建时的相关信息，此信息由构建工具自动生成：
 
