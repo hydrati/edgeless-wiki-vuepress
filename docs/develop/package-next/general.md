@@ -246,8 +246,8 @@ models = ["AX200","Killer-AX201"]
 
 ```toml
 [theme]
-# 说明，会经过url编码后保存到此字符串中
-# 如果需要引用图片，可以将图片放在 _scripts 文件夹内引用
+# 说明文件，支持markdown语法，会经过base64编码后保存到此字符串中
+# 如果需要引用图片，请将图片放在 _scripts/img 文件夹内直接引用
 readme = "这是一个一个一个图标包，哼哼啊啊啊啊啊啊啊"
 # 标签
 tags = ["Material Design","圆角"]
