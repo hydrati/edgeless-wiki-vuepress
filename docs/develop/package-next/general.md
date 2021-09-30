@@ -233,20 +233,23 @@ path = ["./VSCode"]
 
 ```toml
 [driver]
-# 驱动厂商
+# 驱动程序提供商
 brand = "Intel"
 # 硬件类型
 type = "无线网卡"
-# 适用型号
-models = ["AX200","AX201"]
+# 适用型号，默认品牌与驱动程序提供商一致
+# 可以使用 品牌-型号 指定其他品牌
+models = ["AX200","Killer-AX201"]
 ```
 
 主题型资源会有 `theme` 表：
 
 ```toml
 [theme]
-# 对应实现的初代主题包/资源包类型
-type = ["ESS","EMS"]
+# 标签
+tags = ["Material Design","圆角"]
+# 推荐搭配的其他资源名
+recommend = ["MacType"]
 ```
 
 ### 保留表
