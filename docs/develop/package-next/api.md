@@ -41,7 +41,7 @@
 
 如果是软件推荐使用主程序的产品版本，如果是驱动推荐使用设备管理器中标识的驱动程序版本，如果已知上游内容版本号推荐将其缩短至 4 位以内使用，其他情况推荐令前三位遵守 [Semver](https://semver.org/lang/zh-CN/) 规范
 
-根据校验规则，禁止在版本号中出现非数字且非`.`的字符，请考虑将不规范的版本字符删除或移动到包名中；对于 `-beta` `-rc` 这类标识版本阶段的字符，我们建议在版本号与主阶段不冲突时删掉它们，或是不制作此阶段的资源，等待主阶段的上游发布
+根据校验规则，禁止在版本号中出现非数字且非`.`的字符，请考虑将不规范的版本字符删除或移动到包名中；对于 `-beta` `-rc` 这类标识版本阶段的字符，我们建议在版本号与正式版不冲突时删掉它们，或是不制作此阶段的资源，等待上游发布正式版
 :::
 
 ### authors
@@ -77,18 +77,18 @@
 
 ## 内置变量
 
-**流控制类**
+**步骤状态类**
 
 ### ExitCode
 `int`
 
-上一个步骤的执行状态，`0`表示成功，`1`表示失败
+上一个步骤的执行状态，`==0`表示成功，`!=0`表示失败
 
 对于 `Script` 和 `Execute` 类型的步骤来说，这个变量的值会是脚本或命令的退出码
 
 示例：
 ```toml
-if = '${ExitCode}==1'
+if = '${ExitCode}!=0'
 ```
 
 :::tip
@@ -127,13 +127,13 @@ shell = "cmd"
 ### Feedback
 `int`
 
-获得 [`Dialog`](#dialog) 的用户反馈，`0`表示用户关闭了对话框，从`1`开始表示用户所选按钮的索引
+获得 [Dialog](#dialog) 的用户反馈，`0`表示用户关闭了对话框，从`1`开始表示用户所选按钮的索引
 
-示例：见 [`Dialog`](#dialog)
+示例：见 [Dialog](#dialog)
 
 ---
 
-**位置类**
+**路径类**
 
 ### SystemDrive
 `String`
@@ -150,6 +150,8 @@ if = '${SystemDrive}=="X:"'
 `String`
 
 Edgeless 启动盘盘符，可能为 `U:`
+
+如果当前没有检测到Edgeless 启动盘，则会立即结束当前步骤并将 [`${ExitCode}`](#exitcode) 配置为`1`
 
 示例：
 
@@ -177,6 +179,23 @@ if = '${DefaultLocation}=="X:/Program Files/Edgeless"'
 
 ```toml
 if = '${Desktop}=="X:/Users/Default/Desktop"'
+```
+
+### Aria2cPath
+`String`
+
+aria2c 可执行文件 `aria2c.exe` 的绝对路径，如果内置的 [Download](#download) 步骤无法满足你的需求，你可以不等待地执行一个脚本来实现异步下载并回调的操作
+
+示例：
+
+```toml
+[setup_flow.download_vscode]
+name = "Download VSCode"
+type = "Script"
+
+path = "./download.cmd"
+wait = false
+use = ["Aria2cPath"]
 ```
 
 ---
@@ -207,7 +226,11 @@ if = '${BootPolicy}=="UEFI"'
 
 ## 内置函数
 
-内置函数通常用于[条件语句](#if)内，仅提供一些返回值为 `bool` 型的简单函数
+内置函数仅可用于[条件语句](#if)内，仅提供一些返回值为 `bool` 型的简单函数
+
+:::tip
+复杂的函数和步骤不是工作流应该考虑的内容，你应该使用脚本
+:::
 
 ### Exist
 `Exist(path :String) :bool`
@@ -231,13 +254,11 @@ if = 'Exist("${SystemDrive}/Users/Profiles")'
 if = 'IsDirectory("${SystemDrive}/Users/Profiles")'
 ```
 
-## 步骤
-
-此处列出所有步骤的通用字段
+## 步骤通用字段
 
 位置：`setup_flow` `remove_flow` `hooks.HOOK_STAGE`
 
-### name
+### name <Badge text="必须" />
 
 步骤名称，通常是步骤键名的标准英文句式
 
@@ -248,7 +269,7 @@ if = 'IsDirectory("${SystemDrive}/Users/Profiles")'
 name = "Install VSCode"
 ```
 
-### type
+### type <Badge text="必须" />
 
 步骤类型，必须为[步骤类型 API 参考](#步骤类型)中指定的一种
 
@@ -346,9 +367,11 @@ else = 'true'
 
 ### throw
 
-异常处理语句，若当前步骤执行出错(退出码不等于`0`)则立即抛出一个错误信息，然后退出当前工作流
+异常处理字段，*若当前步骤执行出错*(退出码不等于`0`)则立即抛出指定的错误信息，然后退出当前工作流
 
-在不指定 throw 语句的情况下，出错后工作流会继续执行，不过在下一个步骤中 [`${ExitCode}`](#exitcode) 会不为`0`
+在不指定 throw 语句的情况下，出错后工作流会继续执行，不过在下一个逻辑步骤中 [`${ExitCode}`](#exitcode) 会不为`0`
+
+这里 throw 真正的含义是“throw if error”，我们暂时想不到更恰当的词来形容这一操作
 
 示例：
 ```toml
@@ -370,10 +393,11 @@ shell = "pecmd"
 
 - 发生了异常
 
-  对于这种情况，如果你不想处理问题，请直接 [throw](#throw)；如果你想尝试解决问题，请在下一步骤中判断 [ExitCode](#exitcode)
+  对于这种情况，如果你不想处理问题，请直接 [throw](#throw)；如果你想尝试解决问题，请在下一步骤中判断 [ExitCode](#exitcode) 并使用[步骤组](#group)编写解决方案
 :::
 
 ## 步骤类型
+使用 `type = "xxx"` 指定步骤类型，并根据此处的参考规范提供相应的字段
 
 ### Group
 
@@ -394,6 +418,7 @@ if = "${uc.GROUP_INSTALL}==true"
   type = "Execute"
 
   command = "./MySoftware/Installer1.exe /S"
+  shell = "cmd"
 
 
   [setup_flow.install_group.install_2]
@@ -401,6 +426,7 @@ if = "${uc.GROUP_INSTALL}==true"
   type = "Execute"
 
   command = "./MySoftware/Installer2.exe /S"
+  shell = "cmd"
 
 
   [setup_flow.install_group.install_3]
@@ -408,6 +434,7 @@ if = "${uc.GROUP_INSTALL}==true"
   type = "Execute"
 
   command = "./MySoftware/Installer3.exe /S"
+  shell = "cmd"
 ```
 
 ### File
@@ -527,7 +554,7 @@ fix = ["./VSCode/install.cmd", "./_retinue/update.py"]
 - `command :String`：命令
 - `shell :Enum<String>`：使用的终端，下列值中的一个：`{"cmd", "pecmd"}`
 - `use :Array<String>`：（可选）需要传递的[变量](workflow.md#变量)
-- `pwd :String`：（可选）工作目录，缺省为资源根目录
+- `pwd :String`：（可选）工作目录，缺省时自动判断(引用 `_retinue` 内脚本则为资源根目录，其他位置则在脚本所在目录)
 - `hide :bool`：（可选）是否隐藏命令执行窗口，缺省为 `true`
 - `wait :bool`：（可选）是否等待命令执行完成，缺省为 `true`
 
@@ -570,7 +597,7 @@ location_default = "Desktop"
 ```
 
 ### Log
-输出日志，分为信息、警告、错误三个等级，错误信息的内容会以 [Toast](#toast) 形式直接展示给用户
+输出日志，分为信息、警告、错误三个等级，错误(`Error`)等级信息的内容会以 [Toast](#toast) 形式直接展示给用户
 - `level :Enum<String>`：日志等级，下列值中的一个：`{"Info", "Waring", "Error"}`
 - `msg :String`：日志内容
 
@@ -640,7 +667,7 @@ shell = "cmd"
 
 ```toml
 [setup_flow.download_vscode]
-name = "Download vscode"
+name = "Download VSCode"
 type = "Download"
 
 url = "https://az764295.vo.msecnd.net/stable/7f6ab5485bbc008386c4386d08766667e155244e/VSCodeUserSetup-x64-1.60.2.exe"
@@ -649,3 +676,7 @@ overwrite = false
 wait = false
 thread = 16
 ```
+
+:::tip
+如果需要异步地下载并执行回调，请改为使用脚本，我们会在 [`${Aria2cPath}`](#aria2cpath) 参数上提供一个现成的 aria2c 可执行文件
+:::
