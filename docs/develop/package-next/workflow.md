@@ -19,9 +19,7 @@
 
   # 由于 _scripts 文件夹内的内容会在加载时自动提取到根目录，因此你只需相对于根目录调用脚本即可
   path = "./setup.cmd"
-  use = ["SETUP_PLUGINS"]
-  # 根据path拓展名自动分配shell，也可以显式指定shell
-  # shell = "cmd"
+  use = ["env.SETUP_PLUGINS"]
 
 
   [setup_flow.create_shortcut]

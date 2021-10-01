@@ -164,7 +164,7 @@ if = '${BootPolicy}=="UEFI"'
 
 ## 内置函数
 
-内置函数通常用于[条件语句](#if)内
+内置函数通常用于[条件语句](#if)内，仅提供一些返回值为 `bool` 型的简单函数
 
 ### Exist
 `Exist(path :String) :bool`
@@ -175,6 +175,17 @@ if = '${BootPolicy}=="UEFI"'
 
 ```toml
 if = 'Exist("${SystemDrive}/Users/Profiles")'
+```
+
+### IsDirectory
+`IsDirectory(path :String) :bool`
+
+判断某个路径是否是文件夹
+
+示例：
+
+```toml
+if = 'IsDirectory("${SystemDrive}/Users/Profiles")'
 ```
 
 ## 步骤
@@ -380,4 +391,51 @@ type = "File"
 operation = "Delete"
 source = "${SystemDrive}/Users/Config/*"
 force = true
+```
+
+### Script
+执行脚本，支持 cmd 脚本(`.cmd`)和 pecmd 脚本(`.wcs`)
+
+- `path :String`：脚本路径
+- `args :String`：（可选）参数
+- `use :Array<String>`：（可选）需要传递的[变量](workflow.md#变量)
+- `pwd :String`：（可选）工作目录，缺省为资源根目录
+- `fix :Array<String>`：（可选）需要[修复 `_retinue` 引用](general.md#随从文件夹)的文本文件
+
+示例：
+
+```toml
+[setup_flow.run_setup_script]
+name = "Run setup script"
+type = "Script"
+
+path = "./setup.cmd"
+args = "${env.USER_ARGS}"
+use = ["env.SETUP_PLUGINS"]
+pwd = "${SystemDrive}/System32"
+fix = ["./VSCode/install.cmd", "./_retinue/update.py"]
+```
+
+### Execute
+执行命令，支持 cmd 命令和 pecmd 命令
+
+- `command :String`：命令
+- `shell :Enum<String>`：使用的终端，`{"cmd","pecmd"}`
+- `use :Array<String>`：（可选）需要传递的[变量](workflow.md#变量)
+- `pwd :String`：（可选）工作目录，缺省为资源根目录
+- `fix :Array<String>`：（可选）需要[修复 `_retinue` 引用](general.md#随从文件夹)的文本文件
+
+示例：
+
+```toml
+[setup_flow.start_vscode]
+name = "Start VSCode"
+type = "Execute"
+if = "${uc.AUTO_RUN}==true"
+
+command = "exec explorer ${Desktop}/Visual Studio Code.lnk"
+shell = "pecmd"
+use = ["env.SETUP_PLUGINS"]
+pwd = "${SystemDrive}/System32"
+fix = ["./VSCode/install.cmd", "./_retinue/update.py"]
 ```
