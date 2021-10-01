@@ -91,6 +91,16 @@
 if = '${ExitCode}==1'
 ```
 
+### Value
+`any`
+
+与 [`for`](#for) 搭配使用，表达遍历时所取元素的值
+
+### Index
+`any`
+
+与 [`for`](#for) 搭配使用，表达遍历时所取元素的索引
+
 位置类
 
 ### SystemDrive
@@ -316,6 +326,8 @@ else = 'true'
 
 使用 `for` 时当前步骤类型必须为 `Group`，当前步骤中出现的 `if` 优先级高于 `for`
 
+支持通过 `filter` 字段指定正则表达式过滤遍历时的取值
+
 可以通过 `${Value}` 变量获取元素，通过 `${Index}` 变量获取从0开始的索引
 
 示例：
@@ -326,6 +338,8 @@ type = "Group"
 # 当自定义变量CHECK_WINDOWS为true时才会执行for语句
 if = '${env.CHECK_WINDOWS}'
 for = '${WindowsDrives}'
+# 仅当元素满足此正则时才会执行步骤组，否则继续
+filter = "/[C-Z]:/"
 
   [setup_flow.check_windows.change_value]
   name = "Change value"
