@@ -77,7 +77,7 @@
 
 ## 内置变量
 
-流控制类
+**流控制类**
 
 ### ExitCode
 `int`
@@ -94,11 +94,13 @@ if = '${ExitCode}==1'
 ### Feedback
 `int`
 
-获得 [`Dialog`](#Dialog) 的用户反馈，`0`表示用户关闭了对话框，从`1`开始表示用户所选按钮的索引
+获得 [`Dialog`](#dialog) 的用户反馈，`0`表示用户关闭了对话框，从`1`开始表示用户所选按钮的索引
 
-示例：见 [`Dialog`](#Dialog)
+示例：见 [`Dialog`](#dialog)
 
-位置类
+---
+
+**位置类**
 
 ### SystemDrive
 `String`
@@ -144,8 +146,9 @@ if = '${DefaultLocation}=="X:/Program Files/Edgeless"'
 if = '${Desktop}=="X:/Users/Default/Desktop"'
 ```
 
+---
 
-信息类
+**信息类**
 
 
 ### EdgelessVersion
@@ -316,6 +319,35 @@ else = 'true'
 
 不需要额外的字段
 
+示例：
+```toml
+[setup_flow.install_group]
+name = "Install Group"
+type = "Group"
+# 使用一个条件语句控制整组步骤的执行
+if = "${uc.GROUP_INSTALL}==true"
+
+  [setup_flow.install_group.install_1]
+  name = "Install 1"
+  type = "Execute"
+
+  command = "./Installer1.exe /S"
+
+
+  [setup_flow.install_group.install_2]
+  name = "Install 2"
+  type = "Execute"
+
+  command = "./Installer2.exe /S"
+
+
+  [setup_flow.install_group.install_3]
+  name = "Install 3"
+  type = "Execute"
+
+  command = "./Installer3.exe /S"
+```
+
 ### File
 
 文件操作类型步骤，通过 `operation` 字段说明所需的操作，支持复制、移动、重命名、删除操作
@@ -459,7 +491,7 @@ wait = false
 - `target_name :String`：快捷方式名称
 - `target_args :String`：（可选）追加参数
 - `target_icon :String`：（可选）快捷方式图标，缺省与源文件一致
-- `location_default :Enum<String>`：（可选）默认创建位置，缺省为桌面，下列值中的一个：`{"Desktop", "Taskbar", "StartMenu"}`
+- `location_default :Enum<String>`：（可选）默认创建位置，缺省为`"Desktop"`，下列值中的一个：`{"Desktop", "Taskbar", "StartMenu"}`
 
 示例：
 
@@ -476,7 +508,7 @@ location_default = "Desktop"
 ```
 
 ### Log
-输出日志，分为信息、警告、错误三个等级，错误信息的内容会以 [Toast](#Toast) 形式直接展示给用户
+输出日志，分为信息、警告、错误三个等级，错误信息的内容会以 [Toast](#toast) 形式直接展示给用户
 - `level :Enum<String>`：日志等级，下列值中的一个：`{"Info", "Waring", "Error"}`
 - `msg :String`：日志内容
 
@@ -508,7 +540,7 @@ content = "VSCode 已安装完成"
 ```
 
 ### Dialog
-弹出对话框，可以使用 [`${Feedback}`](#Feedback) 变量获得用户点击按钮的索引
+弹出对话框，可以使用 [`${Feedback}`](#feedback) 变量获得用户点击按钮的索引
 - `title :String`：对话框标题
 - `content :String`：对话框内容
 - `options :Array<String>`：（可选）按钮文本，缺省为`["确认"]`
