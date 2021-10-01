@@ -128,13 +128,12 @@ name = "Check Windows"
 type = "Group"
 for = '${WindowsDrives}'
 
-  [setup_flow.check_windows.change_value]
-  name = "Change value"
-  type = "Value"
-  if = '${Value}!=""'
+  [setup_flow.check_windows.log_drive]
+  name = "Log drive"
+  type = "Log"
 
-  key = "env.HAS_WINDOWS"
-  val = "${Index}+1"
+  level = "Info"
+  msg = 'Find Windows at ${Value}'
 ```
 
 ### DefaultLocation
@@ -331,12 +330,19 @@ for = '${WindowsDrives}'
   [setup_flow.check_windows.change_value]
   name = "Change value"
   type = "Value"
-  if = '${Value}!=""'
 
   key = "env.WINDOWS_COUNT"
   # 这个步骤会被执行len(${WindowsDrives})次
-  # 最终${env.WINDOWS_COUNT}的值会变成${WindowsDrives}的长度+1
+  # 最后一次执行时WINDOWS_COUNT的值会变成${WindowsDrives}数组中最后一个元素索引的值+1
+  # 此语句等效于 len(${WindowsDrives})，不过效率更低
   val = "${Index}+1"
+
+  [setup_flow.check_windows.log_drive]
+  name = "Log drive"
+  type = "Log"
+
+  level = "Info"
+  msg = 'Find Windows at ${Value}'
 ```
 
 ## 步骤类型
