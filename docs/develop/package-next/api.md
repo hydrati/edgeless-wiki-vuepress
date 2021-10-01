@@ -4,41 +4,39 @@
 
 位置： `package` 表
 
-### 包名
+### name
+`String`
 
-简名标识资源包内容的字段
+包名，简名标识资源包内容的字段
 
-- **键**：`name`
-- **类型**：`String`
-- **校验**：需要与文件名中的包名相同；不包含`_`
-:::tip 备注
+需要与文件名中的包名相同；不包含`_`
+
+:::tip
 如果需要使用`_`分割内容，请用空格或`-`达到近似目的；例如 `nodejs-runtime` 或 `Idea community`
 
 *不要*在包名中提供代指版本号的数字，请在对应的版本号中体现；例如 `VMware Workstation 16` 就是一个不规范的名称，这会导致用户无法接收大版本更新，因此请将其改为 `VMware Workstation`
 :::
 
-### 类型
+### type
+`Enum<String>`
 
 资源包内容类型
 
-- **键**：`type`
-- **类型**：`Enum<String>`
-- **校验**：`{Software, Driver, Essential, Dependency, Theme}`
+下列值中的一个：`{"Software", "Driver", "Essential", "Dependency", "Theme"}`
 
-:::tip 备注
-这是一个 String 类型的枚举类，因此取值只能在校验提供的值中选取，下同
+:::tip
+`Enum<String>`表示这是一个 String 类型的枚举类
 :::
 
-### 版本号
+### version
+`String`
 
 资源包内容版本号
 
-- **键**：`version`
-- **类型**：`String`
-- **校验**：`/^\d+.\d+.\d+(.\d+)?$/`；需要与文件名中的版本号相同
+需要满足正则：`/^\d+.\d+.\d+(.\d+)?$/`；需要与文件名中的版本号相同
 
 
-:::tip 备注
+:::tip
 取 3 位或 4 位版本号
 
 如果是软件推荐使用主程序的产品版本，如果是驱动推荐使用设备管理器中标识的驱动程序版本，如果已知上游内容版本号推荐将其缩短至 4 位以内使用，其他情况推荐令前三位遵守 [Semver](https://semver.org/lang/zh-CN/) 规范
@@ -46,47 +44,59 @@
 根据校验规则，禁止在版本号中出现非数字且非`.`的字符，请考虑将不规范的版本字符删除或移动到包名中；对于 `-beta` `-rc` 这类标识版本阶段的字符，我们建议在版本号与主阶段不冲突时删掉它们，或是不制作此阶段的资源，等待主阶段的上游发布
 :::
 
-### 打包者/作者
+### authors
+`Array<String>`
 
 打包者与内容作者
 
-- **键**：`authors`
-- **类型**：`Array<String>`
-- **校验**：打包者（第一个成员）需要与文件名中的打包者相同
-  :::tip 备注
-  统一将打包者作为第一个成员提供，如果打包者同时也是内容作者则只需保留一个成员即可
+打包者（第一个成员）需要与文件名中的打包者相同
+:::tip
+统一将打包者作为第一个成员提供，如果打包者同时也是内容作者则只需保留一个成员即可
 
 推荐打包者通过附加`<@github_id>`来提供对应的 GitHub ID
 :::
 
-### 兼容的 Edgeless 版本（可选）
+### compat <Badge text="可选" />
+`Array<String>`
 
 资源包兼容的 Edgeless 版本
 
-- **键**：`compat`
-- **类型**：`Array<String>`
-- **校验**：`/^[><]=?\s*\d+.\d+.\d+$/`
+需要满足正则：`/^[><]=?\s*\d+.\d+.\d+$/`
 
 
-:::tip 备注
+:::tip
 允许的前缀：`[">=" , "<=" , ">" , "<"]`
 
 缺省表示全部兼容
 :::
 
-### 通过测试的 Edgeless 版本
+### tested
+`Array<String>`
 
 经打包者测试可用的 Edgeless 版本
 
-- **键**：`tested`
-- **类型**：`Array<String>`
-- **校验**：`/^\d+.\d+.\d+$/`
+需要满足正则：`/^\d+.\d+.\d+$/`
 
 ## 内置变量
+
+流控制类
+
+### ExitCode
+`int`
+
+上一个步骤的执行状态，`0`表示成功，`1`表示失败
+
+对于 `Script` 和 `Execute` 类型的步骤来说，这个变量的值会是脚本或命令的退出码
+
+示例：
+```toml
+if = '${ExitCode}==1'
+```
 
 位置类
 
 ### SystemDrive
+`String`
 
 Windows 系统盘符，在 Edgeless 下通常为 `X:`
 
@@ -97,6 +107,7 @@ if = '${SystemDrive}=="X:"'
 ```
 
 ### EdgelessDrive
+`String`
 
 Edgeless 启动盘盘符，可能为 `U:`
 
@@ -107,6 +118,7 @@ if = '${EdgelessDrive}=="U:"'
 ```
 
 ### DefaultLocation
+`String`
 
 资源的默认安装位置，在 Edgeless 下通常为 `X:\Program Files\Edgeless`
 
@@ -117,6 +129,7 @@ if = '${DefaultLocation}=="X:\Program Files\Edgeless"'
 ```
 
 ### Desktop
+`String`
 
 桌面位置，在 Edgeless 下通常为 `X:\Users\Default\Desktop`
 
@@ -131,6 +144,8 @@ if = '${Desktop}=="X:\Users\Default\Desktop"'
 
 
 ### EdgelessVersion
+`String`
+
 当前 Edgeless 版本号，为三位使用`.`分割的数字
 
 示例：
@@ -139,6 +154,8 @@ if = '${Desktop}=="X:\Users\Default\Desktop"'
 if = '${EdgelessVersion}=="4.0.0"'
 ```
 ### BootPolicy
+`String`
+
 当前系统启动方式，值为`Legacy` 或 `UEFI`
 
 示例：
@@ -151,7 +168,8 @@ if = '${BootPolicy}=="UEFI"'
 
 内置函数通常用于[条件语句](#if)内
 
-### Exist(path :string)
+### Exist
+`Exist(path :String) :bool`
 
 判断是否存在某个文件或目录
 
@@ -274,6 +292,22 @@ else = `true`
   ...
 ```
 
+### for
+对一个数组进行遍历，在处理文件夹或盘符时会很有用
+
+可以通过 `${Value}` 变量获取元素，通过 `${Index}` 变量获取从0开始的索引
+
+示例：
+```toml
+[setup_flow.check_windows]
+name = "Check Windows"
+# 这个Value类型步骤是用于给自定义变量赋值的，不要和${Value}弄混了
+type = "Value"
+for = '${WindowsDrives}'
+
+
+```
+
 ## 步骤类型
 
 ### Group
@@ -290,8 +324,8 @@ else = `true`
 
 需要使 `operation = "Copy"`
 
-- `source : string`：复制来源，可以是文件或文件夹，支持通配符
-- `target : string`：复制目的地，支持重命名
+- `source : String`：复制来源，可以是文件或文件夹，支持通配符
+- `target : String`：复制目的地，支持重命名
 - `overwrite : bool`：（可选）是否覆盖，缺省为 `true`
 
 示例：
@@ -311,8 +345,8 @@ overwrite = false
 
 需要使 `operation = "Move"`
 
-- `source : string`：移动来源，可以是文件或文件夹，支持通配符
-- `target : string`：移动目的地，支持重命名
+- `source : String`：移动来源，可以是文件或文件夹，支持通配符
+- `target : String`：移动目的地，支持重命名
 - `overwrite : bool`：（可选）是否覆盖，缺省为 `true`
 
 示例：
@@ -332,8 +366,8 @@ overwrite = false
 
 需要使 `operation = "Rename"`
 
-- `source : string`：重命名源，可以是文件或文件夹，支持通配符
-- `target : string`：新名称，需要手动添加拓展名
+- `source : String`：重命名源，可以是文件或文件夹，支持通配符
+- `target : String`：新名称，需要手动添加拓展名
 
 示例：
 
@@ -351,7 +385,7 @@ target = "*.wcs"
 
 需要使 `operation = "Delete"`
 
-- `source : string`：删除来源，可以是文件或文件夹，支持通配符
+- `source : String`：删除来源，可以是文件或文件夹，支持通配符
 - `force : bool`：（可选）是否解除占用强制删除，缺省为 `false`
 
 示例：
