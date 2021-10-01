@@ -420,10 +420,9 @@ fix = ["./VSCode/install.cmd", "./_retinue/update.py"]
 执行命令，支持 cmd 命令和 pecmd 命令
 
 - `command :String`：命令
-- `shell :Enum<String>`：使用的终端，`{"cmd","pecmd"}`
+- `shell :Enum<String>`：使用的终端，下列值中的一个：`{"cmd", "pecmd"}`
 - `use :Array<String>`：（可选）需要传递的[变量](workflow.md#变量)
 - `pwd :String`：（可选）工作目录，缺省为资源根目录
-- `fix :Array<String>`：（可选）需要[修复 `_retinue` 引用](general.md#随从文件夹)的文本文件
 
 示例：
 
@@ -437,5 +436,26 @@ command = "exec explorer ${Desktop}/Visual Studio Code.lnk"
 shell = "pecmd"
 use = ["env.SETUP_PLUGINS"]
 pwd = "${SystemDrive}/System32"
-fix = ["./VSCode/install.cmd", "./_retinue/update.py"]
+```
+
+### Link
+创建快捷方式，支持在桌面、任务栏、开始菜单
+- `source_file :String`：源文件
+- `target_name :String`：快捷方式名称
+- `target_args :String`：（可选）追加参数
+- `target_icon :String`：（可选）快捷方式图标，缺省与源文件一致
+- `location_default :Enum<String>`：（可选）默认创建位置，缺省为桌面，下列值中的一个：`{"Desktop", "Taskbar", "StartMenu"}`
+
+示例：
+
+```toml
+[setup_flow.create_shortcut]
+name = "Create shortcut"
+type = "Link"
+
+source_file = "./VSCode/VSCode.exe"
+target_name = "Visual Studio Code"
+target_args = "${env.USER_ARGS}"
+target_icon = "./VSCode/vscode.ico"
+location_default = "Desktop"
 ```
