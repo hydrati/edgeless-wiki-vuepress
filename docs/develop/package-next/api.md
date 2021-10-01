@@ -91,6 +91,13 @@
 if = '${ExitCode}==1'
 ```
 
+### Feedback
+`int`
+
+获得 [`Dialog`](#Dialog) 的用户反馈，`0`表示用户关闭了对话框，从`1`开始表示用户所选按钮的索引
+
+示例：见 [`Dialog`](#Dialog)
+
 位置类
 
 ### SystemDrive
@@ -400,6 +407,8 @@ force = true
 - `args :String`：（可选）参数
 - `use :Array<String>`：（可选）需要传递的[变量](workflow.md#变量)
 - `pwd :String`：（可选）工作目录，缺省为资源根目录
+- `hide :bool`：（可选）是否隐藏脚本执行窗口，缺省为 `true`
+- `wait :bool`：（可选）是否等待脚本执行完成，缺省为 `true`
 - `fix :Array<String>`：（可选）需要[修复 `_retinue` 引用](general.md#随从文件夹)的文本文件
 
 示例：
@@ -413,6 +422,8 @@ path = "./setup.cmd"
 args = "${env.USER_ARGS}"
 use = ["env.SETUP_PLUGINS"]
 pwd = "${SystemDrive}/System32"
+hide = false
+wait = false
 fix = ["./VSCode/install.cmd", "./_retinue/update.py"]
 ```
 
@@ -423,6 +434,8 @@ fix = ["./VSCode/install.cmd", "./_retinue/update.py"]
 - `shell :Enum<String>`：使用的终端，下列值中的一个：`{"cmd", "pecmd"}`
 - `use :Array<String>`：（可选）需要传递的[变量](workflow.md#变量)
 - `pwd :String`：（可选）工作目录，缺省为资源根目录
+- `hide :bool`：（可选）是否隐藏命令执行窗口，缺省为 `true`
+- `wait :bool`：（可选）是否等待命令执行完成，缺省为 `true`
 
 示例：
 
@@ -436,6 +449,8 @@ command = "exec explorer ${Desktop}/Visual Studio Code.lnk"
 shell = "pecmd"
 use = ["env.SETUP_PLUGINS"]
 pwd = "${SystemDrive}/System32"
+hide = false
+wait = false
 ```
 
 ### Link
@@ -458,4 +473,85 @@ target_name = "Visual Studio Code"
 target_args = "${env.USER_ARGS}"
 target_icon = "./VSCode/vscode.ico"
 location_default = "Desktop"
+```
+
+### Log
+输出日志，分为信息、警告、错误三个等级，错误信息的内容会以 [Toast](#Toast) 形式直接展示给用户
+- `level :Enum<String>`：日志等级，下列值中的一个：`{"Info", "Waring", "Error"}`
+- `msg :String`：日志内容
+
+示例：
+
+```toml
+[setup_flow.log_status]
+name = "Log status"
+type = "Log"
+
+level = "Info"
+msg = "VSCode installed successfully"
+```
+
+### Toast
+弹出悬浮通知
+- `title :String`：通知标题
+- `content :String`：通知内容
+
+示例：
+
+```toml
+[setup_flow.show_status]
+name = "Show status"
+type = "Toast"
+
+title = "安装成功"
+content = "VSCode 已安装完成"
+```
+
+### Dialog
+弹出对话框，可以使用 [`${Feedback}`](#Feedback) 变量获得用户点击按钮的索引
+- `title :String`：对话框标题
+- `content :String`：对话框内容
+- `options :Array<String>`：（可选）按钮文本，缺省为`["确认"]`
+
+示例：
+
+```toml
+[setup_flow.show_status]
+name = "Show status"
+type = "Dialog"
+
+title = "安装成功"
+content = "是否打开 VSCode？"
+options = ["是","否"]
+
+
+[setup_flow.start_vscode]
+name = "Start vscode"
+type = "Execute"
+if = '${Feedback}==1'
+
+command = "explorer ${Desktop}/Visual Studio Code.lnk"
+shell = "cmd"
+```
+
+### Download
+从网络下载文件，默认使用2线程的 aria2c 完成下载
+- `url :String`：链接
+- `save :String`：保存路径
+- `overwrite: bool`：（可选）是否覆盖，缺省为`true`
+- `wait :bool`：（可选）是否等待下载完成，缺省为`true`
+- `thread :int`：（可选）线程数，范围`1~16`，缺省为`2`
+
+示例：
+
+```toml
+[setup_flow.download_vscode]
+name = "Download vscode"
+type = "Download"
+
+url = "https://az764295.vo.msecnd.net/stable/7f6ab5485bbc008386c4386d08766667e155244e/VSCodeUserSetup-x64-1.60.2.exe"
+save = "./vscode.exe"
+overwrite = false
+wait = false
+thread = 16
 ```
