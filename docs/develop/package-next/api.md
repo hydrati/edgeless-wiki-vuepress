@@ -59,15 +59,13 @@
 ### compat <Badge text="可选" />
 `Array<String>`
 
-资源包兼容的 Edgeless 版本
+资源包兼容的 Edgeless 版本，缺省表示全部兼容
 
 需要满足正则：`/^[><]=?\s*\d+.\d+.\d+$/`
 
 
 :::tip
 允许的前缀：`[">=" , "<=" , ">" , "<"]`
-
-缺省表示全部兼容
 :::
 
 ### tested
@@ -98,7 +96,7 @@ if = '${ExitCode}==1'
 ### SystemDrive
 `String`
 
-Windows 系统盘符，在 Edgeless 下通常为 `X:`
+Windows PE 盘符，在 Edgeless 下通常为 `X:`
 
 示例：
 
@@ -115,6 +113,28 @@ Edgeless 启动盘盘符，可能为 `U:`
 
 ```toml
 if = '${EdgelessDrive}=="U:"'
+```
+
+### WindowsDrives
+`Array<String>`
+
+本地的 Windows 系统(不包含PE)所在盘符，可能有多个所以是一个数组，你可以使用 [`for`](#for) 处理
+
+示例：
+
+```toml
+[setup_flow.check_windows]
+name = "Check Windows"
+type = "Group"
+for = '${WindowsDrives}'
+
+  [setup_flow.check_windows.change_value]
+  name = "Change value"
+  type = "Value"
+  if = '${Value}!=""'
+
+  key = "env.HAS_WINDOWS"
+  val = "${Index}+1"
 ```
 
 ### DefaultLocation
@@ -213,7 +233,7 @@ type = "File"
 示例：
 
 ```toml
-if = `${SystemDrive}=="X:"`
+if = '${SystemDrive}=="X:"'
 ```
 
 ### elif
@@ -226,7 +246,7 @@ if = `${SystemDrive}=="X:"`
 [setup_flow.group_1]
 name = "Group 1"
 type = "Group"
-if = `${SystemDrive}=="X:"`
+if = '${SystemDrive}=="X:"'
 
   [setup_flow.group_1.step_1]
   name = "Step 1"
@@ -235,7 +255,7 @@ if = `${SystemDrive}=="X:"`
 [setup_flow.group_2]
 name = "Group 2"
 type = "Group"
-elif = `${SystemDrive}=="C:"`
+elif = '${SystemDrive}=="C:"'
 
   [setup_flow.group_2.step_1]
   name = "Step 1"
@@ -244,7 +264,7 @@ elif = `${SystemDrive}=="C:"`
 [setup_flow.group_3]
 name = "Group 3"
 type = "Group"
-elif = `${SystemDrive}=="D:"`
+elif = '${SystemDrive}=="D:"'
 
   [setup_flow.group_3.step_1]
   name = "Step 1"
@@ -267,7 +287,7 @@ elif = `${SystemDrive}=="D:"`
 [setup_flow.group_1]
 name = "Group 1"
 type = "Group"
-if = `${SystemDrive}=="X:"`
+if = '${SystemDrive}=="X:"'
 
   [setup_flow.group_1.step_1]
   name = "Step 1"
@@ -276,7 +296,7 @@ if = `${SystemDrive}=="X:"`
 [setup_flow.group_2]
 name = "Group 2"
 type = "Group"
-elif = `${SystemDrive}=="C:"`
+elif = '${SystemDrive}=="C:"'
 
   [setup_flow.group_2.step_1]
   name = "Step 1"
@@ -285,7 +305,7 @@ elif = `${SystemDrive}=="C:"`
 [setup_flow.group_3]
 name = "Group 3"
 type = "Group"
-else = `true`
+else = 'true'
 
   [setup_flow.group_3.step_1]
   name = "Step 1"
@@ -295,17 +315,28 @@ else = `true`
 ### for
 对一个数组进行遍历，在处理文件夹或盘符时会很有用
 
+使用 `for` 时当前步骤类型必须为 `Group`，当前步骤中出现的 `if` 优先级高于 `for`
+
 可以通过 `${Value}` 变量获取元素，通过 `${Index}` 变量获取从0开始的索引
 
 示例：
 ```toml
 [setup_flow.check_windows]
 name = "Check Windows"
-# 这个Value类型步骤是用于给自定义变量赋值的，不要和${Value}弄混了
-type = "Value"
+type = "Group"
+# 当自定义变量CHECK_WINDOWS为true时才会执行for语句
+if = '${env.CHECK_WINDOWS}'
 for = '${WindowsDrives}'
 
+  [setup_flow.check_windows.change_value]
+  name = "Change value"
+  type = "Value"
+  if = '${Value}!=""'
 
+  key = "env.WINDOWS_COUNT"
+  # 这个步骤会被执行len(${WindowsDrives})次
+  # 最终${env.WINDOWS_COUNT}的值会变成${WindowsDrives}的长度+1
+  val = "${Index}+1"
 ```
 
 ## 步骤类型
