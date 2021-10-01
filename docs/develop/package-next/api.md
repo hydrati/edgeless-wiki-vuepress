@@ -91,16 +91,6 @@
 if = '${ExitCode}==1'
 ```
 
-### Value
-`any`
-
-与 [`for`](#for) 搭配使用，表达遍历时所取元素的值
-
-### Index
-`any`
-
-与 [`for`](#for) 搭配使用，表达遍历时所取元素的索引
-
 位置类
 
 ### SystemDrive
@@ -123,27 +113,6 @@ Edgeless 启动盘盘符，可能为 `U:`
 
 ```toml
 if = '${EdgelessDrive}=="U:"'
-```
-
-### WindowsDrives
-`Array<String>`
-
-本地的 Windows 系统(不包含PE)所在盘符，可能有多个所以是一个数组，你可以使用 [`for`](#for) 处理
-
-示例：
-
-```toml
-[setup_flow.check_windows]
-name = "Check Windows"
-type = "Group"
-for = '${WindowsDrives}'
-
-  [setup_flow.check_windows.log_drive]
-  name = "Log drive"
-  type = "Log"
-
-  level = "Info"
-  msg = 'Find Windows at ${Value}'
 ```
 
 ### DefaultLocation
@@ -319,44 +288,6 @@ else = 'true'
   [setup_flow.group_3.step_1]
   name = "Step 1"
   ...
-```
-
-### for
-对一个数组进行遍历，在处理文件夹或盘符时会很有用
-
-使用 `for` 时当前步骤类型必须为 `Group`，当前步骤中出现的 `if` 优先级高于 `for`
-
-支持通过 `filter` 字段指定正则表达式过滤遍历时的取值
-
-可以通过 `${Value}` 变量获取元素，通过 `${Index}` 变量获取从0开始的索引
-
-示例：
-```toml
-[setup_flow.check_windows]
-name = "Check Windows"
-type = "Group"
-# 当自定义变量CHECK_WINDOWS为true时才会执行for语句
-if = '${env.CHECK_WINDOWS}'
-for = '${WindowsDrives}'
-# 仅当元素满足此正则时才会执行步骤组，否则继续
-filter = "/[C-Z]:/"
-
-  [setup_flow.check_windows.change_value]
-  name = "Change value"
-  type = "Value"
-
-  key = "env.WINDOWS_COUNT"
-  # 这个步骤会被执行len(${WindowsDrives})次
-  # 最后一次执行时WINDOWS_COUNT的值会变成${WindowsDrives}数组中最后一个元素索引的值+1
-  # 此语句等效于 len(${WindowsDrives})，不过效率更低
-  val = "${Index}+1"
-
-  [setup_flow.check_windows.log_drive]
-  name = "Log drive"
-  type = "Log"
-
-  level = "Info"
-  msg = 'Find Windows at ${Value}'
 ```
 
 ## 步骤类型
