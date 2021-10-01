@@ -629,7 +629,7 @@ content = "VSCode 已安装完成"
 ```
 
 ### Dialog
-弹出对话框，可以使用 [`${Feedback}`](#feedback) 变量获得用户点击按钮的索引
+弹出对话框，可以使用 [`${Feedback}`](#feedback) 变量获得用户操作反馈
 - `title :String`：对话框标题
 - `content :String`：对话框内容
 - `options :Array<String>`：（可选）按钮文本，缺省为`["确认"]`

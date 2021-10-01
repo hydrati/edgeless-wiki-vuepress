@@ -163,7 +163,7 @@ brand = "Intel"
 type = "无线网卡"
 # 适用型号，默认品牌与驱动程序提供商一致
 # 可以使用 品牌-型号 指定其他品牌
-models = ["AX200","Killer-AX201"]
+models = ["AX200","Killer-AX1650"]
 ```
 
 主题型资源会有 `theme` 表：

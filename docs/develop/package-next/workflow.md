@@ -1,6 +1,6 @@
 # 工作流
 ## 概述
-让我们回到上一代的情景中，来关注一个初代插件包最应该关心的问题——配置插件。在`.7z`压缩包中的内容被解压到`%ProgramFiles/Edgeless`后，加载器会并发地运行此目录下的所有外置批处理文件以便完成插件的配置工作，因此只要基于Edgeless环境编写外置批处理并添加到压缩包中即可使得插件被正确配置。但是这样写出的批处理是不具有普适性、无法被跟踪、无法与用户交互、无法实现主动错误检查的，因此许多的插件包都变成了薛定谔的黑盒，除非手动测试，否则你也不知道一个看起来像Edgeless插件包的文件能不能正确地作为插件包完成配置任务。
+让我们回到上一代的情景中，来关注一个初代插件包最应该关心的问题——配置插件。在 `.7z` 压缩包中的内容被解压到 `%ProgramFiles/Edgeless` 后，加载器会并发地运行此目录下的所有外置批处理文件以便完成插件的配置工作，因此只要基于 Edgeless 环境编写外置批处理并添加到压缩包中即可使得插件被正确配置。但是这样写出的批处理是不具有普适性、无法被跟踪、无法与用户交互、无法实现主动错误检查的，因此许多的插件包都变成了薛定谔的黑盒，除非手动测试，否则你也不知道一个看起来像 Edgeless 插件包的文件能不能正确地作为插件包完成配置任务。
 
 为了解决上述问题，我们会使用[工作流](https://zh.wikipedia.org/wiki/%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%8A%80%E6%9C%AF)来描述这个至关重要的流程。在 `package.toml` 中的配置(setup)工作流可能是像下面这样：
 ```toml
@@ -17,7 +17,7 @@
   name = "Run setup batch"
   type = "Script"
 
-  # 由于 _scripts 文件夹内的内容会在加载时自动提取到根目录，因此你只需相对于根目录调用脚本即可
+  # 由于打包前脚本是在资源根目录下而非 _retinue 文件夹内的，因此你仅管相对于根目录调用脚本即可，加载器运行时会自动解决这个问题
   path = "./setup.cmd"
   use = ["env.SETUP_PLUGINS"]
 
@@ -39,7 +39,6 @@
   type = "Execute"
   if = "${uc.AUTO_RUN}==true"
 
-  # 支持指定shell，默认使用cmd
   shell = "pecmd"
   command = "exec explorer ${Desktop}/Visual Studio Code.lnk"
 
@@ -48,7 +47,7 @@
   name = "Log status"
   type = "Log"
 
-  # 支持Info/Warning/Error
+  # 消息等级，分为Info/Warning/Error
   level = "Info"
   msg = "VSCode installed successfully"
 ```
@@ -68,7 +67,7 @@
 ```
 就是一个独立的步骤，这个步骤用于执行文件复制操作。
 
-每个步骤必须拥有 `name` 和 `type` 这两个字段，分别代表步骤名称和步骤类型。步骤名称由编写者自由决定，推荐使用以动词开头、首字母大写的英文短句；类型则*必须*是官方规范中给定的数种类型之一。
+每个步骤必须拥有 `name` 和 `type` 这两个字段，分别代表步骤名称和步骤类型。步骤名称由编写者自由决定，推荐使用以动词开头、首字母大写的英文短句；类型则*必须*是 [API 参考](api.md#步骤类型)中给定的数种类型之一。
 
 步骤的键同样由编写者自由决定，推荐使用 [snake_case](https://en.wikipedia.org/wiki/Snake_case) 风格的 `name`。此例中该步骤的键为 `copy_config`，访问路径为 `setup_flow.copy_config`。
 
@@ -88,9 +87,9 @@
   level = "Info"
   msg = "VSCode installed successfully"
 ```
-描述了一个键为 `log_status`、名称为 `Log status`的打印日志步骤，并提供了 `level` `msg` 两个参数。
+描述了一个键为 `log_status`、名称为 `Log status`的输出日志步骤，并提供了 `level` `msg` 两个参数。
 
-你可以在 [API参考](api.md) 中查看全部的官方类型及其对应所需的参数。
+你可以在 [API 参考](api.md) 中查看全部的官方类型及其对应所需的参数。
 :::tip
 如果你认为我们提供的官方类型缺失了对某种基础步骤的实现，请暂时地使用脚本(Script)代替并给我们发issue
 :::
@@ -108,7 +107,7 @@
   # 使用了内置变量，此项会被解释为 X:/Users/Config/
   target = "${SystemDrive}/Users/Config/"
 ```
-这里的 `target` 就用到了内置变量 `${SystemDrive}` ，在 Edgeless 中其值为 `X:`，代表系统盘符。
+这里的 `target` 就用到了内置变量 `${SystemDrive}` ，在 Edgeless 中其值为 `X:`，代表Windows PE盘符。
 
 上述的使用方法仅限在 `package.toml` 文件中使用自定义变量，如果需要将内置变量传递到批处理脚本环境，请在 `Script` 类型步骤中通过 `use` 显式指定需要传递的变量：
 ```toml
@@ -123,7 +122,7 @@
 ```
 内置变量*不允许*被工作流或是用户修改，其值仅由加载器运行时决定。
 
-你可以在 [API参考](api.md) 中查看全部的内置变量。
+你可以在 [API 参考](api.md) 中查看全部的内置变量。
 :::tip
 如果你认为我们提供的内置变量缺失了对某种基础信息的体现，请暂时地使用脚本(Script)和二进制工具代替并给我们发issue
 :::
@@ -254,8 +253,6 @@ MY_BOOT_POLICY = 0
 此表达式由[eval crate](https://docs.rs/eval)解释并计算，计算过程类型严格
 
 支持的符号：`!` `!=` `""` `''` `()` `[]` `.` `,` `>` `<` `>=` `<=` `==` `+` `-` `*` `/` `%` `&&` `||` `n..m`
-
-内嵌的函数：`min()` `max()` `len()` `is_empty()` `array()`
 :::
 
 ## 步骤组
@@ -314,7 +311,7 @@ MY_BOOT_POLICY = 0
 
     command = "./Installer3.exe /S"
 ```
-虽然看起来内容更长了，但是这些步骤的逻辑关系会更加清晰，也更加易于规模化的管理
+虽然看起来内容更长了，但是这些步骤的逻辑关系会更加清晰，也更加易于规模化的管理；此外也有一些特殊情况必须使用步骤组，例如基于判断 `${ExitCode}` 执行数个步骤
 
 :::tip
 完成阅读后请返回[主章节](general.md#最重要的内容)继续阅读剩余部分
