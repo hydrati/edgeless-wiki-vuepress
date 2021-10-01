@@ -198,6 +198,82 @@ type = "File"
 if = `${SystemDrive}=="X:"`
 ```
 
+### elif
+
+条件语句，必须紧随包含 `if` 或 `elif` 的步骤出现，当上一步骤因 `if` 或 `elif` 指定的语句结果为假而未执行时才会判断此步骤是否需要执行
+
+示例：
+
+```toml
+[setup_flow.group_1]
+name = "Group 1"
+type = "Group"
+if = `${SystemDrive}=="X:"`
+
+  [setup_flow.group_1.step_1]
+  name = "Step 1"
+  ...
+
+[setup_flow.group_2]
+name = "Group 2"
+type = "Group"
+elif = `${SystemDrive}=="C:"`
+
+  [setup_flow.group_2.step_1]
+  name = "Step 1"
+  ...
+
+[setup_flow.group_3]
+name = "Group 3"
+type = "Group"
+elif = `${SystemDrive}=="D:"`
+
+  [setup_flow.group_3.step_1]
+  name = "Step 1"
+  ...
+```
+
+### else
+
+条件语句，必须紧随包含 `if` 或 `elif` 的步骤出现，当上一步骤因 `if` 或 `elif` 指定的语句结果为假而未执行时才会执行此步骤
+
+由于含 `else` 语句的步骤是否执行仅取决于上一步骤，因此无论 `else` 指定的语句结果是什么都不会影响其性质，推荐使用 `else = 'true'`
+
+:::tip
+你完全可以使用 `else = 'false'`，不过这样做很不好(比如会被田所浩二撅)
+:::
+
+示例：
+
+```toml
+[setup_flow.group_1]
+name = "Group 1"
+type = "Group"
+if = `${SystemDrive}=="X:"`
+
+  [setup_flow.group_1.step_1]
+  name = "Step 1"
+  ...
+
+[setup_flow.group_2]
+name = "Group 2"
+type = "Group"
+elif = `${SystemDrive}=="C:"`
+
+  [setup_flow.group_2.step_1]
+  name = "Step 1"
+  ...
+
+[setup_flow.group_3]
+name = "Group 3"
+type = "Group"
+else = `true`
+
+  [setup_flow.group_3.step_1]
+  name = "Step 1"
+  ...
+```
+
 ## 步骤类型
 
 ### Group
