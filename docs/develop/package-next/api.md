@@ -149,23 +149,23 @@ for = '${WindowsDrives}'
 ### DefaultLocation
 `String`
 
-资源的默认安装位置，在 Edgeless 下通常为 `X:\Program Files\Edgeless`
+资源的默认安装位置，在 Edgeless 下通常为 `X:/Program Files/Edgeless`
 
 示例：
 
 ```toml
-if = '${DefaultLocation}=="X:\Program Files\Edgeless"'
+if = '${DefaultLocation}=="X:/Program Files/Edgeless"'
 ```
 
 ### Desktop
 `String`
 
-桌面位置，在 Edgeless 下通常为 `X:\Users\Default\Desktop`
+桌面位置，在 Edgeless 下通常为 `X:/Users/Default/Desktop`
 
 示例：
 
 ```toml
-if = '${Desktop}=="X:\Users\Default\Desktop"'
+if = '${Desktop}=="X:/Users/Default/Desktop"'
 ```
 
 
@@ -205,7 +205,7 @@ if = '${BootPolicy}=="UEFI"'
 示例：
 
 ```toml
-if = 'Exist("${SystemDrive}\Users\Profiles")'
+if = 'Exist("${SystemDrive}/Users/Profiles")'
 ```
 
 ## 步骤
