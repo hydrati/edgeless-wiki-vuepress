@@ -91,6 +91,39 @@
 if = '${ExitCode}==1'
 ```
 
+:::tip
+这里所谓的“上一个步骤”是指逻辑上的上一个步骤，而不是在工作流中紧挨着的上一个步骤。因此对于这种情况 `fix` 步骤是可以被触发的：
+```toml
+[setup_flow.step_1]
+name = "Step 1"
+type = "Execute"
+
+# 产生一个错误
+command = "exit 3"
+shell = "cmd"
+
+
+[setup_flow.step_2]
+name = "Step 2"
+type = "Execute"
+# 这意味着Step 2不会被执行
+if = 'false'
+
+command = "exit 0"
+shell = "cmd"
+
+
+[setup_flow.fix]
+name = "Fix"
+type = "Execute"
+# 由于Step 2没有被执行，此时的${ExitCode}值为3，是Step 1的退出码
+if = '${ExitCode}!=0'
+
+command = "start ./VSCode/vscode.exe"
+shell = "cmd"
+```
+:::
+
 ### Feedback
 `int`
 
@@ -311,6 +344,35 @@ else = 'true'
   ...
 ```
 
+### throw
+
+异常处理语句，若当前步骤执行出错(退出码不等于`0`)则立即抛出一个错误信息，然后退出当前工作流
+
+在不指定 throw 语句的情况下，出错后工作流会继续执行，不过在下一个步骤中 [`${ExitCode}`](#exitcode) 会不为`0`
+
+示例：
+```toml
+[setup_flow.start_vscode]
+name = "Start VSCode"
+type = "Execute"
+throw = "Can't start vscode"
+
+command = "exec explorer ${Desktop}/Visual Studio Code.lnk"
+shell = "pecmd"
+```
+
+:::tip
+你也许发现了我们没有提供类似于 `exit` 的功能，因为提前退出工作流无外乎两种情况：
+
+- 一切正常，但是我想提前结束
+
+  这种编写思路事实上是非常危险的，这会使得你编写的工作流毫无逻辑可言。我们认为一个合理的工作流在一切正常的情况下必须执行完全部应有的步骤后才能退出，因此请使用[条件语句](#if)和[步骤组](#group)表达你的逻辑
+
+- 发生了异常
+
+  对于这种情况，如果你不想处理问题，请直接 [throw](#throw)；如果你想尝试解决问题，请在下一步骤中判断 [ExitCode](#exitcode)
+:::
+
 ## 步骤类型
 
 ### Group
@@ -331,21 +393,21 @@ if = "${uc.GROUP_INSTALL}==true"
   name = "Install 1"
   type = "Execute"
 
-  command = "./Installer1.exe /S"
+  command = "./MySoftware/Installer1.exe /S"
 
 
   [setup_flow.install_group.install_2]
   name = "Install 2"
   type = "Execute"
 
-  command = "./Installer2.exe /S"
+  command = "./MySoftware/Installer2.exe /S"
 
 
   [setup_flow.install_group.install_3]
   name = "Install 3"
   type = "Execute"
 
-  command = "./Installer3.exe /S"
+  command = "./MySoftware/Installer3.exe /S"
 ```
 
 ### File
