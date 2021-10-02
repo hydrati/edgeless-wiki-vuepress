@@ -367,21 +367,53 @@ else = 'true'
 
 ### throw
 
-异常处理字段，*若当前步骤执行出错*(退出码不等于`0`)则立即抛出指定的错误信息，然后退出当前工作流
+异常处理字段，若当前步骤执行异常(退出码不等于`0`)则立即抛出指定的错误信息，然后退出当前工作流
 
-在不指定 throw 语句的情况下，出错后工作流会继续执行，不过在下一个逻辑步骤中 [`${ExitCode}`](#exitcode) 会不为`0`
+在不指定 throw 语句的情况下，出现异常后工作流会继续执行，不过在下一个逻辑步骤中 [`${ExitCode}`](#exitcode) 会不为`0`
 
-这里 throw 真正的含义是“throw if error”，我们暂时想不到更恰当的词来形容这一操作
+这里 throw 真正的含义是“throw if error”，不太贴切，如果你有更好的命名建议请给我们发issue
 
 示例：
 ```toml
 [setup_flow.start_vscode]
 name = "Start VSCode"
 type = "Execute"
-throw = "Can't start vscode"
+throw = "Can't start VSCode"
 
 command = "exec explorer ${Desktop}/Visual Studio Code.lnk"
 shell = "pecmd"
+```
+
+在[步骤组](#group)中的 throw 会捕获该组中步骤的所有异常：
+```toml
+[setup_flow.install_group]
+name = "Install Group"
+type = "Group"
+# 使用一个throw语句捕获整组步骤的异常
+throw = "Group install failed"
+
+  [setup_flow.install_group.install_1]
+  name = "Install 1"
+  type = "Execute"
+
+  command = "./MySoftware/Installer1.exe /S"
+  shell = "cmd"
+
+
+  [setup_flow.install_group.install_2]
+  name = "Install 2"
+  type = "Execute"
+
+  command = "./MySoftware/Installer2.exe /S"
+  shell = "cmd"
+
+
+  [setup_flow.install_group.install_3]
+  name = "Install 3"
+  type = "Execute"
+
+  command = "./MySoftware/Installer3.exe /S"
+  shell = "cmd"
 ```
 
 :::tip
@@ -541,7 +573,7 @@ type = "Script"
 
 path = "./setup.cmd"
 args = "${env.USER_ARGS}"
-use = ["env.SETUP_PLUGINS"]
+use = ["uc.AUTO_RUN"]
 pwd = "${SystemDrive}/System32"
 hide = false
 wait = false
@@ -594,6 +626,38 @@ target_name = "Visual Studio Code"
 target_args = "${env.USER_ARGS}"
 target_icon = "./VSCode/vscode.ico"
 location_default = "Desktop"
+```
+
+### Modify
+更改[自定义变量](workflow.md#自定义变量)或[用户配置变量](workflow.md#用户配置变量)的值
+:::tip
+[内置变量](#内置变量)*不允许*被工作流或是用户修改，其值仅由加载器运行时决定
+:::
+- `key :String`：需要修改的键
+- `value :String`：新值
+
+示例：
+
+修改自定义变量
+```toml
+[setup_flow.modify_boot_policy]
+name = "Modify boot policy"
+type = "Modify"
+if = '${BootPolicy}=="UEFI"'
+
+key = "env.MY_BOOT_POLICY"
+value = 1
+```
+
+修改用户配置变量
+```toml
+[setup_flow.modify_auto_run]
+name = "Modify auto run"
+type = "Modify"
+if = '${BootPolicy}=="UEFI"'
+
+key = "uc.AUTO_RUN"
+value = true
 ```
 
 ### Log
@@ -680,3 +744,25 @@ thread = 16
 :::tip
 如果需要异步地下载并执行回调，请改为使用脚本，我们会在 [`${Aria2cPath}`](#aria2cpath) 参数上提供一个现成的 aria2c 可执行文件
 :::
+
+## 独占表
+### 软件类
+位置：`software`表
+
+- `category :String`：软件分类，必须是下载站已有分类中的一种；如果需要新建分类请给我们发issue
+- `tags :String`：软件标签，建议将资源名称的同义词(如 `VSCode` 的同义词有`Visual Studio Code` `VSC` `code` 等)加入此标签，可以在分类中体现的标签(如`下载工具`)请不要加到这里
+- `location :String`：（可选）软件安装位置，缺省为`X:/Program Files/Edgeless`
+- `path :Array<String>`：（可选）需要添加到`PATH`变量中的目录
+
+示例：
+```toml
+[software]
+# 分类
+category = "办公编辑"
+# 标签
+tags = ["Visual Studio Code", "VSC", "code"]
+# 安装位置
+location = "${ProgramFiles}/Edgeless"
+# 需要添加到PATH的文件夹
+path = ["./VSCode"]
+```

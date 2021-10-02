@@ -9,7 +9,7 @@
   type = "File"
 
   operation = "Copy"
-  source = "./_config/*"
+  source = "./VSCode/_config/*"
   target = "${SystemDrive}/Users/Config/"
 
 
@@ -17,7 +17,7 @@
   name = "Run setup batch"
   type = "Script"
 
-  # 由于打包前脚本是在资源根目录下而非 _retinue 文件夹内的，因此你仅管相对于根目录调用脚本即可，加载器运行时会自动解决这个问题
+  # 加载器运行时会自动调用 _retinue 文件夹内对应的脚本
   path = "./setup.cmd"
   use = ["env.SETUP_PLUGINS"]
 
@@ -62,7 +62,7 @@
   type = "File"
 
   operation = "Copy"
-  source = "./_config/*"
+  source = "./VSCode/_config/*"
   target = "${SystemDrive}/Users/Config/"
 ```
 就是一个独立的步骤，这个步骤用于执行文件复制操作。
@@ -127,10 +127,17 @@
 如果你认为我们提供的内置变量缺失了对某种基础信息的体现，请暂时地使用脚本(Script)和二进制工具代替并给我们发issue
 :::
 ### 自定义变量
-自定义变量需要在 `env` 表中提供，例如：
+自定义变量是由编写者定义，可以在工作流或脚本中使用的全局变量，支持整型(int)、布尔型(bool)和字符串型(String)
+
+:::tip
+自定义变量不支持数组，因为一旦引入数组则工作流会变得非常接近某种高级语言，而这并不是工作流应有的样子；请在脚本中处理这些需要使用到数组的场景
+:::
+
+你需要在 `env` 表中定义所有的自定义变量，例如：
 ```toml
 [env]                                       
 USER_ARGS = "--help"
+# 注意，这是一个字符串型
 SETUP_PLUGINS = "['Code Runner','Simplified Chinese']"
 MY_BOOT_POLICY = 0
 ```
@@ -160,22 +167,24 @@ MY_BOOT_POLICY = 0
   # 在 "./setup.cmd" 中执行 "echo %env.SETUP_PLUGINS%" 即可看到被传递的自定义变量
   use = ["env.SETUP_PLUGINS"]
 ```
-如果你需要在工作流中修改 `env` 中的变量值，请执行一个 `Value` 类型的步骤：
+如果你需要在工作流中修改 `env` 中的变量值，请执行一个 [`Modify` 类型](api.md#modify)的步骤：
 ```toml
   [setup_flow.modify_boot_policy]
   name = "Modify boot policy"
-  type = "Value"
+  type = "Modify"
   # if 表示一个条件，我们将在下一节中讲解
   if = '${BootPolicy}=="UEFI"'
 
   key = "env.MY_BOOT_POLICY"
-  val = 1
+  value = 1
 ```
 :::tip 注意
- `Value` 类型步骤只能用于更改 `env` (自定义变量)或下面即将提到的 `uc` (用户配置变量)中的变量，内部变量不允许被修改
+ `Modify` 类型步骤只能用于更改 `env` (自定义变量)或下面即将提到的 `uc` (用户配置变量)中的变量，内部变量不允许被修改
 :::
 ### 用户配置变量
-除了使用 `env` 指定*仅工作流可修改的*自定义变量，你还可以使用 `uc` 指定可供用户更改的配置变量 (User-controled Config)，例如下面的这个示例指定了一个布尔型的 `AUTO_RUN` 用户配置变量，其值由用户提供：
+除了使用 `env` 指定*仅工作流可修改的*自定义变量，你还可以使用 `uc` 指定*可供用户更改的*配置变量 (User-controled Config)，同样支持整型(int)、布尔型(bool)和字符串型(String)
+
+例如下面的这个示例指定了一个布尔型的 `AUTO_RUN` 用户配置变量，其值由用户提供：
 ```toml
   [uc.AUTO_RUN]
   name = "开机启动"
@@ -204,6 +213,8 @@ MY_BOOT_POLICY = 0
 
   command = "explorer ${Desktop}/Visual Studio Code.lnk"
 ```
+
+同样的，你也可以执行一个 `Modify` 类型的步骤来修改用户配置变量，示例见 [API 参考](api.md#modify)；或是在 `Script` 类型步骤中通过 `use` 显式指定需要传递的用户配置变量，示例见 [API 参考](api.md#script)
 
 这里还有一些指定了其他类型用户配置变量的示例：
 
