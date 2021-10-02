@@ -751,7 +751,7 @@ thread = 16
 
 - `category :String`：软件分类，必须是下载站已有分类中的一种；如果需要新建分类请给我们发issue
 - `tags :String`：软件标签，建议将资源名称的同义词(如 `VSCode` 的同义词有`Visual Studio Code` `VSC` `code` 等)加入此标签，可以在分类中体现的标签(如`下载工具`)请不要加到这里
-- `location :String`：（可选）软件安装位置，缺省为`X:/Program Files/Edgeless`
+- `location :String`：（可选）软件安装位置，缺省为`${DefaultLocation}`
 - `path :Array<String>`：（可选）需要添加到`PATH`变量中的目录
 
 示例：
@@ -762,7 +762,7 @@ category = "办公编辑"
 # 标签
 tags = ["Visual Studio Code", "VSC", "code"]
 # 安装位置
-location = "${ProgramFiles}/Edgeless"
+location = "${SystemDrive}/Users/PortableApps"
 # 需要添加到PATH的文件夹
 path = ["./VSCode"]
 ```
