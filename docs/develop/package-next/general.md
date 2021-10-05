@@ -181,7 +181,7 @@ recommend = ["MacType"]
 
 ### 钩子 <Badge text="可选" />
 
-[生命周期钩子](../../playground/hooks.md)可以在 Edgeless 运行时的不同周期位置运行用户的指定脚本，这里同样使用工作流来描述某个位置的钩子，例如：
+[生命周期钩子](../../playground/hooks.md)可以在 Edgeless 运行时的不同周期位置运行用户的指定脚本，我们规定在 `hooks.HOOK_STAGE` 使用工作流来描述某个位置的钩子，例如：
 
 ```toml
 [hooks.onDesktopShown]
@@ -192,11 +192,7 @@ recommend = ["MacType"]
   path = "./update.cmd"
 ```
 
-:::tip
-首行的 `[hooks.onDesktopShown]`可以省略，此处为了表达逻辑关系而添加
-:::
-
-你可以在[生命周期钩子](../../playground/hooks.md#启动周期)章节找到所有的钩子位置，然后在 `hooks.HOOK_STAGE` 描述该位置需要执行的工作流。
+你可以在[生命周期钩子](../../playground/hooks.md#启动周期)章节找到所有的钩子位置，不过由于资源包加载的位置在很多钩子后，因此资源包可用的钩子只有 `onDesktopShown` `onBootFinished` `onExit`。
 
 ### Edgeless PPnP 配置 <Badge text="可选" />
 

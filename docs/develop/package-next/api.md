@@ -224,6 +224,171 @@ if = '${EdgelessVersion}=="4.0.0"'
 if = '${BootPolicy}=="UEFI"'
 ```
 
+## 自定义变量
+
+位置：`env` 表
+
+支持定义 `bool` `int` `String` 三种类型的自定义变量，然后通过 `${env.KEY_NAME}` 调用
+
+示例：
+```toml
+[env]                                       
+USER_ARGS = "--help"
+MY_BOOT_POLICY = 0
+INSTALL_CHINESE = true
+```
+
+```toml
+[setup_flow.create_shortcut]
+name = "Create shortcut"
+type = "Link"
+
+source_file = "./VSCode/VSCode.exe"
+target_name = "Visual Studio Code"
+# 使用自定义变量的值，此项会被解释为 target_args = "--help"
+target_args = "${env.USER_ARGS}"
+target_icon = "./VSCode/vscode.ico"
+location_default = "Desktop"
+```
+
+支持在自定义变量的值中使用[内置变量](#内置变量)
+
+示例：
+```toml
+[env]                                       
+PROFILE_LOCATION = "${SystemDrive}/Users/Profile"
+```
+
+## 用户配置变量
+
+位置：`uc` 表
+
+支持定义 `bool` `int` `String` 三种类型的自定义变量(通过提供的默认值判断)，然后通过 `${uc.KEY_NAME}` 调用
+
+- `name :String`：变量名称，用于向用户展示
+- `description :String`：变量描述，用于向用户展示
+- `default :T`：默认值，类型 `T` 只能为 `{bool, int, String}` 中的一种
+- `options :Array<{title :String, value :T}>`：（可选）值选项，`title` 为该选项描述，`value` 为该选项对应的值，类型必须与 `default` 一致；缺省时根据类型自动提供选择/输入界面
+
+
+**布尔型**
+
+此时 `options` 缺省为 `[
+  {
+    title = "是",
+    value = true
+  },
+  {
+    title = "否",
+    value = false
+  }
+]`
+
+没有额外的校验字段
+
+示例：
+
+```toml
+[uc.AUTO_RUN]
+name = "开机启动"
+description = "启动时自动运行VSCode"
+default = false
+options = [
+  {
+    title = "是",
+    value = true
+  },
+  {
+    title = "否",
+    value = false
+  },
+]
+```
+
+```toml
+[setup_flow.start_vscode]
+name = "Start VSCode"
+type = "Execute"
+if = "${uc.AUTO_RUN}==true"
+
+command = "explorer ${Desktop}/Visual Studio Code.lnk"
+```
+
+**整型**
+
+此时缺省 `options` 则会提供输入框
+
+- `min :int`：（可选）值的最小值，要求用户输入的数不小于此值
+- `max :int`：（可选）值的最大值，要求用户输入的数不大于此值
+
+示例：
+
+```toml
+[uc.VOLUME]
+name = "音量"
+description = "启动时的默认音量"
+default = 67
+
+max = 100
+min = 0
+```
+
+**字符串型**
+
+此时缺省 `options` 则会提供输入框
+
+- `regex :String`：（可选）校验正则，要求用户输入的内容满足此正则表达式
+- `tip :String`：（可选）正则校验失败提示
+
+示例：
+
+```toml
+[uc.RESOLUTION]
+name = "分辨率"
+description = "使用 宽x高 语法表示分辨率"
+default = "1920x1080"
+
+options = [
+  {
+    title = "1920 x 1080",
+    value = "1920x1080"
+  },
+  {
+    title = "800 x 600",
+    value = "800x600"
+  },
+]
+```
+
+```toml
+[uc.HOMEPAGE]
+name = "主页"
+description = "浏览器主页"
+default = "https://home.edgeless.top"
+
+regex = '/^https?:\/\/[^\s]*$/'
+tip = "请输入 http:// 或 https:// 开头的网址"
+```
+
+支持在默认值中使用[内置变量](#内置变量)
+
+示例：
+
+```toml
+[uc.LOCATION]
+name = "安装位置"
+description = "您希望将软件安装至哪个位置？"
+default = "${DefaultLocation}"
+
+regex = '^\${SystemDrive}\\[^\s]+/'
+tip = "请输入一个以${SystemDrive}\\开头的有效路径"
+```
+:::tip
+如果你的正则表达式中包含 `^\${EdgelessDrive}\\`，例如 `^\${EdgelessDrive}\\[^\s]+.mp3$`，则会认为这是一个指定启动盘文件/文件夹的变量，因此用户配置界面会让用户选择启动盘中的一个文件或文件夹(图形化配置工具会生成一个符合此正则的路径，判断此路径是文件还是文件夹，然后打开文件/文件夹选取对话框)
+
+而对于包含 `^\${SystemDrive}\\` 的正则，则不会要求选择一个路径，因此用户需要手动输入一个以 `${SystemDrive}\` 开头的有效路径
+:::
+
 ## 内置函数
 
 内置函数仅可用于[条件语句](#if)内，仅提供一些返回值为 `bool` 型的简单函数
