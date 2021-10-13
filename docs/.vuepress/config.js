@@ -124,13 +124,13 @@ module.exports = {
           { title: "YIUPE", path: "/cooperation/YIUPE" },
         ],
       },
-      {
-        title: "媒体",
-        children: [
-          { title: "转载须知", path: "/media/notice" },
-          { title: "官方文案", path: "/media/material" },
-        ],
-      },
+      // {
+      //   title: "媒体",
+      //   children: [
+      //     { title: "转载须知", path: "/media/notice" },
+      //     { title: "官方文案", path: "/media/material" },
+      //   ],
+      // },
     ],
     smoothScroll: true
   },
