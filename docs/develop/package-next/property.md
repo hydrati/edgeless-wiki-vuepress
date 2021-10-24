@@ -1,17 +1,17 @@
 # 资源包属性
-通过对 `.es.7z` 拓展名中的 `.7z` 进行修改，可以使资源包拥有属性。支持属性标识叠加，例如 `.es.7zlf`
+通过对 `.nep.7z` 拓展名中的 `.7z` 进行修改，可以使资源包拥有属性。支持属性标识叠加，例如 `.nep.7zlf`
 
-## 禁用的资源包 <Badge text=".es.7zf" />
+## 禁用的资源包 <Badge text=".nep.7zf" />
 `Forbidden`
 
 继承于初代插件包的属性，在启动时加载器会自动忽略这些资源包。你通过指定参数在某些命令中（例如 `upgrade`）要求考虑被禁用的资源包。
 
-## LocalBoost资源包 <Badge text=".es.7zl" />
+## LocalBoost资源包 <Badge text=".nep.7zl" />
 `LocalBoost`
 
-继承于初代插件包的属性，将资源包内容放置与本地磁盘运行以避免多次的频繁加载。详情见[Edgeless LocalBoost](../../playground/localboost.md)。
+继承于初代插件包的属性，将资源包内容放置于本地磁盘运行以避免多次的频繁加载。详情见[Edgeless LocalBoost](../../playground/localboost.md)。
 
-## 内容分布式资源包 <Badge text=".es.7zp" />
+## 内容分布式资源包 <Badge text=".nep.7zp" />
 `Partial`
 
 由于许多的 Edgeless 资源包都需要依赖于上游软件分发，且其实质仅仅是一个调用上游软件正常安装步骤的“容器”，因此我们提出了内容分布式资源包的概念。
