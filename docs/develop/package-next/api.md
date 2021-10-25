@@ -181,6 +181,11 @@ if = '${DefaultLocation}=="X:/Program Files/Edgeless"'
 if = '${Desktop}=="X:/Users/Default/Desktop"'
 ```
 
+
+---
+
+**内置工具类**
+
 ### Aria2cPath
 `String`
 
@@ -196,6 +201,23 @@ type = "Script"
 path = "./download.cmd"
 wait = false
 use = ["Aria2cPath"]
+```
+
+### AutoHotKeyPath
+`String`
+
+AutoHotKey 可执行文件 `AutoHotkeyU64.exe` 的绝对路径，如果内置的 [Sendkey](#sendkey) 步骤无法满足你的需求，你可以执行一个自定义的AutoHotKey脚本来实现复杂的模拟按键操作
+
+示例：
+
+```toml
+[setup_flow.sendkey]
+name = "Sendkey"
+type = "Script"
+
+path = "./sendkey.cmd"
+wait = true
+use = ["AutoHotKeyPath"]
 ```
 
 ---
@@ -911,8 +933,60 @@ thread = 16
 ```
 
 :::tip
-如果需要异步地下载并执行回调，请改为使用脚本，我们会在 [`${Aria2cPath}`](#aria2cpath) 参数上提供一个现成的 aria2c 可执行文件
+如果需要异步地下载并执行回调，请改为使用脚本，我们会在 [`${AutoHotKeyPath}`](#autohotkeypath) 参数上提供一个现成的 AutoHotKey Unicode 可执行文件
 :::
+
+### Unzip
+解包压缩文件，文件类型范围等同于 [7-Zip](https://www.7-zip.org/) 支持范围
+- `source :String`：压缩文件路径
+- `target :String`：解压路径，最好是一个空目录
+- `overwrite: bool`：（可选）是否覆盖，缺省为`true`
+
+示例：
+
+```toml
+[setup_flow.unzip_vscode]
+name = "Unzip VSCode"
+type = "Unzip"
+
+source = "./vscode.exe"
+target = "./VScode"
+overwrite = false
+```
+
+### Sendkey
+向窗口发送模拟键盘输入
+- `key :String`：按键名称，见[AutoHotKey KeyList](https://www.autohotkey.com/docs/KeyList.htm)
+- `focus :String`：（可选）目标窗口标题
+
+示例：
+
+```toml
+[setup_flow.sendkey]
+name = "Sendkey"
+type = "Sendkey"
+
+key = "Enter"
+focus = "Chrome Setup"
+```
+
+:::tip
+如果此步骤无法满足你的需求，你可以执行一个自定义的 AutoHotKey 脚本来实现复杂的模拟按键操作，我们会在 [`${AutoHotKeyPath}`](#autohotkeypath) 参数上提供一个现成的 AutoHotKey 可执行文件
+:::
+
+### Wait
+等待一定时间
+- `timeout :int`：延时，单位为ms
+
+示例：
+
+```toml
+[setup_flow.wait_1]
+name = "Wait 1"
+type = "Wait"
+
+timeout = 1000
+```
 
 ## 独占表
 ### 软件类
