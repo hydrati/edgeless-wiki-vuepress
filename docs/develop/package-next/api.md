@@ -938,7 +938,7 @@ thread = 16
 ```
 
 :::tip
-如果需要异步地下载并执行回调，请改为使用脚本，我们会在 [`${AutoHotKeyPath}`](#autohotkeypath) 参数上提供一个现成的 AutoHotKey Unicode 可执行文件
+如果需要异步地下载并执行回调，请改为使用脚本，我们会在 [`${Aria2cPath}`](#aria2cpath) 参数上提供一个现成的 aria2c.exe 可执行文件
 :::
 
 ### Unzip
@@ -976,7 +976,7 @@ focus = "Chrome Setup"
 ```
 
 :::tip
-如果此步骤无法满足你的需求，你可以执行一个自定义的 AutoHotKey 脚本来实现复杂的模拟按键操作，我们会在 [`${AutoHotKeyPath}`](#autohotkeypath) 参数上提供一个现成的 AutoHotKey 可执行文件
+如果此步骤无法满足你的需求，你可以执行一个自定义的 AutoHotKey 脚本来实现复杂的模拟按键操作，我们会在 [`${AutoHotKeyPath}`](#autohotkeypath) 参数上提供一个现成的 AutoHotKey Unicode 可执行文件
 :::
 
 ### Wait
