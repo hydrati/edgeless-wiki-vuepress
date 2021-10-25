@@ -146,6 +146,7 @@ tested = ["4.0.0","3.2.1"]
 
   url = "https://az764295.vo.msecnd.net/stable/7f6ab5485bbc008386c4386d08766667e155244e/VSCodeUserSetup-x64-1.60.2.exe"
   save = "./vscode.exe"
+  md5 = "DD4DD2E97577D88B4E6E4B3BF4AA86A9"
 ```
 
 ### 独占表

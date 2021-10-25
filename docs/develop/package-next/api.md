@@ -851,6 +851,22 @@ key = "uc.AUTO_RUN"
 value = true
 ```
 
+### Path
+增删用户 PATH 变量
+- `record :String`：需要增/删的记录值
+- `operation :Enum<String>`：指定增/删操作，下列值中的一个：`{"Add", "Remove"}`
+
+示例：
+
+```toml
+[setup_flow.add_path]
+name = "Add PATH"
+type = "Path"
+
+record = "${SystemDrive}\Users\nodejs"
+operation = "Add"
+```
+
 ### Log
 输出日志，分为信息、警告、错误三个等级，错误(`Error`)等级信息的内容会以 [Toast](#toast) 形式直接展示给用户
 - `level :Enum<String>`：日志等级，下列值中的一个：`{"Info", "Waring", "Error"}`
@@ -914,11 +930,12 @@ shell = "cmd"
 从网络下载文件，默认使用2线程的 aria2c 完成下载
 
 :::warning
-此步骤仅能在[展开工作流](general.md#展开工作流)中使用
+此步骤仅能在[展开工作流](general.md#展开工作流)中使用，且必须提供 MD5
 :::
 
 - `url :String`：链接
 - `save :String`：保存路径
+- `md5 :String`：文件MD5
 - `overwrite: bool`：（可选）是否覆盖，缺省为`true`
 - `wait :bool`：（可选）是否等待下载完成，缺省为`true`
 - `thread :int`：（可选）线程数，范围`1~16`，缺省为`2`
@@ -932,6 +949,7 @@ type = "Download"
 
 url = "https://az764295.vo.msecnd.net/stable/7f6ab5485bbc008386c4386d08766667e155244e/VSCodeUserSetup-x64-1.60.2.exe"
 save = "./vscode.exe"
+md5 = "DD4DD2E97577D88B4E6E4B3BF4AA86A9"
 overwrite = false
 wait = false
 thread = 16
