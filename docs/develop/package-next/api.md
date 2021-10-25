@@ -447,7 +447,7 @@ if = 'IsDirectory("${SystemDrive}/Users/Profiles")'
 
 ## 步骤通用字段
 
-位置：`setup_flow` `remove_flow` `hooks.HOOK_STAGE`
+位置：`setup_flow` `remove_flow` `expand_flow` `hooks.HOOK_STAGE`
 
 ### name <Badge text="必须" />
 
@@ -912,6 +912,11 @@ shell = "cmd"
 
 ### Download
 从网络下载文件，默认使用2线程的 aria2c 完成下载
+
+:::warning
+此步骤仅能在[展开工作流](general.md#展开工作流)中使用
+:::
+
 - `url :String`：链接
 - `save :String`：保存路径
 - `overwrite: bool`：（可选）是否覆盖，缺省为`true`
@@ -921,7 +926,7 @@ shell = "cmd"
 示例：
 
 ```toml
-[setup_flow.download_vscode]
+[expand_flow.download_vscode]
 name = "Download VSCode"
 type = "Download"
 

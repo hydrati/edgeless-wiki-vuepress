@@ -117,9 +117,9 @@ tested = ["4.0.0","3.2.1"]
 下面的内容会默认你已经读完了工作流章节
 :::
 
-### 卸载
+### 卸载工作流
 
-与配置(setup)工作流相对应的是卸载(remove)工作流，例如：
+与配置(`setup`)工作流相对应的是卸载(`remove`)工作流，例如：
 
 ```toml
   [remove_flow.delete_profile]
@@ -134,6 +134,19 @@ tested = ["4.0.0","3.2.1"]
 :::tip
 对于便携软件来说，可能不需要执行卸载工作流，直接删除生成的程序目录即可完成卸载。对于这种情况，构建工具会检查程序的配置工作流，仅当配置工作流*不包含创建快捷方式以外的步骤*时才会允许卸载工作流为空，否则必须提供卸载工作流
 :::
+
+### 展开工作流
+
+描述用于展开(`expand`)[内容分布式资源包](property.md#内容分布式资源包)时操作的工作流，例如：
+
+```toml
+  [expand_flow.download_installer]
+  name = "Download Installer"
+  type = "Download"
+
+  url = "https://az764295.vo.msecnd.net/stable/7f6ab5485bbc008386c4386d08766667e155244e/VSCodeUserSetup-x64-1.60.2.exe"
+  save = "./vscode.exe"
+```
 
 ### 独占表
 
