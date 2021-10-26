@@ -409,13 +409,13 @@ name = "安装位置"
 description = "您希望将软件安装至哪个位置？"
 default = "${DefaultLocation}"
 
-regex = '^\${SystemDrive}\\[^\s]+/'
-tip = "请输入一个以${SystemDrive}\\开头的有效路径"
+regex = '^\${SystemDrive}/[^\s]+/'
+tip = "请输入一个以${SystemDrive}/开头的有效路径"
 ```
 :::tip
-如果你的正则表达式中包含 `^\${EdgelessDrive}\\`，例如 `^\${EdgelessDrive}\\[^\s]+.mp3$`，则会认为这是一个指定启动盘文件/文件夹的变量，因此用户配置界面会让用户选择启动盘中的一个文件或文件夹(图形化配置工具会生成一个符合此正则的路径，判断此路径是文件还是文件夹，然后打开文件/文件夹选取对话框)
+如果你的正则表达式中包含 `^\${EdgelessDrive}/`，例如 `^\${EdgelessDrive}/[^\s]+.mp3$`，则会认为这是一个指定启动盘文件/文件夹的变量，因此用户配置界面会让用户选择启动盘中的一个文件或文件夹(图形化配置工具会生成一个符合此正则的路径，判断此路径是文件还是文件夹，然后打开文件/文件夹选取对话框)
 
-而对于包含 `^\${SystemDrive}\\` 的正则，则不会要求选择一个路径，因此用户需要手动输入一个以 `${SystemDrive}\` 开头的有效路径
+而对于包含 `^\${SystemDrive}/` 的正则，则不会要求选择一个路径，因此用户需要手动输入一个以 `${SystemDrive}/` 开头的有效路径
 :::
 
 ## 内置函数
@@ -483,6 +483,14 @@ type = "File"
 if = '${SystemDrive}=="X:"'
 ```
 
+允许在语句中使用[内置函数](#内置函数)
+
+示例：
+
+```toml
+if = 'Exist(${SystemDrive}/Windows/System32)'
+```
+
 ### elif
 
 条件语句，必须紧随包含 `if` 或 `elif` 的步骤出现，当上一步骤因 `if` 或 `elif` 指定的语句结果为假而未执行时才会判断此步骤是否需要执行
@@ -516,6 +524,14 @@ elif = '${SystemDrive}=="D:"'
   [setup_flow.group_3.step_1]
   name = "Step 1"
   ...
+```
+
+允许在语句中使用[内置函数](#内置函数)
+
+示例：
+
+```toml
+elif = 'Exist(${SystemDrive}/Windows/SysWOW64)'
 ```
 
 ### else
@@ -866,7 +882,7 @@ value = true
 name = "Add PATH"
 type = "Path"
 
-record = "${SystemDrive}\Users\nodejs"
+record = "${SystemDrive}/Users/nodejs"
 operation = "Add"
 ```
 
