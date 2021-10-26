@@ -6,10 +6,11 @@
 
 下一代 Edgeless 资源包（下称资源包）本质依旧是一个由 7-Zip 压缩的压缩包，为了便于区分且方便直接使用压缩软件打开，我们使用了 `.nep.7z` 作为拓展名，同样也支持 `.nep.7zf` 等带属性的拓展名。资源包取代了初代插件包、初代必要组件包和初代主题包/资源包，使得 Edgeless 生态更加统一，便于管理。我们也会提供转换工具将初代的包转换为下一代资源包。
 
-资源包的内部结构大体上延续初代插件包设计，包含 1 个`package.toml`和 1~2 个文件夹，或是 1 个`package.toml`和 1 个安装包文件(或真单文件程序<sup>[[1]](#footnote-1)</sup>)，结构如下：
+资源包的内部结构大体上延续初代插件包设计，包含1个 `package.toml`、 1个 `package.lock` 和1~2个文件夹，或是1个 `package.toml`、1个 `package.lock` 和1个安装包文件(或真单文件程序<sup>[[1]](#footnote-1)</sup>)，结构如下：
 
 ```
 - package.toml
+- package.lock
 - _retinue/
 - PackageName/
 ```
@@ -18,6 +19,7 @@
 
 ```
 - package.toml
+- package.lock
 - PackageName.exe
 ```
 
@@ -33,6 +35,7 @@
 
 ```
 - package.toml
+- package.lock
 - PackageName/
 ```
 
@@ -40,6 +43,7 @@
 
 ```
 - package.toml
+- package.lock
 - _retinue/
 - PackageName/
 ```
@@ -48,10 +52,11 @@
 
 ```
 - package.toml
+- package.lock
 - PackageName.exe
 ```
 
-其中 `PackageName` 代指此资源包的名称；`_retinue` 是一个随从文件夹，用于存放你编写的脚本及其调用的二进制工具等附件，我们会在下一小节解释它。
+其中 `PackageName` 代指此资源包的名称；`package.lock` 用于保存加密后的时间戳信息，你可以在[资源包安全](security.md)章节看到它的作用；`_retinue` 是一个随从文件夹，用于存放你编写的脚本及其调用的二进制工具等附件，我们会在下一小节解释它。
 
 假设你的资源包文件名为 `MySoftware-runtime_1.0.0_Cno.nep.7z` 且是一个绿色软件，那么你必须将此软件的主程序放置在 `MySoftware-runtime` 目录内；如果这是一个通过安装包静默安装的软件(或真单文件程序<sup>[[1]](#footnote-1)</sup>)，那么你必须将其安装包(或主程序)命名为 `MySoftware-runtime.exe` 放置在根目录下。
 
