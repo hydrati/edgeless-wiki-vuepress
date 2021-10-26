@@ -1,5 +1,5 @@
 # API 参考
-
+[[TOC]]
 ## 基础信息
 
 位置： `package` 表
@@ -235,6 +235,9 @@ use = ["AutoHotKeyPath"]
 ```toml
 if = '${EdgelessVersion}=="4.0.0"'
 ```
+:::tip
+如果返回了`0.0.0`则说明当前环境不为 Edgeless
+:::
 ### BootPolicy
 `String`
 
@@ -1018,17 +1021,29 @@ timeout = 1000
 - `category :String`：软件分类，必须是下载站已有分类中的一种；如果需要新建分类请给我们发issue
 - `tags :String`：软件标签，建议将资源名称的同义词(如 "VSCode" 的同义词有"Visual Studio Code" "VSC" "code" 等)加入此标签，可以在分类中体现的标签(如"下载工具")请不要加到这里
 - `location :String`：（可选）软件安装位置，缺省为`${DefaultLocation}`
-- `path :Array<String>`：（可选）需要添加到`PATH`变量中的目录
 
 示例：
 ```toml
 [software]
-# 分类
 category = "办公编辑"
-# 标签
 tags = ["Visual Studio Code", "VSC", "code"]
-# 安装位置
 location = "${SystemDrive}/Users/PortableApps"
-# 需要添加到PATH的文件夹
-path = ["./VSCode"]
+```
+
+### 驱动类
+位置：`driver`表
+- `brand :String`：驱动程序提供商
+- `type :Enum<String>`：硬件类型，下列值中的一个：`{"存储", "音频", "有线网卡", "无线网卡", "人体工程学输入", "视频输入", "主板", "蓝牙", "打印机", "显卡", "其他"}`
+- `models :Array<String>`：适用型号，默认品牌与驱动程序提供商一致；可以使用 `品牌-型号` 语法指定其他品牌；如果 `brand` 为 `Microsoft` 则此项可以省略并显示为`通用`
+
+:::warning
+`type` 中的部分类型无法在 Edgeless 中使用，此处仅作预留
+:::
+
+示例：
+```toml
+[driver]
+brand = "Intel"
+type = "无线网卡"
+models = ["AX200","Killer-AX1650"]
 ```
