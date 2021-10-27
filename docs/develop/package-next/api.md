@@ -1237,7 +1237,7 @@ deploy_at = "Pineapple"
 - `contract :String`：配置文件规范版本
 - `tool :String`：构建工具版本
 - `date :Time`：打包时间(UTC+8)
-- `unsafe :bool`：不安全标记，使真此标记可以绕过配置规则校验，但是不能上架到官方镜像源
+- `unsafe :bool`：不安全标记，使真此标记可以绕过配置规则校验，但是不能上架到官方镜像源、不能被自动加载且加载时会弹出警告
 
 示例：
 
