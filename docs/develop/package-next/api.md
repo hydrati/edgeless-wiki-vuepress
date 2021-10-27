@@ -434,6 +434,17 @@ if = 'Exist("${SystemDrive}/Users/Profiles")'
 if = 'IsDirectory("${SystemDrive}/Users/Profiles")'
 ```
 
+### IsAlive
+`IsAlive(name :String) :bool`
+
+判断某个进程是否正在运行
+
+示例：
+
+```toml
+if = 'IsAlive("notepad.exe")'
+```
+
 ## 步骤通用字段
 
 位置：`setup_flow` `remove_flow` `expand_flow` `hooks.HOOK_STAGE`
@@ -761,6 +772,25 @@ type = "File"
 operation = "Delete"
 source = "${SystemDrive}/Users/Config/*"
 force = true
+```
+
+#### 新建
+
+需要使 `operation = "New"`
+
+- `target : String`：新建位置，以 `/` 结尾则视为新建文件夹，否则新建一个空白文件
+- `overwrite : bool`：（可选）是否覆盖，缺省为 `false`
+
+示例：
+
+```toml
+[setup_flow.new_folder]
+name = "New folder"
+type = "File"
+
+operation = "New"
+target = "${SystemDrive}/Users/Config/"
+overwrite = true
 ```
 
 ### Script
