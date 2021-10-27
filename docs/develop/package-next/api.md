@@ -25,7 +25,7 @@
 下列值中的一个：`{"Software", "Driver", "Essential", "Dependency", "Theme"}`
 
 :::tip
-`Enum<String>`表示这是一个 String 类型的枚举类
+`Enum<String>` 表示这是一个 String 类型的枚举类
 :::
 
 ### version
@@ -82,7 +82,7 @@
 ### ExitCode
 `int`
 
-上一个步骤的执行状态，`==0`表示成功，`!=0`表示失败
+上一个步骤的执行状态，`==0` 表示成功，`!=0` 表示失败
 
 对于 `Script` 和 `Execute` 类型的步骤来说，这个变量的值会是脚本或命令的退出码
 
@@ -127,7 +127,7 @@ shell = "cmd"
 ### Feedback
 `int`
 
-获得 [Dialog](#dialog) 的用户反馈，`0`表示用户关闭了对话框，从`1`开始表示用户所选按钮的索引
+获得 [Dialog](#dialog) 的用户反馈，`0` 表示用户关闭了对话框，从`1`开始表示用户所选按钮的索引
 
 示例：见 [Dialog](#dialog)
 
@@ -1117,8 +1117,8 @@ focus = "Chrome Setup"
 :::
 
 ## 独占表
-### 软件类
-位置：`software`表
+### 软件型
+位置：`software` 表
 
 - `category :String`：软件分类，必须是下载站已有分类中的一种；如果需要新建分类请给我们发issue
 - `tags :String`：软件标签，建议将资源名称的同义词(如 "VSCode" 的同义词有"Visual Studio Code" "VSC" "code" 等)加入此标签，可以在分类中体现的标签(如"下载工具")请不要加到这里
@@ -1132,8 +1132,8 @@ tags = ["Visual Studio Code", "VSC", "code"]
 location = "${SystemDrive}/Users/PortableApps"
 ```
 
-### 驱动类
-位置：`driver`表
+### 驱动型
+位置：`driver` 表
 - `brand :String`：驱动程序提供商
 - `type :Enum<String>`：硬件类型，下列值中的一个：`{"存储", "音频", "有线网卡", "无线网卡", "人体工程学输入", "视频输入", "主板", "蓝牙", "打印机", "显卡", "其他"}`
 - `models :Array<String>`：适用型号，默认品牌与驱动程序提供商一致；可以使用 `品牌-型号` 语法指定其他品牌；如果 `brand` 为 `Microsoft` 则此项可以省略并显示为`通用`
@@ -1150,8 +1150,20 @@ type = "无线网卡"
 models = ["AX200","Killer-AX1650"]
 ```
 
+### 主题型
+位置：`theme` 表
+- `tags :String`：主题标签
+
+主题型资源包还需要满足一些其他规范，请移步[主题型资源包](theme.md)
+
+示例：
+```toml
+[driver]
+tags = ["Material Design","圆角"]
+```
+
 ## 用户数据目录
-位置：`profiles`表
+位置：`profiles` 表
 - `dir :Array<String>`：所有的用户目录
 
 示例：
@@ -1162,7 +1174,7 @@ dir = ["${SystemDrive}/Users/profiles"]
 ```
 
 ## 服务配置
-位置：`service`表
+位置：`service` 表
 - `progress :String`：进程名，用于判断服务运行状态
 - `start :String`：启用服务命令
 - `stop :String`：停止服务命令
@@ -1171,35 +1183,31 @@ dir = ["${SystemDrive}/Users/profiles"]
 
 ```toml
 [service]
-# 进程名，用于判断服务运行状态
 progress = "sshd.exe"
-# 启用服务命令
 start = "./sshd.exe"
-# 停止服务命令
 stop = "taskkill /im sshd.exe /t"
 ```
 
 ## 依赖
-位置：`dependencies`表
+位置：`dependencies` 表
 - `dotnet :String`：（可选）[Microsoft .NET](https://dotnet.microsoft.com/) 运行时依赖版本
 - `vc :String`：（可选）[Microsoft Visual C++](https://visualstudio.microsoft.com/zh-hans/vs/features/cplusplus/) 运行时依赖版本
-- `necessity :Array<String>`：（可选）必须安装的依赖
-- `suggestion :Array<String>`：（可选）（为了达到更好的用户体验）推荐安装的依赖
+- `necessity :Array<String>`：（可选）必须安装的依赖，会安装最新版
+- `suggestion :Array<String>`：（可选）（为了达到更好的用户体验）推荐安装的依赖，会安装最新版
 
 示例：
 
 ```toml
 [dependencies]
-# 官方提供的依赖项，可以指定依赖版本
 dotnet = "3.5"
 vc = "11"
-# 普通资源包依赖，不会严格安装指定的版本
+
 necessity = ["cmder"]
 suggestion = ["powershell"]
 ```
 
 ## CI/CD 保留
-位置：`ci-cd`表
+位置：`ci-cd` 表
 
 不提供键定义
 
@@ -1220,7 +1228,7 @@ deploy_at = "Pineapple"
 ```
 
 ## 构建工具保留
-位置：`build`表
+位置：`build` 表
 - `contract :String`：配置文件规范版本
 - `tool :String`：构建工具版本
 - `date :Time`：打包时间(UTC+8)

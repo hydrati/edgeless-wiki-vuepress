@@ -177,14 +177,13 @@ models = ["AX200","Killer-AX1650"]
 
 ```toml
 [theme]
-# 说明文件，支持markdown语法，会经过base64编码后保存到此字符串中
-# 如果需要引用图片，请将图片放在 _retinue/img 文件夹内直接引用
-readme = "IyAxMTQ1MTQNCiZsdDtici8mZ3Q7DQrov5nmmK/kuIDkuKrkuIDkuKrkuIDkuKrlm77moIfljIXvvIzlk7zlk7zllYrllYrllYrllYrllYrllYrllYoNCiFbXSgxOTE5ODEwLmpwZyk="
 # 标签
 tags = ["Material Design","圆角"]
-# 推荐搭配的其他资源名
-recommend = ["MacType"]
 ```
+:::tip
+主题型资源包还需要满足一些其他规范，请移步[主题型资源包](theme.md)
+:::
+
 你可以在 [API 参考](api.md#独占表) 中查看独占表的详细规范。
 
 ### 用户数据目录 <Badge text="可选" />
@@ -220,7 +219,7 @@ stop = "taskkill /im sshd.exe /t"
 
 如果你的程序需要安装运行库/运行时依赖或其他资源包，你可以指定所需的依赖，加载器会自动地解决依赖关系。
 
-对于官方提供的依赖项可以指定依赖版本，而对于普通资源包依赖，所填的版本号只是打包者测试使用的版本号，Edgeless 不会严格安装指定的版本。
+对于官方提供的依赖项可以指定依赖版本，而对于普通资源包则会安装最新版。
 
 示例：
 
@@ -229,7 +228,7 @@ stop = "taskkill /im sshd.exe /t"
 # 官方提供的依赖项，可以指定依赖版本
 dotnet = "3.5"
 vc = "11"
-# 普通资源包依赖，不会严格安装指定的版本
+# 普通资源包依赖，会安装最新版
 necessity = ["cmder"]
 suggestion = ["powershell"]
 ```
