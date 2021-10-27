@@ -191,6 +191,10 @@ if = '${Desktop}=="X:/Users/Default/Desktop"'
 
 aria2c 可执行文件 `aria2c.exe` 的绝对路径，如果内置的 [Download](#download) 步骤无法满足你的需求，你可以不等待地执行一个脚本来实现异步下载并回调的操作
 
+:::warning
+此变量仅能在[展开工作流](general.md#展开工作流)中使用，当不符合运行要求时会拒绝执行使用此变量的对应步骤
+:::
+
 示例：
 
 ```toml
@@ -202,24 +206,6 @@ path = "./download.cmd"
 wait = false
 use = ["Aria2cPath"]
 ```
-
-### AutoHotKeyPath
-`String`
-
-AutoHotKey 可执行文件 `AutoHotkeyU64.exe` 的绝对路径，如果内置的 [Sendkey](#sendkey) 步骤无法满足你的需求，你可以执行一个自定义的AutoHotKey脚本来实现复杂的模拟按键操作
-
-示例：
-
-```toml
-[setup_flow.sendkey]
-name = "Sendkey"
-type = "Script"
-
-path = "./sendkey.cmd"
-wait = true
-use = ["AutoHotKeyPath"]
-```
-
 ---
 
 **信息类**
@@ -679,6 +665,20 @@ if = "${uc.GROUP_INSTALL}==true"
   shell = "cmd"
 ```
 
+### Wait
+等待一定时间
+- `timeout :int`：延时，单位为ms
+
+示例：
+
+```toml
+[setup_flow.wait_1]
+name = "Wait 1"
+type = "Wait"
+
+timeout = 1000
+```
+
 ### File
 
 文件操作类型步骤，通过 `operation` 字段说明所需的操作，支持复制、移动、重命名、删除操作
@@ -764,7 +764,7 @@ force = true
 ```
 
 ### Script
-执行脚本，支持 cmd 脚本(`.cmd`)和 pecmd 脚本(`.wcs`)
+执行脚本，支持 cmd 脚本(`.cmd`)、 pecmd 脚本(`.wcs`)和 [AutoHotKey](https://www.autohotkey.com/) 脚本(`.ahk`)
 
 - `path :String`：脚本路径
 - `args :String`：（可选）参数
@@ -814,6 +814,20 @@ use = ["env.SETUP_PLUGINS"]
 pwd = "${SystemDrive}/System32"
 hide = false
 wait = false
+```
+
+### Kill
+杀死某个进程
+- `target :String`：进程名称，或启动时对应的可执行文件名
+
+示例：
+
+```toml
+[setup_flow.kill_vscode]
+name = "Kill VSCode"
+type = "Kill"
+
+target = "vscode.exe"
 ```
 
 ### Link
@@ -996,7 +1010,7 @@ target = "./VScode"
 overwrite = false
 ```
 
-### Sendkey
+### SendKey
 向窗口发送模拟键盘输入
 - `key :String`：按键名称，见[AutoHotKey KeyList](https://www.autohotkey.com/docs/KeyList.htm)
 - `focus :String`：（可选）目标窗口标题
@@ -1004,31 +1018,37 @@ overwrite = false
 示例：
 
 ```toml
-[setup_flow.sendkey]
-name = "Sendkey"
-type = "Sendkey"
+[setup_flow.send_key]
+name = "Send key"
+type = "SendKey"
 
 key = "Enter"
 focus = "Chrome Setup"
 ```
 
 :::tip
-如果此步骤无法满足你的需求，你可以执行一个自定义的 AutoHotKey 脚本来实现复杂的模拟按键操作，我们会在 [`${AutoHotKeyPath}`](#autohotkeypath) 参数上提供一个现成的 AutoHotKey Unicode 可执行文件
+如果此步骤无法满足你的需求，你可以使用 [`Script` 步骤](#script)运行一个 AutoHotKey 脚本来实现复杂的模拟按键操作
 :::
 
-### Wait
-等待一定时间
-- `timeout :int`：延时，单位为ms
+### SendMouse
+向窗口发送鼠标左键单击
+- `control :String`：控件名称（可以使用 [AutoHotKey](https://www.autohotkey.com) 提供的 WindowSpy 脚本查看）或文本，或者是需要点击对象的图片（会自动点击图像中心）
+-  `focus :String`：（可选）目标窗口标题
 
 示例：
 
 ```toml
-[setup_flow.wait_1]
-name = "Wait 1"
-type = "Wait"
+[setup_flow.send_mouse]
+name = "Send mouse"
+type = "SendMouse"
 
-timeout = 1000
+control = "Enter"
+focus = "Chrome Setup"
 ```
+
+:::tip
+如果此步骤无法满足你的需求，你可以使用 [`Script` 步骤](#script)运行一个 AutoHotKey 脚本来实现复杂的模拟按键操作
+:::
 
 ## 独占表
 ### 软件类
