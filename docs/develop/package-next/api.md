@@ -56,7 +56,8 @@
 推荐打包者通过附加`<@github_id>`来提供对应的 GitHub ID
 :::
 
-### compat <Badge text="可选" />
+### compat
+<Badge text="可选" />
 `Array<String>`
 
 资源包兼容的 Edgeless 版本，缺省表示全部兼容
@@ -472,7 +473,8 @@ if = 'IsAlive("notepad.exe")'
 ## 步骤通用字段
 在[工作流](#工作流位置)的步骤内使用
 
-### name <Badge text="必须" />
+### name
+<Badge text="必须" />
 
 步骤名称，通常是步骤键名的标准英文句式
 
@@ -483,7 +485,8 @@ if = 'IsAlive("notepad.exe")'
 name = "Install VSCode"
 ```
 
-### type <Badge text="必须" />
+### type
+<Badge text="必须" />
 
 步骤类型，必须为[步骤类型 API 参考](#步骤类型)中指定的一种
 
