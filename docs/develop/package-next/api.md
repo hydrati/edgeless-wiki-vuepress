@@ -824,8 +824,8 @@ overwrite = true
 
 - `path :String`：脚本路径
 - `args :String`：（可选）参数
-- `use :Array<String>`：（可选）需要传递的[变量](workflow.md#变量)
-- `pwd :String`：（可选）工作目录，缺省为资源根目录
+- `use :Array<String>`：（可选）需要传递的[变量](#自定义变量)
+- `pwd :String`：（可选）工作目录，缺省时自动判断(引用 `_retinue` 内脚本则为资源根目录，其他位置则在脚本所在目录)
 - `hide :bool`：（可选）是否隐藏脚本执行窗口，缺省为 `true`
 - `wait :bool`：（可选）是否等待脚本执行完成，缺省为 `true`
 - `fix :Array<String>`：（可选）需要[修复 `_retinue` 引用](exclusive-directory.md#随从文件夹)的文本文件
@@ -851,8 +851,8 @@ fix = ["./VSCode/install.cmd", "./_retinue/update.py"]
 
 - `command :String`：命令
 - `shell :Enum<String>`：使用的终端，下列值中的一个：`{"cmd", "pecmd"}`
-- `use :Array<String>`：（可选）需要传递的[变量](workflow.md#变量)
-- `pwd :String`：（可选）工作目录，缺省时自动判断(引用 `_retinue` 内脚本则为资源根目录，其他位置则在脚本所在目录)
+- `use :Array<String>`：（可选）需要传递的[变量](#自定义变量)
+- `pwd :String`：（可选）工作目录，缺省为资源包根目录
 - `hide :bool`：（可选）是否隐藏命令执行窗口，缺省为 `true`
 - `wait :bool`：（可选）是否等待命令执行完成，缺省为 `true`
 
@@ -909,7 +909,7 @@ location_default = "Desktop"
 ```
 
 ### Modify
-更改[自定义变量](workflow.md#自定义变量)或[用户配置变量](workflow.md#用户配置变量)的值
+更改[自定义变量](#自定义变量)或[用户配置变量](#用户配置变量)的值
 :::tip
 [内置变量](#内置变量)*不允许*被工作流或是用户修改，其值仅由加载器运行时决定
 :::
@@ -1067,7 +1067,7 @@ overwrite = false
 ```
 
 ### SendKey
-向窗口发送模拟键盘输入
+向窗口发送键盘输入
 - `key :String`：按键名称，见[AutoHotKey KeyList](https://www.autohotkey.com/docs/KeyList.htm)
 - `focus :String`：（可选）目标窗口标题
 
@@ -1087,7 +1087,7 @@ focus = "Chrome Setup"
 :::
 
 ### SendMouse
-向窗口发送鼠标左键单击
+向窗口发送鼠标左键单击输入
 - `control :String`：控件名称或文本，或者是需要点击对象的图片（会自动点击图像中心）
 -  `focus :String`：（可选）目标窗口标题
 
