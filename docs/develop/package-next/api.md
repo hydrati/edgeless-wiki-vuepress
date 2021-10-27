@@ -699,14 +699,14 @@ name = "Copy config"
 type = "File"
 
 operation = "Copy"
-source = "./_retinue/config/*"
+source = "./_patch/config/*"
 target = "${SystemDrive}/Users/Config/"
 overwrite = false
 ```
 
 #### 移动
 
-需要使 `operation = "Move"`
+需要使 `operation = "Move"`；配合 [_patch](exclusive-directory.md#补丁文件夹) 专用文件夹可以实现打文件补丁操作
 
 - `source : String`：移动来源，可以是文件或文件夹，支持通配符
 - `target : String`：移动目的地，支持重命名
@@ -720,7 +720,7 @@ name = "Move config"
 type = "File"
 
 operation = "Move"
-source = "./_retinue/config/*"
+source = "./_patch/config/*"
 target = "${SystemDrive}/Users/Config/"
 overwrite = false
 ```
@@ -740,7 +740,7 @@ name = "Rename config"
 type = "File"
 
 operation = "Rename"
-source = "./_retinue/config/*.ini"
+source = "./_patch/config/*.ini"
 target = "*.wcs"
 ```
 
@@ -772,7 +772,7 @@ force = true
 - `pwd :String`：（可选）工作目录，缺省为资源根目录
 - `hide :bool`：（可选）是否隐藏脚本执行窗口，缺省为 `true`
 - `wait :bool`：（可选）是否等待脚本执行完成，缺省为 `true`
-- `fix :Array<String>`：（可选）需要[修复 `_retinue` 引用](general.md#随从文件夹)的文本文件
+- `fix :Array<String>`：（可选）需要[修复 `_retinue` 引用](exclusive-directory.md#随从文件夹)的文本文件
 
 示例：
 
