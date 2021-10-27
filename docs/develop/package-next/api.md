@@ -699,7 +699,7 @@ name = "Copy config"
 type = "File"
 
 operation = "Copy"
-source = "./_patch/config/*"
+source = "./VSCode/config/*"
 target = "${SystemDrive}/Users/Config/"
 overwrite = false
 ```
@@ -740,7 +740,7 @@ name = "Rename config"
 type = "File"
 
 operation = "Rename"
-source = "./_patch/config/*.ini"
+source = "./VSCode/config/*.ini"
 target = "*.wcs"
 ```
 
