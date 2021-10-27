@@ -42,3 +42,7 @@ source = "./_patch/config/*"
 target = "${SystemDrive}/Users/Config/"
 overwrite = false
 ```
+
+:::tip 与随从文件夹的区别
+此文件夹专门用于存放*需要替换或补充的文件*，而不是被脚本引用的文件
+:::

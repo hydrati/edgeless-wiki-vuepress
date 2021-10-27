@@ -129,6 +129,21 @@ tested = ["4.0.0","3.2.1"]
   md5 = "DD4DD2E97577D88B4E6E4B3BF4AA86A9"
 ```
 
+### 钩子 <Badge text="可选" />
+
+[生命周期钩子](../../playground/hooks.md)可以在 Edgeless 运行时的不同周期位置运行用户的指定脚本，我们规定在 `hooks.HOOK_STAGE` 使用工作流来描述某个位置的钩子，例如：
+
+```toml
+[hooks.onDesktopShown]
+  [hooks.onDesktopShown.update_vscode]
+  name = "Update VSCode"
+  type = "Script"
+
+  path = "./update.cmd"
+```
+
+你可以在[生命周期钩子](../../playground/hooks.md#启动周期)章节找到所有的钩子位置，不过由于资源包加载的位置在很多钩子后，因此资源包可用的钩子只有 `onDesktopShown` `onBootFinished` `onExit`。
+
 ### 独占表
 
 不同类型的资源包通常会拥有一些特定的表用于存放该类资源的通用信息，我们将其定义为独占表。
@@ -170,34 +185,7 @@ tags = ["Material Design","圆角"]
 # 推荐搭配的其他资源名
 recommend = ["MacType"]
 ```
-
-### 钩子 <Badge text="可选" />
-
-[生命周期钩子](../../playground/hooks.md)可以在 Edgeless 运行时的不同周期位置运行用户的指定脚本，我们规定在 `hooks.HOOK_STAGE` 使用工作流来描述某个位置的钩子，例如：
-
-```toml
-[hooks.onDesktopShown]
-  [hooks.onDesktopShown.update_vscode]
-  name = "Update VSCode"
-  type = "Script"
-
-  path = "./update.cmd"
-```
-
-你可以在[生命周期钩子](../../playground/hooks.md#启动周期)章节找到所有的钩子位置，不过由于资源包加载的位置在很多钩子后，因此资源包可用的钩子只有 `onDesktopShown` `onBootFinished` `onExit`。
-
-### Edgeless PPnP 配置 <Badge text="可选" />
-
-<!--TODO:等待补充相关内容-->
-
-示例：
-
-```toml
-[ppnp]
-precache = [
-  "_install_/*/**"
-]
-```
+你可以在 [API 参考](api.md#独占表) 中查看独占表的详细规范。
 
 ### 用户数据目录 <Badge text="可选" />
 
@@ -209,6 +197,7 @@ precache = [
 [profiles]
 dir = ["${SystemDrive}/Users/profiles"]
 ```
+你可以在 [API 参考](api.md#用户数据目录) 中查看用户数据目录的详细规范。
 
 ### 服务配置 <Badge text="可选" />
 
@@ -225,6 +214,7 @@ start = "./sshd.exe"
 # 停止服务命令
 stop = "taskkill /im sshd.exe /t"
 ```
+你可以在 [API 参考](api.md#服务配置) 中查看服务配置的详细规范。
 
 ### 依赖 <Badge text="可选" />
 
@@ -240,8 +230,10 @@ stop = "taskkill /im sshd.exe /t"
 dotnet = "3.5"
 vc = "11"
 # 普通资源包依赖，不会严格安装指定的版本
-cmder = "1.0.0.0"
+necessity = ["cmder"]
+suggestion = ["powershell"]
 ```
+你可以在 [API 参考](api.md#依赖) 中查看依赖的详细规范。
 
 ### CI/CD 保留 <Badge text="自动" />
 
@@ -267,17 +259,20 @@ deploy_at = "Pineapple"
 
 此外，配置文件中还会保留一个 `build` 表用于保存构建时的相关信息，此信息由构建工具自动生成：
 
+示例：
+
 ```toml
 [build]
-# 解析规范版本
+# 配置文件规范版本
 contract = "1.0"
 # 构建工具版本
 tool = "0.1.0"
 # 打包时间(UTC+8)
 date = 2021-09-29 00:32:00+08:00
-# 校验时间戳
-timestamp = "xxxxx"
+# 不安全标记
+unsafe = true
 ```
+你可以在 [API 参考](api.md#构建工具保留) 中查看构建工具保留的详细规范。
 
 <small>
 注

@@ -445,9 +445,32 @@ if = 'IsDirectory("${SystemDrive}/Users/Profiles")'
 if = 'IsAlive("notepad.exe")'
 ```
 
-## 步骤通用字段
+## 工作流
 
-位置：`setup_flow` `remove_flow` `expand_flow` `hooks.HOOK_STAGE`
+### 配置工作流
+位置：`setup_flow`
+
+用于资源的配置（setup）操作，使用 `ept install` 或 `ept load` 时会触发此工作流
+
+### 卸载工作流
+位置：`remove_flow`
+
+用于资源的卸载（remove）操作，使用 `ept remove` 时会触发此工作流
+
+### 展开工作流
+
+位置：`expand_flow`
+
+用于资源的[展开](property.md#内容分布式资源包)（expand）操作
+
+### 钩子工作流
+位置：`hooks.onDesktopShown` `hooks.onBootFinished` `hooks.onExit`
+
+用于在 Edgeless 运行时的不同周期位置执行操作，详情见[生命周期钩子](../../playground/hooks.md)
+
+
+## 步骤通用字段
+在[工作流](#工作流位置)的步骤内使用
 
 ### name <Badge text="必须" />
 
@@ -1062,7 +1085,7 @@ focus = "Chrome Setup"
 
 ### SendMouse
 向窗口发送鼠标左键单击
-- `control :String`：控件名称（可以使用 [AutoHotKey](https://www.autohotkey.com) 提供的 WindowSpy 脚本查看）或文本，或者是需要点击对象的图片（会自动点击图像中心）
+- `control :String`：控件名称或文本，或者是需要点击对象的图片（会自动点击图像中心）
 -  `focus :String`：（可选）目标窗口标题
 
 示例：
@@ -1072,11 +1095,24 @@ focus = "Chrome Setup"
 name = "Send mouse"
 type = "SendMouse"
 
-control = "Enter"
+control = "Next"
+focus = "Chrome Setup"
+```
+
+或
+
+```toml
+[setup_flow.send_mouse]
+name = "Send mouse"
+type = "SendMouse"
+
+control = "./_retinue/screenshots/button.jpg"
 focus = "Chrome Setup"
 ```
 
 :::tip
+控件名称可以使用 [AutoHotKey](https://www.autohotkey.com) 提供的 WindowSpy 脚本查看，此脚本位于你下载的 AutoHotKey 发行版压缩包根目录
+
 如果此步骤无法满足你的需求，你可以使用 [`Script` 步骤](#script)运行一个 AutoHotKey 脚本来实现复杂的模拟按键操作
 :::
 
@@ -1112,4 +1148,90 @@ location = "${SystemDrive}/Users/PortableApps"
 brand = "Intel"
 type = "无线网卡"
 models = ["AX200","Killer-AX1650"]
+```
+
+## 用户数据目录
+位置：`profiles`表
+- `dir :Array<String>`：所有的用户目录
+
+示例：
+
+```toml
+[profiles]
+dir = ["${SystemDrive}/Users/profiles"]
+```
+
+## 服务配置
+位置：`service`表
+- `progress :String`：进程名，用于判断服务运行状态
+- `start :String`：启用服务命令
+- `stop :String`：停止服务命令
+
+示例：
+
+```toml
+[service]
+# 进程名，用于判断服务运行状态
+progress = "sshd.exe"
+# 启用服务命令
+start = "./sshd.exe"
+# 停止服务命令
+stop = "taskkill /im sshd.exe /t"
+```
+
+## 依赖
+位置：`dependencies`表
+- `dotnet :String`：（可选）[Microsoft .NET](https://dotnet.microsoft.com/) 运行时依赖版本
+- `vc :String`：（可选）[Microsoft Visual C++](https://visualstudio.microsoft.com/zh-hans/vs/features/cplusplus/) 运行时依赖版本
+- `necessity :Array<String>`：（可选）必须安装的依赖
+- `suggestion :Array<String>`：（可选）（为了达到更好的用户体验）推荐安装的依赖
+
+示例：
+
+```toml
+[dependencies]
+# 官方提供的依赖项，可以指定依赖版本
+dotnet = "3.5"
+vc = "11"
+# 普通资源包依赖，不会严格安装指定的版本
+necessity = ["cmder"]
+suggestion = ["powershell"]
+```
+
+## CI/CD 保留
+位置：`ci-cd`表
+
+不提供键定义
+
+示例：
+
+```toml
+[ci-cd]
+# 自动构建设施代号
+build_at = "GithubActions"
+# 自动构建设施上的构建器版本号
+build_with = "0.1.0"
+# 自动测试设施代号
+test_at = "GithubActions"
+# 自动测试设施上的测试器版本号
+test_with = "0.1.0"
+# 自动交付目标服务器代号
+deploy_at = "Pineapple"
+```
+
+## 构建工具保留
+位置：`build`表
+- `contract :String`：配置文件规范版本
+- `tool :String`：构建工具版本
+- `date :Time`：打包时间(UTC+8)
+- `unsafe :bool`：不安全标记，使真此标记可以绕过配置规则校验，但是不能上架到官方镜像源
+
+示例：
+
+```toml
+[build]
+contract = "1.0"
+tool = "0.1.0"
+date = 2021-09-29 00:32:00+08:00
+unsafe = true
 ```
