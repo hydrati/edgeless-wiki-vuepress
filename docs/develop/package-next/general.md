@@ -52,7 +52,11 @@
 
 假设你的资源包文件名为 `MySoftware-runtime_1.0.0_Cno.nep.7z` 且是一个绿色软件，那么你必须将此软件的主程序放置在 `MySoftware-runtime` 目录内；如果这是一个通过安装包静默安装的软件(或真单文件程序<sup>[[1]](#footnote-1)</sup>)，那么你必须将其安装包(或主程序)命名为 `MySoftware-runtime.exe` 放置在根目录下。
 
-除了 `PackageName` 文件夹/文件和[专用文件夹](exclusive-directory.md)外，不能在根目录放置其他文件夹/文件，这样可以有效保证你所制作资源的目录不与其他资源目录冲突。
+除了 `PackageName` 文件夹/文件和[专用文件夹](exclusive-directory.md)外，不能在根目录放置其他文件夹/文件，这样有助于保持根目录的可读性。
+
+:::tip
+你还需要[保持程序目录纯净](norm.md#保持程序目录纯净)和[保持程序目录相对性](norm.md#保持程序目录相对性)
+:::
 
 ## 配置文件
 
