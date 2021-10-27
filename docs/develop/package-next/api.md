@@ -1138,6 +1138,8 @@ location = "${SystemDrive}/Users/PortableApps"
 - `type :Enum<String>`：硬件类型，下列值中的一个：`{"存储", "音频", "有线网卡", "无线网卡", "人体工程学输入", "视频输入", "主板", "蓝牙", "打印机", "显卡", "其他"}`
 - `models :Array<String>`：适用型号，默认品牌与驱动程序提供商一致；可以使用 `品牌-型号` 语法指定其他品牌；如果 `brand` 为 `Microsoft` 则此项可以省略并显示为`通用`
 
+驱动型资源包还需要满足一些其他规范，请移步[驱动型资源包](driver.md)
+
 :::warning
 `type` 中的部分类型无法在 Edgeless 中使用，此处仅作预留
 :::

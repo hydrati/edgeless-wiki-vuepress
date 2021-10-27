@@ -71,7 +71,7 @@
 
 步骤的键同样由编写者自由决定，推荐使用 [snake_case](https://en.wikipedia.org/wiki/Snake_case) 风格的 `name`。此例中该步骤的键为 `copy_config`，访问路径为 `setup_flow.copy_config`。
 
-下方的 `operation` 则是 `File` 类型的独有字段，用于指定文件操作类别；而 `source` `target` 则是复制操作 (`Copy`) 的独有字段，指定了复制来源、复制目标。
+下方的 `operation` 则是 [`File` 类型](api.md#file)的独有字段，用于指定文件操作类别；而 `source` `target` 则是复制操作 (`Copy`) 的独有字段，指定了复制来源、复制目标。
 
 :::tip
 看起来这三个字段似乎可以分为两个拥有层层递进关系的字段组，其实在程序中它们是平坦的 (plain) 、位于同一逻辑层级上的，都会直接暴露给 `File` 类型步骤解析器
@@ -87,11 +87,11 @@
   level = "Info"
   msg = "VSCode installed successfully"
 ```
-描述了一个键为 `log_status`、名称为 `Log status`的输出日志步骤，并提供了 `level` `msg` 两个参数。
+描述了一个键为 `log_status`、名称为 `Log status`的[输出日志步骤](api.md#log)，并提供了 `level` `msg` 两个参数。
 
 你可以在 [API 参考](api.md#步骤类型) 中查看全部的官方步骤类型及其对应所需的参数。
 :::tip
-如果你认为我们提供的官方类型缺失了对某种基础步骤的实现，请暂时地使用脚本(Script)代替并给我们发issue
+如果你认为我们提供的官方类型缺失了对某种基础步骤的实现，请暂时地使用[`Script` 类型](api.md#script)步骤代替并给我们发issue
 :::
 ## 变量
 你可以在步骤或脚本中使用变量，变量可以是加载器运行时提供的内置变量、编写者自定义变量或是可供用户更改的用户配置变量。
@@ -107,7 +107,7 @@
   # 使用了内置变量，此项会被解释为 X:/Users/Config/
   target = "${SystemDrive}/Users/Config/"
 ```
-这里的 `target` 就用到了内置变量 `${SystemDrive}` ，在 Edgeless 中其值为 `X:`，代表Windows PE盘符。
+这里的 `target` 就用到了内置变量 [`${SystemDrive}`](api.md#systemdrive) ，在 Edgeless 中其值为 `X:`，代表Windows PE盘符。
 
 上述的使用方法仅限在 `package.toml` 文件中使用自定义变量，如果需要将内置变量传递到批处理脚本环境，请在 `Script` 类型步骤中通过 `use` 显式指定需要传递的变量：
 ```toml
@@ -156,7 +156,7 @@ MY_BOOT_POLICY = 0
   location_default = "Desktop"
 ```
 
-与内置变量类似，如果需要将自定义变量传递到批处理脚本环境，请在 `Script` 类型步骤中通过 `use` 显式指定需要传递的自定义变量：
+与内置变量类似，如果需要将自定义变量传递到批处理脚本环境，请在 [`Script` 类型](api.md#script)步骤中通过 `use` 显式指定需要传递的自定义变量：
 ```toml
   [setup_flow.run_setup_batch]
   name = "Run setup batch"
@@ -167,7 +167,7 @@ MY_BOOT_POLICY = 0
   # 在 "./setup.cmd" 中执行 "echo %env.SETUP_PLUGINS%" 即可看到被传递的自定义变量
   use = ["env.SETUP_PLUGINS"]
 ```
-如果你需要在工作流中修改 `env` 中的变量值，请执行一个 [`Modify` 类型](api.md#modify)的步骤：
+如果你需要在工作流中修改 `env` 中的变量值，请执行一个 [`Modify` 类型](api.md#modify)步骤：
 ```toml
   [setup_flow.modify_boot_policy]
   name = "Modify boot policy"
@@ -216,7 +216,7 @@ MY_BOOT_POLICY = 0
   command = "explorer ${Desktop}/Visual Studio Code.lnk"
 ```
 
-同样的，你也可以执行一个 `Modify` 类型的步骤来修改用户配置变量，示例见 [API 参考](api.md#modify)；或是在 `Script` 类型步骤中通过 `use` 显式指定需要传递的用户配置变量，示例见 [API 参考](api.md#script)
+同样的，你也可以执行一个 `Modify` 类型步骤来修改用户配置变量，示例见 [API 参考](api.md#modify)；或是在 `Script` 类型步骤中通过 `use` 显式指定需要传递的用户配置变量，示例见 [API 参考](api.md#script)
 
 这里还有一些指定了其他类型用户配置变量的示例：
 
@@ -265,8 +265,10 @@ MY_BOOT_POLICY = 0
 ```
 当 `if` 指定的逻辑表达式结果为真时此步骤才会被执行。
 
+除了 `if`，我们还提供了 `elif` 和 `else` 语句。你可以在 [API 参考](api.md#if) 中查看全部的条件语句定义。
+
 :::tip
-此表达式由[eval crate](https://docs.rs/eval)解释并计算，计算过程类型严格
+此处的表达式由[eval crate](https://docs.rs/eval)解释并计算，计算过程类型严格
 
 支持的符号：`!` `!=` `""` `''` `()` `[]` `.` `,` `>` `<` `>=` `<=` `==` `+` `-` `*` `/` `%` `&&` `||` `n..m`
 :::
@@ -327,7 +329,7 @@ MY_BOOT_POLICY = 0
 
     command = "./Installer3.exe /S"
 ```
-虽然看起来内容更长了，但是这些步骤的逻辑关系会更加清晰，也更加易于规模化的管理；此外也有一些特殊情况必须使用步骤组，例如基于判断 `${ExitCode}` 执行数个步骤
+虽然看起来内容更长了，但是这些步骤的逻辑关系会更加清晰，也更加易于规模化的管理；此外也有一些特殊情况必须使用步骤组，例如基于判断 [`${ExitCode}`](api.md#exitcode) 执行数个步骤
 
 :::tip
 完成阅读后请返回[主章节](general.md#最重要的内容)继续阅读剩余部分
