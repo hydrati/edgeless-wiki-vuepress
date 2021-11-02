@@ -22,7 +22,7 @@
 
 资源包内容类型
 
-下列值中的一个：`{"Software", "Driver", "Essential", "Dependency", "Theme"}`
+下列值中的一个：`{"Software", "Driver", "Manifest", "Dependency", "Theme"}`
 
 :::tip
 `Enum<String>` 表示这是一个 String 类型的枚举类
@@ -1125,6 +1125,7 @@ focus = "Chrome Setup"
 
 - `category :String`：软件分类，必须是下载站已有分类中的一种；如果需要新建分类请给我们发issue
 - `tags :String`：软件标签，建议将资源名称的同义词(如 "VSCode" 的同义词有"Visual Studio Code" "VSC" "code" 等)加入此标签，可以在分类中体现的标签(如"下载工具")请不要加到这里
+- `language :Enum<String>`：语言，下列值中的一个：`{"Multi", "zh-CN", "en-US"}`
 - `location :String`：（可选）软件安装位置，缺省为`${DefaultLocation}`
 
 示例：
@@ -1167,6 +1168,14 @@ models = ["AX200","Killer-AX1650"]
 tags = ["Material Design","圆角"]
 ```
 
+### 清单型
+位置：`manifest` 表
+- `tags :String`：清单标签
+- `language :Enum<String>`：语言，下列值中的一个：`{"Multi", "zh-CN", "en-US"}`
+
+清单型资源包还需要满足一些其他规范，请移步[清单资源包](property.md#清单资源包)
+
+
 ## 用户数据目录
 位置：`profiles` 表
 - `dir :Array<String>`：所有的用户目录
@@ -1195,20 +1204,21 @@ stop = "taskkill /im sshd.exe /t"
 
 ## 依赖
 位置：`dependencies` 表
-- `dotnet :String`：（可选）[Microsoft .NET](https://dotnet.microsoft.com/) 运行时依赖版本
-- `vc :String`：（可选）[Microsoft Visual C++](https://visualstudio.microsoft.com/zh-hans/vs/features/cplusplus/) 运行时依赖版本
-- `necessity :Array<String>`：（可选）必须安装的依赖，会安装最新版
-- `suggestion :Array<String>`：（可选）（为了达到更好的用户体验）推荐安装的依赖，会安装最新版
+- `required :Array<{name:String, version:String>`：（可选）必须安装的依赖
+- `suggested :Array<{name:String, version:String, remark:String}>`：（可选）（为了达到更好的用户体验）推荐安装的依赖
+
+`version` 支持在版本号前使用 `>=` `<=` `>` `<` 表达依赖要求，值为 `0.0.0` 则表示无版本限制
+
+:::tip 注意
+指定的 `version` 不一定会被安装，`ept` 会自动选择一个可能的最合适版本执行安装
+:::
 
 示例：
 
 ```toml
 [dependencies]
-dotnet = "3.5"
-vc = "11"
-
-necessity = ["cmder"]
-suggestion = ["powershell"]
+required = [{name:"dotnet",version:"3.5"}]
+suggested = [{name:"PowerShell",version:"0.0.0",remark:"推荐搭配PowerShell使用"},{name:"Nodejs-runtime",version:">=15.0.0",remark:"如果需要爬虫功能则必须安装此依赖"}]
 ```
 
 ## CI/CD 保留
