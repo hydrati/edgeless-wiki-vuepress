@@ -709,6 +709,38 @@ if = "${uc.GROUP_INSTALL}==true"
   shell = "cmd"
 ```
 
+### Modify
+更改[自定义变量](#自定义变量)或[用户配置变量](#用户配置变量)的值
+:::tip
+[内置变量](#内置变量)*不允许*被工作流或是用户修改，其值仅由加载器运行时决定
+:::
+- `key :String`：需要修改的键
+- `value :String`：新值
+
+示例：
+
+修改自定义变量
+```toml
+[setup_flow.modify_boot_policy]
+name = "Modify boot policy"
+type = "Modify"
+if = '${BootPolicy}=="UEFI"'
+
+key = "env.MY_BOOT_POLICY"
+value = 1
+```
+
+修改用户配置变量
+```toml
+[setup_flow.modify_auto_run]
+name = "Modify auto run"
+type = "Modify"
+if = '${BootPolicy}=="UEFI"'
+
+key = "uc.AUTO_RUN"
+value = true
+```
+
 ### Wait
 等待一定时间
 - `timeout :int`：延时，单位为ms
@@ -721,6 +753,42 @@ name = "Wait 1"
 type = "Wait"
 
 timeout = 1000
+```
+
+### Link
+创建快捷方式，支持在桌面、任务栏、开始菜单
+- `source_file :String`：源文件
+- `target_name :String`：快捷方式名称，可以使用 `Folder/Name` 表示创建目录
+- `target_args :String`：（可选）追加参数
+- `target_icon :String`：（可选）快捷方式图标，缺省与源文件一致
+- `location_default :Enum<String>`：（可选）默认创建位置，缺省为`"Desktop"`，下列值中的一个：`{"Desktop", "Taskbar", "StartMenu"}`；用户可以手动更改此项
+
+示例：
+
+```toml
+[setup_flow.create_shortcut]
+name = "Create shortcut"
+type = "Link"
+
+source_file = "./VSCode/VSCode.exe"
+target_name = "Visual Studio Code"
+target_args = "${env.USER_ARGS}"
+target_icon = "./VSCode/vscode.ico"
+location_default = "Desktop"
+```
+
+可以使用 `target_name: "Folder/Name"` 表示将快捷方式放置于目录中，尤其建议当 `location_default` 值为 `StartMenu` 时这样做，示例：
+
+```toml
+[setup_flow.create_shortcut]
+name = "Create shortcut"
+type = "Link"
+
+source_file = "./VSCode/VSCode.exe"
+target_name = "集成开发/Visual Studio Code"
+target_args = "${env.USER_ARGS}"
+target_icon = "./VSCode/vscode.ico"
+location_default = "StartMenu"
 ```
 
 ### File
@@ -891,74 +959,6 @@ name = "Kill VSCode"
 type = "Kill"
 
 target = "vscode.exe"
-```
-
-### Link
-创建快捷方式，支持在桌面、任务栏、开始菜单
-- `source_file :String`：源文件
-- `target_name :String`：快捷方式名称，可以使用 `Folder/Name` 表示创建目录
-- `target_args :String`：（可选）追加参数
-- `target_icon :String`：（可选）快捷方式图标，缺省与源文件一致
-- `location_default :Enum<String>`：（可选）默认创建位置，缺省为`"Desktop"`，下列值中的一个：`{"Desktop", "Taskbar", "StartMenu"}`；用户可以手动更改此项
-
-示例：
-
-```toml
-[setup_flow.create_shortcut]
-name = "Create shortcut"
-type = "Link"
-
-source_file = "./VSCode/VSCode.exe"
-target_name = "Visual Studio Code"
-target_args = "${env.USER_ARGS}"
-target_icon = "./VSCode/vscode.ico"
-location_default = "Desktop"
-```
-
-可以使用 `target_name: "Folder/Name"` 表示将快捷方式放置于目录中，尤其建议当 `location_default` 值为 `StartMenu` 时这样做，示例：
-
-```toml
-[setup_flow.create_shortcut]
-name = "Create shortcut"
-type = "Link"
-
-source_file = "./VSCode/VSCode.exe"
-target_name = "集成开发/Visual Studio Code"
-target_args = "${env.USER_ARGS}"
-target_icon = "./VSCode/vscode.ico"
-location_default = "StartMenu"
-```
-
-### Modify
-更改[自定义变量](#自定义变量)或[用户配置变量](#用户配置变量)的值
-:::tip
-[内置变量](#内置变量)*不允许*被工作流或是用户修改，其值仅由加载器运行时决定
-:::
-- `key :String`：需要修改的键
-- `value :String`：新值
-
-示例：
-
-修改自定义变量
-```toml
-[setup_flow.modify_boot_policy]
-name = "Modify boot policy"
-type = "Modify"
-if = '${BootPolicy}=="UEFI"'
-
-key = "env.MY_BOOT_POLICY"
-value = 1
-```
-
-修改用户配置变量
-```toml
-[setup_flow.modify_auto_run]
-name = "Modify auto run"
-type = "Modify"
-if = '${BootPolicy}=="UEFI"'
-
-key = "uc.AUTO_RUN"
-value = true
 ```
 
 ### Path
