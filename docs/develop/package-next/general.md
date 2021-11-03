@@ -223,59 +223,16 @@ stop = "taskkill /im sshd.exe /t"
 
 如果你的程序需要安装运行库/运行时依赖或其他资源包，你可以指定所需的依赖，加载器会自动地解决依赖关系。
 
-对于官方提供的依赖项可以指定依赖版本，而对于普通资源包则会安装最新版。
-
 示例：
 
 ```toml
 [dependencies]
-# 官方提供的依赖项，可以指定依赖版本
-dotnet = "3.5"
-vc = "11"
-# 普通资源包依赖，会安装最新版
-necessity = ["cmder"]
-suggestion = ["powershell"]
+# 必须安装的依赖
+required = [{name:"dotnet",version:"3.5"}]
+# （为了达到更好的用户体验）推荐安装的依赖
+suggested = [{name:"PowerShell",version:"0.0.0",remark:"推荐搭配PowerShell使用"},{name:"Nodejs-runtime",version:">=15.0.0",remark:"如果需要爬虫功能则必须安装此依赖"}]
 ```
 你可以在 [API 参考](api.md#依赖) 中查看依赖的详细规范。
-
-### CI/CD 保留 <Badge text="自动" />
-
-Edgeless 基础设施包含了能对资源包自动构建、自动测试和自动交付的工具，并可依托于云服务设备运行 CI/CD 作业，在此过程中会产生一些与设施相关的信息，我们使用 `ci-cd` 表保存这些信息。
-
-示例：
-
-```toml
-[ci-cd]
-# 自动构建设施代号
-build_at = "GithubActions"
-# 自动构建设施上的构建器版本号
-build_with = "0.1.0"
-# 自动测试设施代号
-test_at = "GithubActions"
-# 自动测试设施上的测试器版本号
-test_with = "0.1.0"
-# 自动交付目标服务器代号
-deploy_at = "Pineapple"
-```
-
-### 构建工具保留 <Badge text="自动" />
-
-此外，配置文件中还会保留一个 `build` 表用于保存构建时的相关信息，此信息由构建工具自动生成：
-
-示例：
-
-```toml
-[build]
-# 配置文件规范版本
-contract = "1.0"
-# 构建工具版本
-tool = "0.1.0"
-# 打包时间(UTC+8)
-date = 2021-09-29 00:32:00+08:00
-# 不安全标记
-unsafe = true
-```
-你可以在 [API 参考](api.md#构建工具保留) 中查看构建工具保留的详细规范。
 
 <small>
 注

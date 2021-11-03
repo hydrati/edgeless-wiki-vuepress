@@ -1187,6 +1187,8 @@ tags = ["Material Design","圆角"]
 位置：`profiles` 表
 - `dir :Array<String>`：所有的用户目录
 
+指定了用户数据目录之后，当用户要求保存他们的数据时 Edgeless 会在结束周期打包这些目录，并在下次启动时恢复这些数据。
+
 示例：
 
 ```toml
@@ -1199,6 +1201,8 @@ dir = ["${SystemDrive}/Users/profiles"]
 - `progress :String`：进程名，用于判断服务运行状态
 - `start :String`：启用服务命令
 - `stop :String`：停止服务命令
+
+在打包服务型程序时需要提供服务配置来控制这项服务，Edgeless 会向用户提供操作接口来控制*实现了服务配置*的服务。
 
 示例：
 
@@ -1213,6 +1217,8 @@ stop = "taskkill /im sshd.exe /t"
 位置：`dependencies` 表
 - `required :Array<{name:String, version:String>`：（可选）必须安装的依赖
 - `suggested :Array<{name:String, version:String, remark:String}>`：（可选）（为了达到更好的用户体验）推荐安装的依赖
+
+指定使用资源前需要完成安装的其他资源，如运行库、运行时等
 
 `version` 支持在版本号前使用 `>=` `<=` `>` `<` 表达依赖要求，值为 `0.0.0` 则表示无版本限制
 
@@ -1229,6 +1235,8 @@ suggested = [{name:"PowerShell",version:"0.0.0",remark:"推荐搭配PowerShell�
 ```
 
 ## CI/CD 保留
+<Badge text="自动" />
+
 位置：`ci-cd` 表
 
 不提供键定义
@@ -1250,6 +1258,8 @@ deploy_at = "Pineapple"
 ```
 
 ## 构建工具保留
+<Badge text="自动" />
+
 位置：`build` 表
 - `contract :String`：配置文件规范版本
 - `tool :String`：构建工具版本
