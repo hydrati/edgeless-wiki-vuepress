@@ -896,10 +896,10 @@ target = "vscode.exe"
 ### Link
 创建快捷方式，支持在桌面、任务栏、开始菜单
 - `source_file :String`：源文件
-- `target_name :String`：快捷方式名称
+- `target_name :String`：快捷方式名称，可以使用 `Folder/Name` 表示创建目录
 - `target_args :String`：（可选）追加参数
 - `target_icon :String`：（可选）快捷方式图标，缺省与源文件一致
-- `location_default :Enum<String>`：（可选）默认创建位置，缺省为`"Desktop"`，下列值中的一个：`{"Desktop", "Taskbar", "StartMenu"}`
+- `location_default :Enum<String>`：（可选）默认创建位置，缺省为`"Desktop"`，下列值中的一个：`{"Desktop", "Taskbar", "StartMenu"}`；用户可以手动更改此项
 
 示例：
 
@@ -913,6 +913,20 @@ target_name = "Visual Studio Code"
 target_args = "${env.USER_ARGS}"
 target_icon = "./VSCode/vscode.ico"
 location_default = "Desktop"
+```
+
+可以使用 `target_name: "Folder/Name"` 表示将快捷方式放置于目录中，尤其建议当 `location_default` 值为 `StartMenu` 时这样做，示例：
+
+```toml
+[setup_flow.create_shortcut]
+name = "Create shortcut"
+type = "Link"
+
+source_file = "./VSCode/VSCode.exe"
+target_name = "集成开发/Visual Studio Code"
+target_args = "${env.USER_ARGS}"
+target_icon = "./VSCode/vscode.ico"
+location_default = "StartMenu"
 ```
 
 ### Modify
