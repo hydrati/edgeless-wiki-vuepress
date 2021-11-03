@@ -31,4 +31,8 @@
 ## 清单资源包 <Badge text=".nep.7zm" />
 `Manifest`
 
-此类型的资源包有且仅有 [`package`](api.md#基础信息)  [`manifest`](api.md#清单型)  [`dependencies`](api.md#依赖) 表，且`package.type` 值为 `Manifest`，其唯一作用是向用户推荐其他资源包
+此类型的资源包有且仅有 [`package`](api.md#基础信息)  [`manifest`](api.md#清单型) 表和  [`dependencies.suggested`](api.md#依赖) 项，且`package.type` 值为 `Manifest`，其唯一作用是向用户推荐其他资源包。在用户完成清单资源包的安装后 `ept` 会推荐用户将其删除。
+
+:::tip
+清单资源包取代了初代的“必要组件包”，用户可以更加灵活地选择自己需要的资源作为“必要组件”
+:::
