@@ -1,7 +1,7 @@
 # API 参考
 
 :::tip
-`Enum<String>` 表示一个 `String` 类型的枚举值，取值范围仅能是给定中的一种；`Array<String>` 表示一个 `String` 类型的数组
+`Enum<String>` 表示一个 `String` 类型的枚举值，取值仅能是给定中的一种；`Array<String>` 表示一个 `String` 类型的数组
 :::
 
 [[TOC]]
