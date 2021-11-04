@@ -472,21 +472,21 @@ tip = "请输入一个以${SystemDrive}/开头的有效路径"
 
 ## 内置函数
 
-内置函数仅可用于[条件语句](#if)内，仅提供一些返回值为 `bool` 型的简单函数
+内置函数仅可用于条件语句（含[if/else/elif](#if)、[LogicAnd/LogicOr](#logicand)）内，仅提供一些返回值为 `bool` 型的简单函数
 
 :::tip
 复杂的函数和步骤不是工作流应该考虑的内容，你应该使用脚本
 :::
 
-### Exist
-`Exist(path :String) :bool`
+### IsExist
+`IsExist(path :String) :bool`
 
 判断是否存在某个文件或目录
 
 示例：
 
 ```toml
-if = 'Exist("${SystemDrive}/Users/Profiles")'
+if = 'IsExist("${SystemDrive}/Users/Profiles")'
 ```
 
 ### IsDirectory
@@ -509,6 +509,17 @@ if = 'IsDirectory("${SystemDrive}/Users/Profiles")'
 
 ```toml
 if = 'IsAlive("notepad.exe")'
+```
+
+### IsVisible
+`IsVisible(path :String) :bool`
+
+判断当前屏幕上是否存在与给定的截图相同的图像
+
+示例：
+
+```toml
+if = 'IsVisible("./_retinue/screenshots/success.jpg")'
 ```
 
 ## 工作流
@@ -576,7 +587,7 @@ if = '${SystemDrive}=="X:"'
 示例：
 
 ```toml
-if = 'Exist("${SystemDrive}/Windows/System32")'
+if = 'IsExist("${SystemDrive}/Windows/System32")'
 ```
 
 ### elif
@@ -619,7 +630,7 @@ elif = '${SystemDrive}=="D:"'
 示例：
 
 ```toml
-elif = 'Exist("${SystemDrive}/Windows/SysWOW64")'
+elif = 'IsExist("${SystemDrive}/Windows/SysWOW64")'
 ```
 
 ### else
@@ -782,9 +793,9 @@ name = "Verify success"
 type = "LogicAnd"
 
 exp = [
-  'Exist("${EdgelessDrive}/Edgeless/version.txt")',
-  'Exist("${EdgelessDrive}/Edgeless/Nes_Inport.7z")',
-  'Exist("${EdgelessDrive}/Edgeless/Resource/*.7z")'
+  'IsExist("${EdgelessDrive}/Edgeless/version.txt")',
+  'IsExist("${EdgelessDrive}/Edgeless/Nes_Inport.7z")',
+  'IsExist("${EdgelessDrive}/Edgeless/Resource/*.7z")'
   ]
 
 [setup_flow.log_success]
@@ -807,9 +818,9 @@ name = "Check 7z"
 type = "LogicOr"
 
 exp = [
-  'Exist("${SystemDrive}/Program Files (x86)/7-Zip/7z.exe")',
-  'Exist("${SystemDrive}/Program Files/7-Zip/7z.exe")',
-  'Exist("./7z.exe")'
+  'IsExist("${SystemDrive}/Program Files (x86)/7-Zip/7z.exe")',
+  'IsExist("${SystemDrive}/Program Files/7-Zip/7z.exe")',
+  'IsExist("./7z.exe")'
   ]
 
 [setup_flow.log_7z]
