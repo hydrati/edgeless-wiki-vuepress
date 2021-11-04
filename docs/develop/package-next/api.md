@@ -1277,6 +1277,7 @@ focus = "Chrome Setup"
 [software]
 category = "办公编辑"
 tags = ["Visual Studio Code", "VSC", "code"]
+language = "Multi"
 location = "${SystemDrive}/Users/PortableApps"
 ```
 
