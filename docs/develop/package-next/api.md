@@ -92,7 +92,7 @@
 
 上一个步骤的执行状态，`==0` 表示成功，`!=0` 表示失败
 
-对于 `Script` 和 `Execute` 类型的步骤来说，这个变量的值会是脚本或命令的退出码
+对于 [`Script`](#script) 和 [`Execute`](#execute) 类型的步骤来说，这个变量的值会是脚本或命令的退出码
 
 示例：
 ```toml
@@ -114,7 +114,7 @@ shell = "cmd"
 [setup_flow.step_2]
 name = "Step 2"
 type = "Execute"
-# 这意味着Step 2不会被执行
+# 手动阻止Step 2的执行
 if = 'false'
 
 command = "exit 0"
@@ -124,13 +124,71 @@ shell = "cmd"
 [setup_flow.fix]
 name = "Fix"
 type = "Execute"
-# 由于Step 2没有被执行，此时的${ExitCode}值为3，是Step 1的退出码
+# 由于Step 2没有被执行，此时的ExitCode值为3，是Step 1的退出码
 if = '${ExitCode}!=0'
 
 command = "start ./VSCode/vscode.exe"
 shell = "cmd"
 ```
 :::
+
+对于 [`Group`](#group) 类型的步骤来说，这个变量的值：
+- 在 `Group` 内部，是上一条*组内*指令的执行状态，这意味着组内第一个步骤获取到的 `${ExitCode}` 始终为 `0`
+- 在 `Group` 外部，组的下一个步骤获取到的 `${ExitCode}` 表示整个组的执行状态，当组未正常执行时会使 `${ExitCode}=1`
+
+示例：
+
+```toml
+[setup_flow.make_error]
+name = "Make error"
+type = "Execute"
+
+# 在此处产生一个错误
+command = "exit 2"
+shell = "cmd"
+
+
+[setup_flow.install_group]
+name = "Install Group"
+type = "Group"
+# 此处可以捕获到上一步骤产生的错误
+# 因此ExitCode值为2
+if = '${ExitCode}==2'
+
+  [setup_flow.install_group.install_1]
+  name = "Install 1"
+  type = "Execute"
+  # 此步骤为组内第一个步骤，而ExitCode表示组内上一个步骤的状态
+  # 因此ExitCode值为0，不会受到组外步骤的影响
+  if = '${ExitCode}==0'
+
+  # 产生一个错误
+  command = "exit 3"
+  shell = "cmd"
+
+
+  [setup_flow.install_group.install_2]
+  name = "Install 2"
+  type = "Execute"
+  # 可以捕获到组内上一个步骤的状态
+  if = '${ExitCode}==3'
+
+  # 产生一个错误
+  command = "exit 4"
+  shell = "cmd"
+
+
+[setup_flow.verify_group_install]
+name = "Verify group install"
+type = "Log"
+# 此时捕获的是整个install_group组的执行状态
+# 组的退出码描述的是整个组的状态，当组执行不正常时会将ExitCode置1
+# 因此尽管组内没有产生值为1的退出码，此时的ExitCode仍为1
+if = '${ExitCode}==1'
+
+level = "Error"
+msg = "Installation failed!"
+```
 
 ### Feedback
 `int`
@@ -707,6 +765,61 @@ if = "${uc.GROUP_INSTALL}==true"
 
   command = "./MySoftware/Installer3.exe /S"
   shell = "cmd"
+```
+
+:::tip
+Group 与 ExitCode 配合使用时有一些注意事项，详见 [ExitCode](#exitcode)
+:::
+
+### LogicAnd
+验证一组条件，仅当*所有条件均*为真时使 `${ExitCode}=0`，否则 `${ExitCode}=1`
+- `exp :Array<String>`：所有条件
+
+示例：
+```toml
+[setup_flow.verify_success]
+name = "Verify success"
+type = "LogicAnd"
+
+exp = [
+  `Exist(${EdgelessDrive}/Edgeless/version.txt)`,
+  `Exist(${EdgelessDrive}/Edgeless/Nes_Inport.7z)`,
+  `Exist(${EdgelessDrive}/Edgeless/Resource/*.7z)`
+  ]
+
+[setup_flow.log_success]
+name = "Log success"
+type = "Log"
+if = '${ExitCode}==0'
+
+level = "Info"
+msg = "Installed successfully"
+```
+
+### LogicOr
+验证一组条件，当*存在任一条件*为真时使 `${ExitCode}==0`，否则 `${ExitCode}==1`
+- `exp :Array<String>`：所有条件
+
+示例：
+```toml
+[setup_flow.check_7z]
+name = "Check 7z"
+type = "LogicOr"
+
+exp = [
+  `Exist(${SystemDrive}/Program Files (x86)/7-Zip/7z.exe)`,
+  `Exist(${SystemDrive}/Program Files/7-Zip/7z.exe)`,
+  `Exist(./7z.exe)`,
+  `Exist(./7za.exe)`
+  ]
+
+[setup_flow.log_7z]
+name = "Log 7z"
+type = "Log"
+if = '${ExitCode}==0'
+
+level = "Info"
+msg = "Found 7-Zip"
 ```
 
 ### Modify
