@@ -158,6 +158,8 @@ tested = ["4.0.0","3.2.1"]
 category = "办公编辑"
 # 标签
 tags = ["Visual Studio Code","VSC"]
+# 软件语言（Multi表示自适应多语言）
+language = "Multi"
 # 安装位置
 location = "${ProgramFiles}/Edgeless"
 ```
