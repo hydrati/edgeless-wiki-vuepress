@@ -576,7 +576,7 @@ if = '${SystemDrive}=="X:"'
 示例：
 
 ```toml
-if = 'Exist(${SystemDrive}/Windows/System32)'
+if = 'Exist("${SystemDrive}/Windows/System32")'
 ```
 
 ### elif
@@ -619,7 +619,7 @@ elif = '${SystemDrive}=="D:"'
 示例：
 
 ```toml
-elif = 'Exist(${SystemDrive}/Windows/SysWOW64)'
+elif = 'Exist("${SystemDrive}/Windows/SysWOW64")'
 ```
 
 ### else
@@ -782,9 +782,9 @@ name = "Verify success"
 type = "LogicAnd"
 
 exp = [
-  `Exist(${EdgelessDrive}/Edgeless/version.txt)`,
-  `Exist(${EdgelessDrive}/Edgeless/Nes_Inport.7z)`,
-  `Exist(${EdgelessDrive}/Edgeless/Resource/*.7z)`
+  'Exist("${EdgelessDrive}/Edgeless/version.txt")',
+  'Exist("${EdgelessDrive}/Edgeless/Nes_Inport.7z")',
+  'Exist("${EdgelessDrive}/Edgeless/Resource/*.7z")'
   ]
 
 [setup_flow.log_success]
@@ -807,10 +807,9 @@ name = "Check 7z"
 type = "LogicOr"
 
 exp = [
-  `Exist(${SystemDrive}/Program Files (x86)/7-Zip/7z.exe)`,
-  `Exist(${SystemDrive}/Program Files/7-Zip/7z.exe)`,
-  `Exist(./7z.exe)`,
-  `Exist(./7za.exe)`
+  'Exist("${SystemDrive}/Program Files (x86)/7-Zip/7z.exe")',
+  'Exist("${SystemDrive}/Program Files/7-Zip/7z.exe")',
+  'Exist("./7z.exe")'
   ]
 
 [setup_flow.log_7z]
