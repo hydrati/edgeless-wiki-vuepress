@@ -14,7 +14,7 @@
 此外，我们还综合了“装箱单”和“包”两种模式，创新性地提出了[内容分布式资源包](property.md#内容分布式资源包)，能够完美兼具两种模式的优点。
 
 ## 更适合国内软件生态
-Edgeless 资源包针对国内的软件规范乱象专门设计了 [SendKey](api.md#sendkey) [SendMouse](api.md#sendmouse) 等步骤，使软件的安装和卸载也可以变得通用。
+Edgeless 资源包针对国内的软件规范乱象专门设计了 [SendKey](api.md#sendkey) [SendMouse](api.md#sendmouse) 等步骤，使国产软件的安装和卸载也可以变得自动。
 
 文档原生中文，国内用户可以快速上手使用，国内开发者可以更快上手实现开发。
 
