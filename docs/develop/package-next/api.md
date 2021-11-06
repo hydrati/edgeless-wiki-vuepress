@@ -213,7 +213,7 @@ if = '${SystemDrive}=="X:"'
 
 Edgeless 启动盘盘符，可能为 `U:`
 
-如果当前没有检测到Edgeless 启动盘，则会立即结束当前步骤并将 [`${ExitCode}`](#exitcode) 配置为`1`
+如果当前没有检测到Edgeless 启动盘，则会立即结束当前步骤并将 [`${ExitCode}`](#exitcode) 配置为`1`；如果有多个 Edgeless 启动盘则随机选择其中一个
 
 示例：
 
@@ -1018,7 +1018,7 @@ overwrite = true
 
 - `path :String`：脚本路径
 - `args :String`：（可选）参数
-- `use :Array<String>`：（可选）需要传递的[变量](#自定义变量)
+- `use :Array<String>`：（可选）需要传递的[变量](#内置变量)
 - `pwd :String`：（可选）工作目录，缺省时自动判断(引用 `_retinue` 内脚本则为资源根目录，其他位置则在脚本所在目录)
 - `hide :bool`：（可选）是否隐藏脚本执行窗口，缺省为 `true`
 - `wait :bool`：（可选）是否等待脚本执行完成，缺省为 `true`
@@ -1045,7 +1045,6 @@ fix = ["./VSCode/install.cmd", "./_retinue/update.py"]
 
 - `command :String`：命令
 - `shell :Enum<String>`：使用的终端，下列值中的一个：`{"cmd", "pecmd"}`
-- `use :Array<String>`：（可选）需要传递的[变量](#自定义变量)
 - `pwd :String`：（可选）工作目录，缺省为资源包根目录
 - `hide :bool`：（可选）是否隐藏命令执行窗口，缺省为 `true`
 - `wait :bool`：（可选）是否等待命令执行完成，缺省为 `true`
@@ -1060,7 +1059,6 @@ if = "${uc.AUTO_RUN}==true"
 
 command = "exec explorer ${Desktop}/Visual Studio Code.lnk"
 shell = "pecmd"
-use = ["env.SETUP_PLUGINS"]
 pwd = "${SystemDrive}/System32"
 hide = false
 wait = false
