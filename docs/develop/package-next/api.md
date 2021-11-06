@@ -1,7 +1,9 @@
 # API 参考
 
 :::tip
-`Enum<String>` 表示一个 `String` 类型的枚举值，取值仅能是给定中的一种；`Array<String>` 表示一个 `String` 类型的数组
+`Enum<String>` 表示一个 `String` 类型的枚举值，取值仅能是给定中的一种
+
+`Array<String>` 表示一个 `String` 类型的数组
 :::
 
 [[TOC]]
@@ -472,15 +474,15 @@ tip = "请输入一个以${SystemDrive}/开头的有效路径"
 复杂的函数和步骤不是工作流应该考虑的内容，你应该使用脚本
 :::
 
-### IsExist
-`IsExist(path :String) :bool`
+### Exist
+`Exist(path :String) :bool`
 
 判断是否存在某个文件或目录
 
 示例：
 
 ```toml
-if = 'IsExist("${SystemDrive}/Users/Profiles")'
+if = 'Exist("${SystemDrive}/Users/Profiles")'
 ```
 
 ### IsDirectory
@@ -581,7 +583,7 @@ if = '${SystemDrive}=="X:"'
 示例：
 
 ```toml
-if = 'IsExist("${SystemDrive}/Windows/System32")'
+if = 'Exist("${SystemDrive}/Windows/System32")'
 ```
 
 ### elif
@@ -624,7 +626,7 @@ elif = '${SystemDrive}=="D:"'
 示例：
 
 ```toml
-elif = 'IsExist("${SystemDrive}/Windows/SysWOW64")'
+elif = 'Exist("${SystemDrive}/Windows/SysWOW64")'
 ```
 
 ### else
@@ -787,9 +789,9 @@ name = "Verify success"
 type = "LogicAnd"
 
 exp = [
-  'IsExist("${EdgelessDrive}/Edgeless/version.txt")',
-  'IsExist("${EdgelessDrive}/Edgeless/Nes_Inport.7z")',
-  'IsExist("${EdgelessDrive}/Edgeless/Resource/*.7z")'
+  'Exist("${EdgelessDrive}/Edgeless/version.txt")',
+  'Exist("${EdgelessDrive}/Edgeless/Nes_Inport.7z")',
+  'Exist("${EdgelessDrive}/Edgeless/Resource/*.7z")'
   ]
 
 [setup_flow.log_success]
@@ -812,9 +814,9 @@ name = "Check 7z"
 type = "LogicOr"
 
 exp = [
-  'IsExist("${SystemDrive}/Program Files (x86)/7-Zip/7z.exe")',
-  'IsExist("${SystemDrive}/Program Files/7-Zip/7z.exe")',
-  'IsExist("./7z.exe")'
+  'Exist("${SystemDrive}/Program Files (x86)/7-Zip/7z.exe")',
+  'Exist("${SystemDrive}/Program Files/7-Zip/7z.exe")',
+  'Exist("./7z.exe")'
   ]
 
 [setup_flow.log_7z]

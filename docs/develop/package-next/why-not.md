@@ -4,10 +4,10 @@
 对比对象：[`Chocolatey`](https://chocolatey.org/) [`Scoop`](https://https://scoop.sh/) [`Winget`](https://github.com/microsoft/winget-cli)
 
 ## 更轻量的运行依赖需要
-由于 Edgeless 资源包最开始就是为 PE 环境设计的，因此能够在精简到连 .Net 都无法预装的环境下正常使用。Chocolatey 依赖于 PowerShell / .Net / NuGet，Scoop 依赖于 PowerShell / Git，Winget 依赖于 UWP 框架 / msi，它们所依赖的无不是些“庞然大物”，而 Edgeless 资源包仅依赖于 cmd / winapi 和几个必要的二进制可执行文件，且全工具链均使用 Rust，可以静态编译出极小的无运行时二进制可执行文件，实现从 PE 到精简版系统到完整版系统的全面适配。
+由于 Edgeless 资源包最开始就是为 PE 环境设计的，因此能够在精简到连 .Net 都无法预装的环境下正常使用。Chocolatey 依赖于 PowerShell / .Net / NuGet，Scoop 依赖于 PowerShell / .Net / Git，Winget 依赖于 UWP 框架 / msi，它们所依赖的无不是些“庞然大物”，而 Edgeless 资源包仅依赖于 cmd / winapi 和几个必要的二进制可执行文件，且全工具链均使用 Rust，可以静态编译出极小的无运行时二进制可执行文件，实现从 PE 到精简版系统到完整版系统的全面适配。
 
 ## 更完善的包解决方案
-不同于 Scoop 或 Winget 仅有描述安装流程的“装箱单”，Edgeless 资源包是以一个完整的“包”的形式存在的，因此你可以在离线或无法连接到因特网的环境下正常安装软件。
+不同于 Scoop 或 Winget 仅有描述安装流程的“装箱单”，Edgeless 资源包是以一个完整的“包”的形式存在的，因此你可以在无法连接到因特网的环境下正常安装软件。
 
 不同于 Chocolatey 使用基于 Nuget 的包管理方案，Edgeless 资源包是一个基于 7z 的独立压缩包，且具有良好的“无特定工具可读性”——只需常见的压缩软件就可以完成解包查看操作。此外，在工作流中提供基础步骤封装使得 Edgeless 资源包可以不依赖于 PowerShell 脚本完成一些复杂但是常用的 Windows 操作，且便于集中管理和快速定位问题。
 
