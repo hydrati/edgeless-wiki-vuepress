@@ -151,7 +151,7 @@ type = "Group"
 # 因此ExitCode值为2
 if = '${ExitCode}==2'
 
-  [setup_flow.install_group.install_1]
+  [setup_flow.install_group._install_1]
   name = "Install 1"
   type = "Execute"
   # 此步骤为组内第一个步骤，而ExitCode表示组内上一个步骤的状态
@@ -163,7 +163,7 @@ if = '${ExitCode}==2'
   shell = "cmd"
 
 
-  [setup_flow.install_group.install_2]
+  [setup_flow.install_group._install_2]
   name = "Install 2"
   type = "Execute"
   # 可以捕获到组内上一个步骤的状态
@@ -598,7 +598,7 @@ name = "Group 1"
 type = "Group"
 if = '${SystemDrive}=="X:"'
 
-  [setup_flow.group_1.step_1]
+  [setup_flow.group_1._step_1]
   name = "Step 1"
   ...
 
@@ -607,7 +607,7 @@ name = "Group 2"
 type = "Group"
 elif = '${SystemDrive}=="C:"'
 
-  [setup_flow.group_2.step_1]
+  [setup_flow.group_2._step_1]
   name = "Step 1"
   ...
 
@@ -616,7 +616,7 @@ name = "Group 3"
 type = "Group"
 elif = '${SystemDrive}=="D:"'
 
-  [setup_flow.group_3.step_1]
+  [setup_flow.group_3._step_1]
   name = "Step 1"
   ...
 ```
@@ -647,7 +647,7 @@ name = "Group 1"
 type = "Group"
 if = '${SystemDrive}=="X:"'
 
-  [setup_flow.group_1.step_1]
+  [setup_flow.group_1._step_1]
   name = "Step 1"
   ...
 
@@ -656,7 +656,7 @@ name = "Group 2"
 type = "Group"
 elif = '${SystemDrive}=="C:"'
 
-  [setup_flow.group_2.step_1]
+  [setup_flow.group_2._step_1]
   name = "Step 1"
   ...
 
@@ -665,7 +665,7 @@ name = "Group 3"
 type = "Group"
 else = 'true'
 
-  [setup_flow.group_3.step_1]
+  [setup_flow.group_3._step_1]
   name = "Step 1"
   ...
 ```
@@ -697,7 +697,7 @@ type = "Group"
 # 使用一个throw语句捕获整组步骤的异常
 throw = "Group install failed"
 
-  [setup_flow.install_group.install_1]
+  [setup_flow.install_group._install_1]
   name = "Install 1"
   type = "Execute"
 
@@ -705,7 +705,7 @@ throw = "Group install failed"
   shell = "cmd"
 
 
-  [setup_flow.install_group.install_2]
+  [setup_flow.install_group._install_2]
   name = "Install 2"
   type = "Execute"
 
@@ -713,7 +713,7 @@ throw = "Group install failed"
   shell = "cmd"
 
 
-  [setup_flow.install_group.install_3]
+  [setup_flow.install_group._install_3]
   name = "Install 3"
   type = "Execute"
 
@@ -740,7 +740,7 @@ throw = "Group install failed"
 
 步骤组，与[条件语句](#if)配合使用可以同时控制多个步骤的执行
 
-不需要额外的字段
+不需要额外的字段，但是组内步骤的键需要以 `_` 开头
 
 示例：
 ```toml
@@ -750,7 +750,7 @@ type = "Group"
 # 使用一个条件语句控制整组步骤的执行
 if = "${uc.GROUP_INSTALL}==true"
 
-  [setup_flow.install_group.install_1]
+  [setup_flow.install_group._install_1]
   name = "Install 1"
   type = "Execute"
 
@@ -758,7 +758,7 @@ if = "${uc.GROUP_INSTALL}==true"
   shell = "cmd"
 
 
-  [setup_flow.install_group.install_2]
+  [setup_flow.install_group._install_2]
   name = "Install 2"
   type = "Execute"
 
@@ -766,7 +766,7 @@ if = "${uc.GROUP_INSTALL}==true"
   shell = "cmd"
 
 
-  [setup_flow.install_group.install_3]
+  [setup_flow.install_group._install_3]
   name = "Install 3"
   type = "Execute"
 

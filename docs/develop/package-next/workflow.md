@@ -309,27 +309,31 @@ MY_BOOT_POLICY = 0
   # 使用一个条件语句控制整组步骤的执行
   if = "${uc.GROUP_INSTALL}==true"
 
-    [setup_flow.install_group.install_1]
+    [setup_flow.install_group._install_1]
     name = "Install 1"
     type = "Execute"
 
     command = "./Installer1.exe /S"
 
 
-    [setup_flow.install_group.install_2]
+    [setup_flow.install_group._install_2]
     name = "Install 2"
     type = "Execute"
 
     command = "./Installer2.exe /S"
 
 
-    [setup_flow.install_group.install_3]
+    [setup_flow.install_group._install_3]
     name = "Install 3"
     type = "Execute"
 
     command = "./Installer3.exe /S"
 ```
-虽然看起来内容更长了，但是这些步骤的逻辑关系会更加清晰，也更加易于规模化的管理；此外也有一些特殊情况必须使用步骤组，例如基于判断 [`${ExitCode}`](api.md#exitcode) 执行数个步骤
+虽然看起来内容更长了，但是这些步骤的逻辑关系会更加清晰，也更加易于规模化的管理；此外也有一些特殊情况必须使用步骤组，例如基于判断 [`${ExitCode}`](api.md#exitcode) 执行数个步骤。
+
+:::warning 注意
+步骤组内步骤的键必须以 `_` 开头
+:::
 
 :::tip
 完成阅读后请返回[主章节](general.md#最重要的内容)继续阅读剩余部分
