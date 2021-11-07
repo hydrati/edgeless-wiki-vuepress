@@ -2,7 +2,7 @@
 
 ept 的灵感来源于微软发布的 `winget` 和debian系Linux下的 `apt` ，我们为习惯这两种工具语法的用户做了语法适配
 
-同时，下一代 ept 的规划已经提上议程，其将成为 Edgeless 生态系统的核心部件。欢迎各位[参与此项目的讨论](https://github.com/EdgelessPE/ept-next)
+<!-- 同时，下一代 ept 的规划已经提上议程，其将成为 Edgeless 生态系统的核心部件。欢迎各位[参与此项目的讨论](https://github.com/EdgelessPE/ept-next) -->
 
 ## 快速开始
 1. 在Edgeless中按下`Win+R`快捷键，输入`cmd`并回车打开命令提示符窗口
