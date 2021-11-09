@@ -1303,16 +1303,29 @@ models = ["AX200","Killer-AX1650"]
 
 示例：
 ```toml
-[driver]
+[theme]
 tags = ["Material Design","圆角"]
 ```
 
 ### 清单型
 位置：`manifest` 表
+- `category :String`：软件分类，必须是下载站已有分类中的一种
 - `tags :String`：清单标签
 - `language :Enum<String>`：语言，下列值中的一个：`{"Multi", "zh-CN", "en-US"}`
+- `location :String`：（可选）软件安装位置，缺省为`${DefaultLocation}`
+
+清单型的键与[软件型](#软件型)相同，事实上在展开完成后此表的键会转换为`software`
 
 清单型资源包还需要满足一些其他规范，请移步[清单资源包](property.md#清单资源包)
+
+示例：
+```toml
+[manifest]
+category = "办公编辑"
+tags = ["Visual Studio Code", "VSC", "code"]
+language = "Multi"
+location = "${SystemDrive}/Users/PortableApps"
+```
 
 
 ## 用户数据目录
@@ -1362,8 +1375,8 @@ stop = "taskkill /im sshd.exe /t"
 
 ```toml
 [dependencies]
-required = [{name:"dotnet",version:"3.5"}]
-suggested = [{name:"PowerShell",version:"0.0.0",remark:"推荐搭配PowerShell使用"},{name:"Nodejs-runtime",version:">=15.0.0",remark:"如果需要爬虫功能则必须安装此依赖"}]
+required = [{name="dotnet",version="3.5.0"}]
+suggested = [{name="PowerShell",version="0.0.0",remark="推荐搭配PowerShell使用"},{name="Nodejs-runtime",version=">=15.0.0",remark="如果需要爬虫功能则必须安装此依赖"}]
 ```
 
 ## CI/CD 保留
