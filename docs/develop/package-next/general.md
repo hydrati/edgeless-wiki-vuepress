@@ -160,6 +160,8 @@ category = "办公编辑"
 tags = ["Visual Studio Code","VSC"]
 # 软件语言（Multi表示自适应多语言）
 language = "Multi"
+# 是否需要UAC
+uac = false
 # 安装位置
 location = "${ProgramFiles}/Edgeless"
 ```

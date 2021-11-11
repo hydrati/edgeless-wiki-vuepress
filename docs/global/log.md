@@ -24,15 +24,14 @@
 
 
 ## Edgeless Hub更新日志（当前已发布最新版本：{{hub_beta}}）
+2.22版本更新
+1. 修复notepad++下载卡死问题
+
 2.21版本更新
 1. 紧急修复由于Ventoy更新至1.0.59导致无法分析Ventoy日志的问题
 2. 优化写入界面出错时的提示
 3. 修复无法接收2.20版本更新的问题
 4. 增加区分版本号的公告
-
-2.19版本更新
-1. 修复在Windows 11上无法识别 Ventoy 的问题
-2. 固定左侧导航栏（感谢@[董晓天](https://github.com/XiaotianDong)）
 
 ## Edgeless核心更新日志（当前已发布最新Alpha版本：{{edgeless_alpha}}）
 4.0.4版本更新

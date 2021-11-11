@@ -1264,6 +1264,7 @@ focus = "Chrome Setup"
 - `category :String`：软件分类，必须是下载站已有分类中的一种；如果需要新建分类请给我们发issue
 - `tags :String`：软件标签，建议将资源名称的同义词(如 "VSCode" 的同义词有"Visual Studio Code" "VSC" "code" 等)加入此标签，可以在分类中体现的标签(如"下载工具")请不要加到这里
 - `language :Enum<String>`：语言，下列值中的一个：`{"Multi", "zh-CN", "en-US"}`
+- `uac :bool`：是否需要 [UAC](https://zh.wikipedia.org/wiki/%E4%BD%BF%E7%94%A8%E8%80%85%E5%B8%B3%E6%88%B6%E6%8E%A7%E5%88%B6) 授权
 - `location :String`：（可选）软件安装位置，缺省为`${DefaultLocation}`
 
 示例：
@@ -1272,6 +1273,7 @@ focus = "Chrome Setup"
 category = "办公编辑"
 tags = ["Visual Studio Code", "VSC", "code"]
 language = "Multi"
+uac = false
 location = "${SystemDrive}/Users/PortableApps"
 ```
 
@@ -1332,7 +1334,7 @@ location = "${SystemDrive}/Users/PortableApps"
 位置：`profiles` 表
 - `dir :Array<String>`：所有的用户目录
 
-指定了用户数据目录之后，当用户要求保存他们的数据时 Edgeless 会在结束周期打包这些目录，并在下次启动时恢复这些数据。
+指定了用户数据目录（位于系统盘，由资源在运行时产生）之后，当用户要求保存他们的数据时 Edgeless 会在结束周期打包这些目录，并在下次启动时恢复这些数据。
 
 示例：
 
@@ -1340,6 +1342,12 @@ location = "${SystemDrive}/Users/PortableApps"
 [profiles]
 dir = ["${SystemDrive}/Users/profiles"]
 ```
+
+## 用户自留文件夹
+位置：`plot` 表
+- `required :Array<String>`：自留文件夹中应该有的文件
+
+用户自留文件夹的位置可以使用 `${UserPolt}` 变量获取，此文件夹位于用户U盘上的指定位置（可能是`U:/Edgeless/Polt/PackageName`），用于存放由用户自定义的文件
 
 ## 服务配置
 位置：`service` 表
