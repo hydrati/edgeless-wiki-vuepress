@@ -104,7 +104,6 @@ type = "Execute"
 
 # 产生一个错误
 command = "exit 3"
-shell = "cmd"
 
 
 [setup_flow.step_2]
@@ -114,7 +113,6 @@ type = "Execute"
 if = 'false'
 
 command = "exit 0"
-shell = "cmd"
 
 
 [setup_flow.fix]
@@ -124,7 +122,6 @@ type = "Execute"
 if = '${ExitCode}!=0'
 
 command = "start ./VSCode/vscode.exe"
-shell = "cmd"
 ```
 :::
 
@@ -141,7 +138,6 @@ type = "Execute"
 
 # 在此处产生一个错误
 command = "exit 2"
-shell = "cmd"
 
 
 [setup_flow.install_group]
@@ -160,7 +156,6 @@ if = '${ExitCode}==2'
 
   # 产生一个错误
   command = "exit 3"
-  shell = "cmd"
 
 
   [setup_flow.install_group._install_2]
@@ -171,7 +166,6 @@ if = '${ExitCode}==2'
 
   # 产生一个错误
   command = "exit 4"
-  shell = "cmd"
 
 
 [setup_flow.verify_group_install]
@@ -702,7 +696,6 @@ throw = "Group install failed"
   type = "Execute"
 
   command = "./MySoftware/Installer1.exe /S"
-  shell = "cmd"
 
 
   [setup_flow.install_group._install_2]
@@ -710,7 +703,6 @@ throw = "Group install failed"
   type = "Execute"
 
   command = "./MySoftware/Installer2.exe /S"
-  shell = "cmd"
 
 
   [setup_flow.install_group._install_3]
@@ -718,7 +710,6 @@ throw = "Group install failed"
   type = "Execute"
 
   command = "./MySoftware/Installer3.exe /S"
-  shell = "cmd"
 ```
 
 :::tip
@@ -755,7 +746,6 @@ if = "${uc.GROUP_INSTALL}==true"
   type = "Execute"
 
   command = "./MySoftware/Installer1.exe /S"
-  shell = "cmd"
 
 
   [setup_flow.install_group._install_2]
@@ -763,7 +753,6 @@ if = "${uc.GROUP_INSTALL}==true"
   type = "Execute"
 
   command = "./MySoftware/Installer2.exe /S"
-  shell = "cmd"
 
 
   [setup_flow.install_group._install_3]
@@ -771,7 +760,6 @@ if = "${uc.GROUP_INSTALL}==true"
   type = "Execute"
 
   command = "./MySoftware/Installer3.exe /S"
-  shell = "cmd"
 ```
 
 :::tip
@@ -1014,7 +1002,11 @@ overwrite = true
 ```
 
 ### Script
-执行脚本，支持 cmd 脚本(`.cmd`)、 pecmd 脚本(`.wcs`)和 [AutoHotKey](https://www.autohotkey.com/) 脚本(`.ahk`)
+执行*自编*脚本，支持 cmd 脚本(`.cmd`)、 pecmd 脚本(`.wcs`)和 [AutoHotKey](https://www.autohotkey.com/) 脚本(`.ahk`)
+
+:::warning 
+如果你需要执行上游提供的安装脚本，请使用 [`Execute`](#execute) 步骤并将 `callInstaller` 置为 `true`
+:::
 
 - `path :String`：脚本路径
 - `args :String`：（可选）参数
@@ -1033,7 +1025,7 @@ type = "Script"
 
 path = "./setup.cmd"
 args = "${env.USER_ARGS}"
-use = ["uc.AUTO_RUN"]
+use = ["EdgelessDrive","env.PLUGINS","uc.AUTO_RUN"]
 pwd = "${SystemDrive}/System32"
 hide = false
 wait = false
@@ -1044,7 +1036,8 @@ fix = ["./VSCode/install.cmd", "./_retinue/update.py"]
 执行命令，支持 cmd 命令和 pecmd 命令
 
 - `command :String`：命令
-- `shell :Enum<String>`：使用的终端，下列值中的一个：`{"cmd", "pecmd"}`
+- `shell :Enum<String>`：（可选）使用的终端，下列值中的一个：`{"cmd", "pecmd"}`，缺省为 `cmd`
+- `callInstaller :bool`：（可选）此步骤是否在调用安装器（如调用`安装包 /S`或运行`安装.bat`），请务必如实填写，缺省为 `false`
 - `pwd :String`：（可选）工作目录，缺省为资源包根目录
 - `hide :bool`：（可选）是否隐藏命令执行窗口，缺省为 `true`
 - `wait :bool`：（可选）是否等待命令执行完成，缺省为 `true`
@@ -1059,6 +1052,7 @@ if = "${uc.AUTO_RUN}==true"
 
 command = "exec explorer ${Desktop}/Visual Studio Code.lnk"
 shell = "pecmd"
+callInstaller = false
 pwd = "${SystemDrive}/System32"
 hide = false
 wait = false
@@ -1150,7 +1144,6 @@ type = "Execute"
 if = '${Feedback}==1'
 
 command = "explorer ${Desktop}/Visual Studio Code.lnk"
-shell = "cmd"
 ```
 
 ### Download

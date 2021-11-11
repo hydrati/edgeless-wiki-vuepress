@@ -284,6 +284,7 @@ MY_BOOT_POLICY = 0
   if = "${uc.GROUP_INSTALL}==true"
 
   command = "./Installer1.exe /S"
+  callInstaller = true
 
 
   [setup_flow.install_2]
@@ -292,6 +293,7 @@ MY_BOOT_POLICY = 0
   if = "${uc.GROUP_INSTALL}==true"
 
   command = "./Installer2.exe /S"
+  callInstaller = true
 
 
   [setup_flow.install_3]
@@ -300,6 +302,7 @@ MY_BOOT_POLICY = 0
   if = "${uc.GROUP_INSTALL}==true"
 
   command = "./Installer3.exe /S"
+  callInstaller = true
 ```
 显然，这三个步骤的触发条件相同，因此我们可以使用一个步骤组来合并这些步骤，这是合并后的工作流：
 ```toml
@@ -314,6 +317,7 @@ MY_BOOT_POLICY = 0
     type = "Execute"
 
     command = "./Installer1.exe /S"
+    callInstaller = true
 
 
     [setup_flow.install_group._install_2]
@@ -321,6 +325,7 @@ MY_BOOT_POLICY = 0
     type = "Execute"
 
     command = "./Installer2.exe /S"
+    callInstaller = true
 
 
     [setup_flow.install_group._install_3]
@@ -328,6 +333,7 @@ MY_BOOT_POLICY = 0
     type = "Execute"
 
     command = "./Installer3.exe /S"
+    callInstaller = true
 ```
 虽然看起来内容更长了，但是这些步骤的逻辑关系会更加清晰，也更加易于规模化的管理；此外也有一些特殊情况必须使用步骤组，例如基于判断 [`${ExitCode}`](api.md#exitcode) 执行数个步骤。
 
