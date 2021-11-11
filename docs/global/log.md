@@ -11,9 +11,6 @@
 【Version:{{edgeless_alpha}} Stage:Alpha Author:Cno】
 
 【Version:{{edgeless_beta}} Stage:Beta Author:Cno】
-
-* ~~Edgeless MAX 【Version:1.0.0 State:Pause Author:Cno】~~
-* ~~基于 wimboot 制作的内核【Version:2.4.0 State:Abandoned Author:Cno】~~
 ### Edgeless Hub
 * 使用 Electron 编写的版本【Version:{{hub_beta}} Stage:Beta Author:Cno】
 ### Edgeless主要功能研发
@@ -27,15 +24,13 @@
 
 
 ## Edgeless Hub更新日志（当前已发布最新版本：{{hub_beta}}）
+2.20版本更新
+1. 紧急修复由于Ventoy更新至1.0.59导致无法分析Ventoy日志的问题
+2. 优化写入界面出错时的提示
+
 2.19版本更新
 1. 修复在Windows 11上无法识别 Ventoy 的问题
 2. 固定左侧导航栏（感谢@[董晓天](https://github.com/XiaotianDong)）
-
-2.18版本更新
-1. 优化Wiki页面上方的后退按钮出现逻辑
-2. 增加分类按拼音排序功能
-3. 增加公告模块
-4. 分离并更新精选插件列表
 
 ## Edgeless核心更新日志（当前已发布最新Alpha版本：{{edgeless_alpha}}）
 4.0.4版本更新
