@@ -19,7 +19,7 @@
 需要与文件名中的包名相同；不包含`_`
 
 :::tip
-如果需要使用`_`分割内容，请用空格或`-`达到近似目的；例如 `nodejs-runtime` 或 `IDEA Community`
+如果需要使用`_`分割内容，请用空格或`-`达到近似目的；例如 `Python-runtime` 或 `IDEA Community`；注意仅能使用 `-` 分割同名软件的不同版本，详见[其对应的规范](norm.md#使用-分割同名软件的不同版本)
 
 *不要*在包名中提供代指版本号的数字，请在对应的版本号中体现；例如 `VMware Workstation 16` 就是一个不规范的名称，这会导致用户无法接收大版本更新，因此请将其改为 `VMware Workstation`
 :::
@@ -78,6 +78,12 @@
 :::tip
 由官方渠道获得的资源包会通过 [Edgeless QA](qa-system.md) 的校验，确保资源包在当前最新的 Alpha 版本上可用
 :::
+
+### licence
+<Badge text="可选" />
+`String`
+
+资源对应的许可证链接
 
 ## 内置变量
 
@@ -213,6 +219,19 @@ Edgeless 启动盘盘符，可能为 `U:`
 
 ```toml
 if = '${EdgelessDrive}=="U:"'
+```
+
+### UserPolt
+`String`
+
+[用户自留文件夹](removable-drive.md#polt)，可能为 `U:/Edgeless/Polt/PackageName`
+
+你可以通过 [plot](#用户自留文件夹相关) 表定义这个自留文件夹
+
+示例：
+
+```toml
+if = '${UserPolt}=="U:/Edgeless/Polt/PackageName"'
 ```
 
 ### DefaultLocation
@@ -1342,11 +1361,17 @@ defaultFullLoad = false
 dir = ["${SystemDrive}/Users/profiles"]
 ```
 
-## 用户自留文件夹
+## 用户自留文件夹相关
 位置：`plot` 表
 - `required :Array<String>`：自留文件夹中应该有的文件
 
-用户自留文件夹的位置可以使用 `${UserPolt}` 变量获取，此文件夹位于用户U盘上的指定位置（可能是`U:/Edgeless/Polt/PackageName`），用于存放由用户自定义的文件
+[用户自留文件夹](removable-drive.md#polt)用于存放由用户自定义的文件，其位置可以使用 [`${UserPolt}`](#userpolt) 变量获取。
+
+示例：
+
+```toml
+required = "config.json"
+```
 
 ## 服务配置
 位置：`service` 表
