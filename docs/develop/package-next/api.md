@@ -1363,14 +1363,21 @@ dir = ["${SystemDrive}/Users/profiles"]
 
 ## 用户自留文件夹相关
 位置：`plot` 表
-- `required :Array<String>`：自留文件夹中应该有的文件
+- `fileList :Array<{name :String,description :String,required :bool}>`：自留文件夹中有效的文件/文件夹的文件名、描述、是否必须提供
 
 [用户自留文件夹](removable-drive.md#polt)用于存放由用户自定义的文件，其位置可以使用 [`${UserPolt}`](#userpolt) 变量获取。
 
 示例：
 
 ```toml
-required = "config.json"
+[polt]
+fileList = [
+  {
+    name = "frpc.ini",
+    description = "frp客户端配置文件",
+    required = true
+  }
+]
 ```
 
 ## 服务配置
