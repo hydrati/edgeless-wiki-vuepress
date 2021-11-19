@@ -39,3 +39,34 @@
 
 ### missing
 描述内容分布式资源包需要下载的文件，通过扫描 `expand_flow` 中的 `Download` 步骤生成
+
+## API 规范
+- `/nep/hello`
+
+获取镜像站基础信息和资源包列表，返回示例：
+
+```json
+{
+    "mirror":{
+        "name":"官方镜像源",
+        "sync":true,
+        "contract":"1.0",
+        "download":"https://pineapple.edgeless.top/disk/资源包/${category}/${name}",
+        "digest":"https://pineapple.edgeless.top/disk/摘要池/${category}/${name}"
+    },
+    "categories":["实用工具","开发辅助","配置检测","资源管理","办公编辑","输入法","录屏看图","磁盘数据","安全急救","即时通讯","安装备份","游戏娱乐","运行环境","压缩镜像","美化增强","驱动管理","下载上传","浏览器","影音播放","远程连接"],
+    "packages":{
+        "远程连接":
+        [
+            {
+                "name":"frp-client_0.38.0.0.nep.7zp",
+                "size":254
+            },
+            {
+                "name":"frp-client_0.38.0.0.nep.7z",
+                "size":3224692
+            }
+        ]
+    }
+}
+```
