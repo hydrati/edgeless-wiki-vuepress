@@ -20,7 +20,22 @@
 需要生成的表：
 
 ### permission
+描述在配置工作流中需要的权限，通过扫描 `setup_flow` 中的相关步骤生成
+
+#### 普通权限
+- link_desktop：创建桌面快捷方式
+- link_taskbar：创建任务栏快捷方式
+- link_startmenu：创建开始菜单快捷方式
+- send：模拟鼠标/键盘输入
+- dialog：弹出对话框
+
+#### 危险权限
+- file_systemdrive：读写系统盘（包括对于默认安装位置的修改）
+- file_edgelessdrive：读写 Edgeless 启动盘
+- script：执行脚本
+- kill：终止进程
+- path：配置PATH
+- auto：自动完全加载
 
 ### missing
-
-### qa
+描述内容分布式资源包需要下载的文件，通过扫描 `expand_flow` 中的 `Download` 步骤生成

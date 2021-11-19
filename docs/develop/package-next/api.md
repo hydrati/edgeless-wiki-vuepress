@@ -1165,6 +1165,10 @@ if = '${Feedback}==1'
 command = "explorer ${Desktop}/Visual Studio Code.lnk"
 ```
 
+:::tip
+由于此操作与 nep 所倡导的自动化理念相悖，因此请尽可能不使用此步骤，而改用 [`uc`](#用户配置变量)
+:::
+
 ### Download
 从网络下载文件，默认使用2线程的 aria2c 完成下载
 
@@ -1439,6 +1443,10 @@ test_at = "GithubActions"
 test_with = "0.1.0"
 # 自动交付目标服务器代号
 deploy_at = "Pineapple"
+# 安全检查是否通过
+scan_passed = true
+# 人工审核员ID
+reviewer_id = "Cno"
 ```
 
 ## 构建工具保留
