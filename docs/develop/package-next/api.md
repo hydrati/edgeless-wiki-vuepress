@@ -224,7 +224,7 @@ if = '${EdgelessDrive}=="U:"'
 ### UserPolt
 `String`
 
-[用户自留文件夹](removable-drive.md#polt)，可能为 `U:/Edgeless/Polt/PackageName`
+[用户自留文件夹](workflow.md#用户自留文件夹)，可能为 `U:/Edgeless/Polt/PackageName`
 
 你可以通过 [plot](#用户自留文件夹相关) 表定义这个自留文件夹
 
@@ -1365,7 +1365,7 @@ dir = ["${SystemDrive}/Users/profiles"]
 位置：`plot` 表
 - `fileList :Array<{name :String,description :String,required :bool}>`：自留文件夹中有效的文件/文件夹的文件名、描述、是否必须提供
 
-[用户自留文件夹](removable-drive.md#polt)用于存放由用户自定义的文件，其位置可以使用 [`${UserPolt}`](#userpolt) 变量获取。
+[用户自留文件夹](workflow.md#用户自留文件夹)用于存放由用户自定义的文件，其位置可以使用 [`${UserPolt}`](#userpolt) 变量获取。
 
 示例：
 
