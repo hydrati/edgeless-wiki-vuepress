@@ -19,9 +19,9 @@
 
 ## 开发
 首先您需要具备以下基本能力：
-* 拥有GitHub账号并且懂得如何提交Pull Request
-* 会使用Node.js技术和npm（或yarn）包管理程序，知道如何全局安装node模块
+* 拥有 GitHub 账号并且懂得如何提交 Pull Request
+* 会使用 Node.js 技术和 yarn 包管理程序
 * 了解插件包的原理和基础制作流程
-* 能访问 PortableApps.com 并清楚如何下载绿色软件
+* 能访问 PortableApps.com 并清楚如何下载绿色软件，或是懂得使用 jQuery 编写网页爬虫
 
 然后[点击此处](https://github.com/EdgelessPE/edgeless-bot#开发)
