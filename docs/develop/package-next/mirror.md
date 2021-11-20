@@ -29,7 +29,7 @@
 - send：模拟鼠标/键盘输入
 - dialog：弹出对话框
 
-#### 危险权限
+#### 重要权限
 - file_systemdrive：读写系统盘（包括对于默认安装位置的修改）
 - file_edgelessdrive：读写 Edgeless 启动盘
 - script：执行脚本
