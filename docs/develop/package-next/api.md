@@ -1277,6 +1277,7 @@ focus = "Chrome Setup"
 ### 软件型
 位置：`software` 表
 
+- `upstream :String`：软件上游，打包者获取此软件的URL页面
 - `category :String`：软件分类，必须是下载站已有分类中的一种；如果需要新建分类请给我们发issue
 - `tags :String`：软件标签，建议将资源名称的同义词(如 "VSCode" 的同义词有"Visual Studio Code" "VSC" "code" 等)加入此标签，可以在分类中体现的标签(如"下载工具")请不要加到这里
 - `language :Enum<String>`：语言，下列值中的一个：`{"Multi", "zh-CN", "en-US"}`
@@ -1287,6 +1288,7 @@ focus = "Chrome Setup"
 示例：
 ```toml
 [software]
+upstream = "https://code.visualstudio.com/"
 category = "办公编辑"
 tags = ["Visual Studio Code", "VSC", "code"]
 language = "Multi"

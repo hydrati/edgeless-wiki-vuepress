@@ -154,6 +154,8 @@ tested = ["4.0.0","3.2.1"]
 
 ```toml
 [software]
+# 上游URL
+upstream = "https://code.visualstudio.com/"
 # 分类
 category = "办公编辑"
 # 标签
