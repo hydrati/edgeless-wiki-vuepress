@@ -1329,26 +1329,14 @@ tags = ["Material Design","圆角"]
 
 ### 清单型
 位置：`manifest` 表
-- `category :String`：软件分类，必须是下载站已有分类中的一种
 - `tags :String`：清单标签
-- `language :Enum<String>`：语言，下列值中的一个：`{"Multi", "zh-CN", "en-US"}`
-- `uac :bool`：是否需要 [UAC](https://zh.wikipedia.org/wiki/%E4%BD%BF%E7%94%A8%E8%80%85%E5%B8%B3%E6%88%B6%E6%8E%A7%E5%88%B6) 授权
-- `location :String`：（可选）软件安装位置，缺省为`${DefaultLocation}`
-- `defaultFullLoad :bool`：（可选）是否需要默认启用[自动完全加载](property.md#自动完全加载资源包)
-
-清单型的键定义与[软件型](#软件型)相同，事实上在展开完成后此表的键会转换为`software`
 
 清单型资源包还需要满足一些其他规范，请移步[清单资源包](property.md#清单资源包)
 
 示例：
 ```toml
 [manifest]
-category = "办公编辑"
-tags = ["Visual Studio Code", "VSC", "code"]
-language = "Multi"
-uac = false
-location = "${SystemDrive}/Users/PortableApps"
-defaultFullLoad = false
+tags = ["Jetbrains","程序员"]
 ```
 
 
