@@ -28,13 +28,13 @@
 - link_startmenu：创建开始菜单快捷方式
 - send：模拟鼠标/键盘输入
 - dialog：弹出对话框
+- path：配置PATH
 
 #### 重要权限
 - file_systemdrive：读写系统盘（包括对于默认安装位置的修改）
 - file_edgelessdrive：读写 Edgeless 启动盘
 - script：执行脚本
 - kill：终止进程
-- path：配置PATH
 - auto：自动完全加载
 
 ### missing
